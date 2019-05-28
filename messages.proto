@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package crosstrader;
+
+message Exchange {
+    enum ExchangeName {
+        BITFLYER = 0;
+        BITMEX = 1;
+        BITMEX_TESTNET = 2;
+        BITFINEX = 3;
+        LIQUID = 4;
+    }
+    ExchangeName name = 1;
+}
+
+message Instrument {
+    Exchange exchange = 1;
+    string currency_code = 2;
+}
