@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package crosstrader;
 
-import "./messages.proto";
+import "./instrument.proto";
 import "google/protobuf/timestamp.proto";
 
 service OrderBookService {
@@ -15,11 +15,11 @@ service OrderBookService {
 }
 
 message OrderBookRequest {
-    Instrument instrument = 1;
+    int32 instrument_id = 1;
 }
 
 message SubscribeOrderBookRequest {
-    repeated Instrument instruments = 1;
+    repeated int32 instrument_ids = 1;
 }
 
 message OrderBookResponse {
@@ -29,7 +29,7 @@ message OrderBookResponse {
     // BotTerminal サーバーがデータを送出した日時
     google.protobuf.Timestamp streamed_at = 1;
 
-    Instrument instrument = 3;
+    int32 instrument_id = 3;
 
     repeated OrderLevel orderlevels = 4;
 }
