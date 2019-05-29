@@ -16,5 +16,5 @@ message Instrument {
 }
 
 message InstrumentListResponse {
-    repeated Instrument = 1;
+    repeated Instrument instruments = 1;
 }
