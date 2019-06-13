@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Copyright>(c) 2018-2019 株式会社黒須情報システム技研</Copyright>
+    <Product>CrossTrader</Product>
+    <Company>株式会社黒須情報システム技研</Company>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+</Project>
