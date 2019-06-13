@@ -5,7 +5,8 @@ option csharp_namespace = "CrossTrader.Models.Remoting.BitFlyer";
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
-import "instruments.proto";
+import "common.proto";
+import "bitFlyer/instruments.proto";
 
 enum ChildOrderType {
     CHILD_ORDER_TYPE_NONE = 0;

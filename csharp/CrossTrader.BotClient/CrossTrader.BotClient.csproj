@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.5;netstandard2.0;net45</TargetFrameworks>
+    <RootNamespace>CrossTrader</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf"
+                      Version="3.8.0" />
+    <PackageReference Include="Grpc.Core"
+                      Version="1.21.0" />
+    <PackageReference Include="Grpc.Tools"
+                      Version="1.21.0"
+                      PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="..\..\proto\*"
+              ProtoRoot="..\..\proto"
+              Link="proto\%(Filename)%(Extension)"
+              OutputDir="Generated Codes\Models.Remoting"
+              Access="Internal"
+              GrpcServices="Client"
+              CompileOutputs="False" />
+    <Protobuf Include="..\..\proto\bitFlyer\*"
+              ProtoRoot="..\..\proto"
+              Link="proto\bitFlyer\%(Filename)%(Extension)"
+              OutputDir="Generated Codes\Models.Remoting\BitFlyer"
+              Access="Internal"
+              GrpcServices="Client"
+              CompileOutputs="False" />
+    <Protobuf Include="..\..\proto\BitMEX\*"
+              ProtoRoot="..\..\proto"
+              Link="proto\BitMEX\%(Filename)%(Extension)"
+              OutputDir="Generated Codes\Models.Remoting\BitMex"
+              Access="Internal"
+              GrpcServices="Client"
+              CompileOutputs="False" />
+  </ItemGroup>
+</Project>

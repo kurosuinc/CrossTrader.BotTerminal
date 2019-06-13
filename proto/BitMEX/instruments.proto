@@ -4,17 +4,8 @@ package crosstrader.bitmex;
 option csharp_namespace = "CrossTrader.Models.Remoting.BitMex";
 
 import "google/protobuf/timestamp.proto";
- 
-enum ChangedAction {
-    ADD = 0;
-    REPLACE = 1;
-    REMOVE = 2;
-}
-enum OrderSide {
-    ORDER_SIDE_NONE = 0;
-    BUY = 1;
-    SELL = 2;
-}
+import "common.proto";
+
 enum TickDirection {
     TICK_DIRECTION_NONE = 0;
     PLUS_TICK = 1;
@@ -37,9 +28,6 @@ message ExecutionMessage {
 message ExecutionsResponse {
     ChangedAction action = 1;
     repeated ExecutionMessage executions = 2;
-}
-message InstrumentIdRequest {
-    int32 instrument_id = 1;
 }
 service InstrumentService {
     rpc SubscribeExecutions(InstrumentIdRequest) returns (stream ExecutionsResponse);
