@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package crosstrader.bitflyer;
+option csharp_namespace = "CrossTrader.Models.Remoting.BitFlyer";
+
+service OrdersService {
+}

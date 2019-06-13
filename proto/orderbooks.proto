@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package crosstrader;
+option csharp_namespace = "CrossTrader.Models.Remoting";
+ 
+service OrderBookService { 
+}
+service UnifiedOrderBookService { 
+}
