@@ -2,8 +2,84 @@ syntax = "proto3";
 
 package crosstrader;
 option csharp_namespace = "CrossTrader.Models.Remoting";
- 
-service OrderBookService { 
+
+message OrderBookRequest {
+    int32 instrument_id = 1;
+    double group_size = 2;
+    int32 level_count = 3;
 }
-service UnifiedOrderBookService { 
+message OrderBookSnapshotRequest {
+    int32 instrument_id = 1;
+    double group_size = 2;
+    int32 level_count = 3;
+    int32 interval = 4;
+}
+message OrderLevelMessage {
+    double lowerbound = 1;
+    double volume = 2;
+}
+
+// OrderBookResponse
+message OrderBookResponse {
+/*
+// BotTerminal サーバーがデータを送出した順番にincrementされる値
+int64 index = 1;
+// BotTerminal サーバーがデータを送出した日時
+google.protobuf.Timestamp streamed_at = 2;
+*/
+
+    // asks
+    repeated OrderLevelMessage asks = 1;
+
+    // bids
+    repeated OrderLevelMessage bids = 2;
+}
+service OrderBookService {
+    rpc SubscribeOrderBook(OrderBookRequest) returns (stream OrderBookResponse);
+
+    // periodically streams snapshot of orderbook
+    rpc SubscribeOrderBookSnapshot(OrderBookSnapshotRequest) returns (stream OrderBookResponse);
+
+    // TODO: rpc getOrderBookSnapshot (InstrumentIdRequest) returns (OrderBookMessage);
+}
+
+message UnifiedOrderBookRequest {
+    repeated int32 instrument_ids = 1;
+    double group_size = 2;
+    int32 level_count = 3;
+}
+message UnifiedOrderBookSnapshotRequest {
+    repeated int32 instrument_ids = 1;
+    double group_size = 2;
+    int32 level_count = 3;
+    int32 interval = 4;
+}
+message UnifiedOrderLevelMessage {
+    double lowerbound = 1;
+    repeated double asks = 2;
+    repeated double bids = 3;
+}
+
+// UnifiedOrderBookResponse
+message UnifiedOrderBookResponse {
+//     // BotTerminal サーバーがデータを送出した順番にincrementされる値
+//     int64 index = 1;
+//     // BotTerminal サーバーがデータを送出した日時
+//     google.protobuf.Timestamp streamed_at = 2;
+
+    // asks
+    repeated UnifiedOrderLevelMessage asks = 1;
+
+    // bids
+    repeated UnifiedOrderLevelMessage bids = 2;
+}
+
+service UnifiedOrderBookService {
+    // streams unified orderbook changes
+    rpc SubscribeUnifiedOrderBook(UnifiedOrderBookRequest) returns (stream UnifiedOrderBookResponse);
+     
+    // periodically streams snapshot of unified orderbook 
+    rpc SubscribeUnifiedOrderBookSnapshot(UnifiedOrderBookSnapshotRequest) returns (stream UnifiedOrderBookResponse);
+
+    // TODO: rpc getUnifiedOrderBookSnapshot (UnifiedOrderBookRequest) returns (UnifiedOrderBookMessage);
 }

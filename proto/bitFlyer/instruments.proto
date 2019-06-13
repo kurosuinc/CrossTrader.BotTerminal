@@ -3,5 +3,34 @@ syntax = "proto3";
 package crosstrader.bitflyer;
 option csharp_namespace = "CrossTrader.Models.Remoting.BitFlyer";
 
+import "google/protobuf/timestamp.proto";
+ 
+enum ChangedAction {
+    ADD = 0;
+    REPLACE = 1;
+    REMOVE = 2;
+}
+enum OrderSide {
+    NONE = 0;
+    BUY = 1;
+    SELL = 2;
+}
+message ExecutionMessage {
+    int64 id = 1;
+    OrderSide side = 2;
+    double price = 3;
+    double size = 4;
+    google.protobuf.Timestamp executed_at = 5;
+    string buy_child_order_acceptance_id = 6;
+    string sell_child_order_acceptance_id = 7;
+}
+message ExecutionsResponse {
+    ChangedAction action = 1;
+    repeated ExecutionMessage executions = 2;
+}
+message InstrumentIdRequest {
+    int32 instrument_id = 1;
+}
 service InstrumentService {
+    rpc SubscribeExecutions(InstrumentIdRequest) returns (stream ExecutionsResponse);
 }

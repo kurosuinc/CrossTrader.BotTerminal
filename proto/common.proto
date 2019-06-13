@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package crosstrader;
+option csharp_namespace = "CrossTrader.Models.Remoting";
+
+enum ChangedAction {
+    ADD = 0;
+    REPLACE = 1;
+    REMOVE = 2;
+}
+enum OrderSide {
+    ORDER_SIDE_NONE = 0;
+    BUY = 1;
+    SELL = 2;
+}
+enum OrderState {
+    ORDER_STATE_NONE = 0;
+    REQUESTING = 1;
+    FAILED = 2;
+    ACTIVE = 3;
+    COMPLETED = 4;
+    CANCELING = 5;
+    CANCELED = 6;
+    EXPIRED = 7;
+}
+enum OrderType {
+    ORDER_TYPE_NONE = 0;
+    LIMIT = 1;
+    MARKET = 2;
+    ORDER_TYPE_UNKNOWN = 3;
+}
+
+message InstrumentIdRequest {
+    int32 instrumentId = 1;
+}
+message InstrumentIdsRequest {
+    repeated int32 instrumentIds = 1;
+}
+

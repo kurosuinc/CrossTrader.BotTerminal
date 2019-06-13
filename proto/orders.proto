@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+package crosstrader;
+option csharp_namespace = "CrossTrader.Models.Remoting";
+
+import "common.proto";
+import "google/protobuf/timestamp.proto";
+
+// Orders
+message OrdersRequest {
+    int32 instrument_id = 1;
+    int32 limit = 2;
+    OrderState state = 3;
+    OrderItemMessage before = 4;
+    OrderItemMessage after = 5;
+}
+
+message OrderItemMessage {
+    string id = 1;
+    string request_id = 2;
+    OrderSide side = 3;
+    double outstanding_size = 4;
+    double price = 5;
+    double average_price = 6;
+    OrderState state = 7;
+    OrderType type = 8;
+    google.protobuf.Timestamp ordered_at = 9;
+}
+
+message OrdersMessage {
+    int32 instrument_id = 1;
+    repeated OrderItemMessage orders = 2;
+}
+
+
+// Positions
+message PositionItemMessage {
+    OrderSide side = 1;
+    double price = 2;
+    double size = 3;
+    google.protobuf.Timestamp opened_at = 4;
+}
+
+message PositionsMessage {
+    int32 instrument_id = 1;
+    repeated OrderItemMessage positions = 2;
+}
+
+
+// Ordering
+// Order request that can be requested for all exchanges.
+message MarketOrderRequest {
+    InstrumentIdRequest instrument_id = 1;
+    OrderSide side = 2;
+    double size = 3;
+    // Requests with the same key are guaranteed to be executed at most once.
+    string idempotency_key = 4;
+}
+// Order request that can be requested for all exchanges.
+message LimitOrderRequest {
+    InstrumentIdRequest instrument_id = 1;
+    OrderSide side = 2;
+    double size = 3;
+    double price = 4;
+    // Requests with the same key are guaranteed to be executed at most once.
+    string idempotency_key = 5;
+}
+message OrderIdResponse {
+    InstrumentIdRequest instrument_id = 1;
+    string order_id = 2;
+}
+message OrderCancellationRequest {
+    InstrumentIdRequest instrument_id = 1;
+    string order_id = 2;
+}
+message EntireOrderCancellationRequest {
+    InstrumentIdRequest instrument_id = 1;
+    // Requests with the same key are guaranteed to be executed at most once.
+    string idempotency_key = 5;
+}
+message OrderCancellationResponse {
+    string order_id = 1;
+    bool canceled = 2;
+}
+
+
+
+
+service OrdersService {
+    // Orders
+    rpc getOrders(OrdersRequest) returns (OrdersMessage);
+    rpc subscribeOrders(InstrumentIdRequest) returns (stream OrdersMessage);
+
+    // Positions
+    rpc getPositions(InstrumentIdRequest) returns (PositionsMessage);
+    rpc subscribePositions(InstrumentIdRequest) returns (stream PositionsMessage);
+
+    // Ordering
+    rpc marketOrder(MarketOrderRequest) returns (OrderIdResponse);
+    rpc limitOrder(LimitOrderRequest) returns (OrderIdResponse);
+    rpc cancelOrder(OrderCancellationRequest) returns (OrderCancellationResponse);
+    rpc cancelAllOrder(EntireOrderCancellationRequest) returns (stream OrderCancellationResponse);
+}
