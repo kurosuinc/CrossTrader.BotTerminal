@@ -1,6 +1,11 @@
-﻿using CrossTrader.Models.Remoting;
-using Google.Protobuf.Collections;
 using System.Collections.Generic;
+using CrossTrader.Models.Remoting;
+using Google.Protobuf.Collections;
+
+#if !NETSTANDARD1_5
+using System;
+using System.Collections.ObjectModel;
+#endif
 
 namespace CrossTrader.BotClient
 {

@@ -1,12 +1,12 @@
-﻿using CrossTrader.Models.Remoting;
-using Google.Protobuf.WellKnownTypes;
-using Grpc.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using CrossTrader.Models.Remoting;
+using Google.Protobuf.WellKnownTypes;
+using Grpc.Core;
 
 namespace CrossTrader.BotClient
 {
@@ -128,7 +128,7 @@ namespace CrossTrader.BotClient
 
         private void DisposeChannel()
         {
-            _ChannelTask.ContinueWith(t =>
+            _ChannelTask?.ContinueWith(t =>
             {
                 if (t.Status == TaskStatus.RanToCompletion)
                 {

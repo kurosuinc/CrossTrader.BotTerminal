@@ -1,0 +1,80 @@
+﻿<v:CustomWindow
+    x:Class="CrossTrader.ViewerExample.Views.ExchangesWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:CrossTrader.ViewerExample.Views"
+    mc:Ignorable="d"
+    Title="ExchangesWindow"
+    Height="450"
+    Width="800"
+    IsEnabled="{Binding IsNotBusy}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition
+                Height="Auto" />
+        </Grid.RowDefinitions>
+        <DataGrid
+            AutoGenerateColumns="False"
+            SelectionMode="Single"
+            SelectionUnit="FullRow"
+            IsReadOnly="True"
+            ItemsSource="{Binding Exchanges}"
+            SelectedItem="{Binding SelectedExchange}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Id"
+                    Binding="{Binding Id}" />
+                <DataGridTextColumn
+                    Header="Name"
+                    Binding="{Binding Name}" />
+                <DataGridTextColumn
+                    Header="DisplayName"
+                    Binding="{Binding DisplayName}" />
+                <DataGridTextColumn
+                    Header="Description"
+                    Binding="{Binding Description}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid
+            Grid.Row="1"
+            AutoGenerateColumns="False"
+            MinHeight="100"
+            IsReadOnly="True"
+            ItemsSource="{Binding Instruments}">
+            <DataGrid.Style>
+                <Style
+                    TargetType="DataGrid">
+                    <Style.Triggers>
+                        <DataTrigger
+                            Binding="{Binding SelectedExchange}"
+                            Value="{x:Null}">
+                            <Setter
+                                Property="Visibility"
+                                Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Style>
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="ExchangeId"
+                    Binding="{Binding ExchangeId}" />
+                <DataGridTextColumn
+                    Header="Id"
+                    Binding="{Binding Id}" />
+                <DataGridTextColumn
+                    Header="Name"
+                    Binding="{Binding Name}" />
+                <DataGridTextColumn
+                    Header="DisplayName"
+                    Binding="{Binding DisplayName}" />
+                <DataGridTextColumn
+                    Header="Description"
+                    Binding="{Binding Description}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</v:CustomWindow>

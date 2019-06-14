@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossTrader.BotClient", "CrossTrader.BotClient\CrossTrader.BotClient.csproj", "{91FE1B95-DF15-424C-B31E-E4256867D7B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossTrader.BotClient", "CrossTrader.BotClient\CrossTrader.BotClient.csproj", "{91FE1B95-DF15-424C-B31E-E4256867D7B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossTrader.ViewerExample", "CrossTrader.ViewerExample\CrossTrader.ViewerExample.csproj", "{DF20F611-5742-44DF-8951-DACF355D080D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2CB7E1B2-D28A-44AD-A11A-E209C1C0B357}"
+	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +22,10 @@ Global
 		{91FE1B95-DF15-424C-B31E-E4256867D7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91FE1B95-DF15-424C-B31E-E4256867D7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91FE1B95-DF15-424C-B31E-E4256867D7B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF20F611-5742-44DF-8951-DACF355D080D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF20F611-5742-44DF-8951-DACF355D080D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF20F611-5742-44DF-8951-DACF355D080D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF20F611-5742-44DF-8951-DACF355D080D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
