@@ -24,20 +24,22 @@ namespace CrossTrader.Models.Remoting {
     static CommonReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgxjb21tb24ucHJvdG8SC2Nyb3NzdHJhZGVyIisKE0luc3RydW1lbnRJZFJl",
-            "cXVlc3QSFAoMaW5zdHJ1bWVudElkGAEgASgFIi0KFEluc3RydW1lbnRJZHNS",
-            "ZXF1ZXN0EhUKDWluc3RydW1lbnRJZHMYASADKAUqMQoNQ2hhbmdlZEFjdGlv",
-            "bhIHCgNBREQQABILCgdSRVBMQUNFEAESCgoGUkVNT1ZFEAIqMwoJT3JkZXJT",
-            "aWRlEhMKD09SREVSX1NJREVfTk9ORRAAEgcKA0JVWRABEggKBFNFTEwQAiqD",
-            "AQoKT3JkZXJTdGF0ZRIUChBPUkRFUl9TVEFURV9OT05FEAASDgoKUkVRVUVT",
-            "VElORxABEgoKBkZBSUxFRBACEgoKBkFDVElWRRADEg0KCUNPTVBMRVRFRBAE",
-            "Eg0KCUNBTkNFTElORxAFEgwKCENBTkNFTEVEEAYSCwoHRVhQSVJFRBAHKk8K",
-            "CU9yZGVyVHlwZRITCg9PUkRFUl9UWVBFX05PTkUQABIJCgVMSU1JVBABEgoK",
-            "Bk1BUktFVBACEhYKEk9SREVSX1RZUEVfVU5LTk9XThADQh6qAhtDcm9zc1Ry",
-            "YWRlci5Nb2RlbHMuUmVtb3RpbmdiBnByb3RvMw=="));
+            "Cgxjb21tb24ucHJvdG8SC2Nyb3NzdHJhZGVyIhsKC05hbWVSZXF1ZXN0EgwK",
+            "BG5hbWUYASABKAkiKwoTSW5zdHJ1bWVudElkUmVxdWVzdBIUCgxpbnN0cnVt",
+            "ZW50SWQYASABKAUiLQoUSW5zdHJ1bWVudElkc1JlcXVlc3QSFQoNaW5zdHJ1",
+            "bWVudElkcxgBIAMoBSoxCg1DaGFuZ2VkQWN0aW9uEgcKA0FERBAAEgsKB1JF",
+            "UExBQ0UQARIKCgZSRU1PVkUQAiozCglPcmRlclNpZGUSEwoPT1JERVJfU0lE",
+            "RV9OT05FEAASBwoDQlVZEAESCAoEU0VMTBACKoMBCgpPcmRlclN0YXRlEhQK",
+            "EE9SREVSX1NUQVRFX05PTkUQABIOCgpSRVFVRVNUSU5HEAESCgoGRkFJTEVE",
+            "EAISCgoGQUNUSVZFEAMSDQoJQ09NUExFVEVEEAQSDQoJQ0FOQ0VMSU5HEAUS",
+            "DAoIQ0FOQ0VMRUQQBhILCgdFWFBJUkVEEAcqTwoJT3JkZXJUeXBlEhMKD09S",
+            "REVSX1RZUEVfTk9ORRAAEgkKBUxJTUlUEAESCgoGTUFSS0VUEAISFgoST1JE",
+            "RVJfVFlQRV9VTktOT1dOEANCHqoCG0Nyb3NzVHJhZGVyLk1vZGVscy5SZW1v",
+            "dGluZ2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::CrossTrader.Models.Remoting.ChangedAction), typeof(global::CrossTrader.Models.Remoting.OrderSide), typeof(global::CrossTrader.Models.Remoting.OrderState), typeof(global::CrossTrader.Models.Remoting.OrderType), }, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.NameRequest), global::CrossTrader.Models.Remoting.NameRequest.Parser, new[]{ "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.InstrumentIdRequest), global::CrossTrader.Models.Remoting.InstrumentIdRequest.Parser, new[]{ "InstrumentId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.InstrumentIdsRequest), global::CrossTrader.Models.Remoting.InstrumentIdsRequest.Parser, new[]{ "InstrumentIds" }, null, null, null)
           }));
@@ -79,6 +81,135 @@ namespace CrossTrader.Models.Remoting {
   #endregion
 
   #region Messages
+  internal sealed partial class NameRequest : pb::IMessage<NameRequest> {
+    private static readonly pb::MessageParser<NameRequest> _parser = new pb::MessageParser<NameRequest>(() => new NameRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<NameRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::CrossTrader.Models.Remoting.CommonReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public NameRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public NameRequest(NameRequest other) : this() {
+      name_ = other.name_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public NameRequest Clone() {
+      return new NameRequest(this);
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as NameRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(NameRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(NameRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   internal sealed partial class InstrumentIdRequest : pb::IMessage<InstrumentIdRequest> {
     private static readonly pb::MessageParser<InstrumentIdRequest> _parser = new pb::MessageParser<InstrumentIdRequest>(() => new InstrumentIdRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -87,7 +218,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::CrossTrader.Models.Remoting.CommonReflection.Descriptor.MessageTypes[0]; }
+      get { return global::CrossTrader.Models.Remoting.CommonReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -216,7 +347,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::CrossTrader.Models.Remoting.CommonReflection.Descriptor.MessageTypes[1]; }
+      get { return global::CrossTrader.Models.Remoting.CommonReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

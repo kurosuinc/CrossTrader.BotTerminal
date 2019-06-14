@@ -6,9 +6,7 @@ option csharp_namespace = "CrossTrader.Models.Remoting";
 import "exchanges.proto";
 import "common.proto";
 import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";
 
-// Instrument
 message InstrumentsResponse {
     repeated InstrumentMessage instruments = 1;
     repeated ExchangeMessage exchanges = 2;
@@ -18,33 +16,7 @@ message InstrumentResponse {
     ExchangeMessage exchange = 2;
 }
 
-// Ticker
-message TickerMessage {
-    double bestBid = 1;
-    double bestAsk = 2;
-}
-
-// Execution
-message ExecutionMessage {
-    google.protobuf.Timestamp created_at = 1;
-    OrderSide side = 2;
-    double price = 3;
-    double size = 4;
-}
-message ExecutionsResponse {
-    ChangedAction action = 1;
-    repeated ExecutionMessage executions = 2;
-}
-
 service InstrumentService {
-    // Instrument
     rpc GetInstruments(google.protobuf.Empty) returns (InstrumentsResponse);
     rpc GetInstrument(NameRequest) returns (InstrumentResponse);
-    
-    // Tiker
-    rpc GetTicker(InstrumentIdRequest) returns (TickerMessage);
-    rpc SubscribeTicker(InstrumentIdRequest) returns (stream TickerMessage);
-
-    // Execution
-    rpc SubscribeExecutions(InstrumentIdRequest) returns (stream ExecutionsResponse);
 }

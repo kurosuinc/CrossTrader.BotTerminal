@@ -24,38 +24,36 @@ namespace CrossTrader.Models.Remoting {
     static ExchangesReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg9leGNoYW5nZXMucHJvdG8SC2Nyb3NzdHJhZGVyGhtnb29nbGUvcHJvdG9i",
-            "dWYvZW1wdHkucHJvdG8iVgoPRXhjaGFuZ2VNZXNzYWdlEgoKAmlkGAEgASgF",
-            "EgwKBG5hbWUYAiABKAkSFAoMZGlzcGxheV9uYW1lGAMgASgJEhMKC2Rlc2Ny",
-            "aXB0aW9uGAQgASgJItIDChFJbnN0cnVtZW50TWVzc2FnZRIKCgJpZBgBIAEo",
-            "BRITCgtleGNoYW5nZV9pZBgCIAEoBRIMCgRuYW1lGAMgASgJEhQKDGRpc3Bs",
-            "YXlfbmFtZRgEIAEoCRITCgtkZXNjcmlwdGlvbhgFIAEoCRIVCg1jdXJyZW5j",
-            "eV9jb2RlGAYgASgJEhYKDmNhbl9nZXRfdGlja2VyGAcgASgIEhwKFGNhbl9z",
-            "dWJzY3JpYmVfdGlja2VyGAggASgIEhoKEmNhbl9nZXRfZXhlY3V0aW9ucxgJ",
-            "IAEoCBIgChhjYW5fc3Vic2NyaWJlX2V4ZWN1dGlvbnMYCiABKAgSFQoNc2l6",
-            "ZV9kZWNpbWFscxgLIAEoBRIUCgxtaW5pbXVtX3NpemUYDCABKAESGgoSaXNf",
-            "b3JkZXJfc3VwcG9ydGVkGA0gASgIEhYKDmNhbl9nZXRfb3JkZXJzGA4gASgI",
-            "EhwKFGNhbl9zdWJzY3JpYmVfb3JkZXJzGA8gASgIEh0KFWlzX3Bvc2l0aW9u",
-            "X3N1cHBvcnRlZBgQIAEoCBIZChFjYW5fZ2V0X3Bvc2l0aW9ucxgRIAEoCBIf",
-            "ChdjYW5fc3Vic2NyaWJlX3Bvc2l0aW9ucxgSIAEoCCJEChFFeGNoYW5nZXNS",
-            "ZXNwb25zZRIvCglleGNoYW5nZXMYASADKAsyHC5jcm9zc3RyYWRlci5FeGNo",
-            "YW5nZU1lc3NhZ2UidwoQRXhjaGFuZ2VSZXNwb25zZRIuCghleGNoYW5nZRgB",
-            "IAEoCzIcLmNyb3NzdHJhZGVyLkV4Y2hhbmdlTWVzc2FnZRIzCgtpbnN0cnVt",
-            "ZW50cxgCIAMoCzIeLmNyb3NzdHJhZGVyLkluc3RydW1lbnRNZXNzYWdlIhsK",
-            "C05hbWVSZXF1ZXN0EgwKBG5hbWUYASABKAkyoQEKD0V4Y2hhbmdlU2Vydmlj",
-            "ZRJGCgxHZXRFeGNoYW5nZXMSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaHi5j",
-            "cm9zc3RyYWRlci5FeGNoYW5nZXNSZXNwb25zZRJGCgtHZXRFeGNoYW5nZRIY",
-            "LmNyb3NzdHJhZGVyLk5hbWVSZXF1ZXN0Gh0uY3Jvc3N0cmFkZXIuRXhjaGFu",
-            "Z2VSZXNwb25zZUIeqgIbQ3Jvc3NUcmFkZXIuTW9kZWxzLlJlbW90aW5nYgZw",
-            "cm90bzM="));
+            "Cg9leGNoYW5nZXMucHJvdG8SC2Nyb3NzdHJhZGVyGgxjb21tb24ucHJvdG8a",
+            "G2dvb2dsZS9wcm90b2J1Zi9lbXB0eS5wcm90byJWCg9FeGNoYW5nZU1lc3Nh",
+            "Z2USCgoCaWQYASABKAUSDAoEbmFtZRgCIAEoCRIUCgxkaXNwbGF5X25hbWUY",
+            "AyABKAkSEwoLZGVzY3JpcHRpb24YBCABKAki0gMKEUluc3RydW1lbnRNZXNz",
+            "YWdlEgoKAmlkGAEgASgFEhMKC2V4Y2hhbmdlX2lkGAIgASgFEgwKBG5hbWUY",
+            "AyABKAkSFAoMZGlzcGxheV9uYW1lGAQgASgJEhMKC2Rlc2NyaXB0aW9uGAUg",
+            "ASgJEhUKDWN1cnJlbmN5X2NvZGUYBiABKAkSFgoOY2FuX2dldF90aWNrZXIY",
+            "ByABKAgSHAoUY2FuX3N1YnNjcmliZV90aWNrZXIYCCABKAgSGgoSY2FuX2dl",
+            "dF9leGVjdXRpb25zGAkgASgIEiAKGGNhbl9zdWJzY3JpYmVfZXhlY3V0aW9u",
+            "cxgKIAEoCBIVCg1zaXplX2RlY2ltYWxzGAsgASgFEhQKDG1pbmltdW1fc2l6",
+            "ZRgMIAEoARIaChJpc19vcmRlcl9zdXBwb3J0ZWQYDSABKAgSFgoOY2FuX2dl",
+            "dF9vcmRlcnMYDiABKAgSHAoUY2FuX3N1YnNjcmliZV9vcmRlcnMYDyABKAgS",
+            "HQoVaXNfcG9zaXRpb25fc3VwcG9ydGVkGBAgASgIEhkKEWNhbl9nZXRfcG9z",
+            "aXRpb25zGBEgASgIEh8KF2Nhbl9zdWJzY3JpYmVfcG9zaXRpb25zGBIgASgI",
+            "IkQKEUV4Y2hhbmdlc1Jlc3BvbnNlEi8KCWV4Y2hhbmdlcxgBIAMoCzIcLmNy",
+            "b3NzdHJhZGVyLkV4Y2hhbmdlTWVzc2FnZSJ3ChBFeGNoYW5nZVJlc3BvbnNl",
+            "Ei4KCGV4Y2hhbmdlGAEgASgLMhwuY3Jvc3N0cmFkZXIuRXhjaGFuZ2VNZXNz",
+            "YWdlEjMKC2luc3RydW1lbnRzGAIgAygLMh4uY3Jvc3N0cmFkZXIuSW5zdHJ1",
+            "bWVudE1lc3NhZ2UyoQEKD0V4Y2hhbmdlU2VydmljZRJGCgxHZXRFeGNoYW5n",
+            "ZXMSFi5nb29nbGUucHJvdG9idWYuRW1wdHkaHi5jcm9zc3RyYWRlci5FeGNo",
+            "YW5nZXNSZXNwb25zZRJGCgtHZXRFeGNoYW5nZRIYLmNyb3NzdHJhZGVyLk5h",
+            "bWVSZXF1ZXN0Gh0uY3Jvc3N0cmFkZXIuRXhjaGFuZ2VSZXNwb25zZUIeqgIb",
+            "Q3Jvc3NUcmFkZXIuTW9kZWxzLlJlbW90aW5nYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.ExchangeMessage), global::CrossTrader.Models.Remoting.ExchangeMessage.Parser, new[]{ "Id", "Name", "DisplayName", "Description" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.InstrumentMessage), global::CrossTrader.Models.Remoting.InstrumentMessage.Parser, new[]{ "Id", "ExchangeId", "Name", "DisplayName", "Description", "CurrencyCode", "CanGetTicker", "CanSubscribeTicker", "CanGetExecutions", "CanSubscribeExecutions", "SizeDecimals", "MinimumSize", "IsOrderSupported", "CanGetOrders", "CanSubscribeOrders", "IsPositionSupported", "CanGetPositions", "CanSubscribePositions" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.ExchangesResponse), global::CrossTrader.Models.Remoting.ExchangesResponse.Parser, new[]{ "Exchanges" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.ExchangeResponse), global::CrossTrader.Models.Remoting.ExchangeResponse.Parser, new[]{ "Exchange", "Instruments" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.NameRequest), global::CrossTrader.Models.Remoting.NameRequest.Parser, new[]{ "Name" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.ExchangeResponse), global::CrossTrader.Models.Remoting.ExchangeResponse.Parser, new[]{ "Exchange", "Instruments" }, null, null, null)
           }));
     }
     #endregion
@@ -1148,135 +1146,6 @@ namespace CrossTrader.Models.Remoting {
           }
           case 18: {
             instruments_.AddEntriesFrom(input, _repeated_instruments_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  internal sealed partial class NameRequest : pb::IMessage<NameRequest> {
-    private static readonly pb::MessageParser<NameRequest> _parser = new pb::MessageParser<NameRequest>(() => new NameRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NameRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::CrossTrader.Models.Remoting.ExchangesReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NameRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NameRequest(NameRequest other) : this() {
-      name_ = other.name_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NameRequest Clone() {
-      return new NameRequest(this);
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as NameRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NameRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Name != other.Name) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Name);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NameRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Name = input.ReadString();
             break;
           }
         }

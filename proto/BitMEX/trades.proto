@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package crosstrader.bitmex;
+option csharp_namespace = "CrossTrader.Models.Remoting.BitMex";
+
+import "google/protobuf/timestamp.proto";
+import "common.proto";
+
+enum TickDirection {
+    TICK_DIRECTION_NONE = 0;
+    PLUS_TICK = 1;
+    ZERO_PLUS_TICK = 2;
+    MINUS_TICK = 3;
+    ZERO_MINUS_TICK = 4;
+}
+message TradeMessage {
+    google.protobuf.Timestamp timestamp = 1;
+    OrderSide side = 2;
+    double size = 3;
+    double price = 4;
+    TickDirection tick_direction = 5;
+    string trade_match_id = 6;
+    double gross_value = 7;
+    double home_notional = 8;
+    double foreign_notional = 9;
+}
+
+message TradesResponse {
+    ChangedAction action = 1;
+    repeated TradeMessage executions = 2;
+}
+
+service TradesService {
+    rpc SubscribeTrades(InstrumentIdRequest) returns (stream TradesResponse);
+}

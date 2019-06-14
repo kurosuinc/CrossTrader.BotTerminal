@@ -14,7 +14,6 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
 
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.InstrumentIdRequest> __Marshaller_crosstrader_InstrumentIdRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.InstrumentIdRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.BitFlyer.ChildOrdersResponse> __Marshaller_crosstrader_bitflyer_ChildOrdersResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.BitFlyer.ChildOrdersResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse> __Marshaller_crosstrader_bitflyer_PositionsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderRequest> __Marshaller_crosstrader_bitflyer_PostChildOrderRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderResponse> __Marshaller_crosstrader_bitflyer_PostChildOrderResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.BitFlyer.CancelChildOrderRequest> __Marshaller_crosstrader_bitflyer_CancelChildOrderRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.BitFlyer.CancelChildOrderRequest.Parser.ParseFrom);
@@ -26,13 +25,6 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
         "SubscribeChildOrders",
         __Marshaller_crosstrader_InstrumentIdRequest,
         __Marshaller_crosstrader_bitflyer_ChildOrdersResponse);
-
-    static readonly grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse> __Method_SubscribePositions = new grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "SubscribePositions",
-        __Marshaller_crosstrader_InstrumentIdRequest,
-        __Marshaller_crosstrader_bitflyer_PositionsResponse);
 
     static readonly grpc::Method<global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderRequest, global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderResponse> __Method_PostChildOrder = new grpc::Method<global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderRequest, global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderResponse>(
         grpc::MethodType.Unary,
@@ -91,14 +83,6 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.BitFlyer.ChildOrdersResponse> SubscribeChildOrders(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeChildOrders, null, options, request);
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse> SubscribePositions(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return SubscribePositions(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse> SubscribePositions(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_SubscribePositions, null, options, request);
       }
       public virtual global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderResponse PostChildOrder(global::CrossTrader.Models.Remoting.BitFlyer.PostChildOrderRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {

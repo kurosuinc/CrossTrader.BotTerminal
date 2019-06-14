@@ -3,6 +3,7 @@ syntax = "proto3";
 package crosstrader;
 option csharp_namespace = "CrossTrader.Models.Remoting";
 
+import "common.proto";
 import "google/protobuf/empty.proto";
 
 message ExchangeMessage {
@@ -42,9 +43,6 @@ message ExchangesResponse {
 message ExchangeResponse {
     ExchangeMessage exchange = 1;
     repeated InstrumentMessage instruments = 2;
-}
-message NameRequest {
-    string name = 1;
 }
 service ExchangeService {
     rpc GetExchanges(google.protobuf.Empty) returns (ExchangesResponse);

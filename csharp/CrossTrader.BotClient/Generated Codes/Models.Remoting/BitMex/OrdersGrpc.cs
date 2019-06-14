@@ -14,7 +14,6 @@ namespace CrossTrader.Models.Remoting.BitMex {
 
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.InstrumentIdRequest> __Marshaller_crosstrader_InstrumentIdRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.InstrumentIdRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.BitMex.OrdersResponse> __Marshaller_crosstrader_bitmex_OrdersResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.BitMex.OrdersResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.BitMex.PositionsResponse> __Marshaller_crosstrader_bitmex_PositionsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.BitMex.PositionsResponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.BitMex.OrdersResponse> __Method_SubscribeOrders = new grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.BitMex.OrdersResponse>(
         grpc::MethodType.ServerStreaming,
@@ -22,13 +21,6 @@ namespace CrossTrader.Models.Remoting.BitMex {
         "SubscribeOrders",
         __Marshaller_crosstrader_InstrumentIdRequest,
         __Marshaller_crosstrader_bitmex_OrdersResponse);
-
-    static readonly grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.BitMex.PositionsResponse> __Method_SubscribePositions = new grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.BitMex.PositionsResponse>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "SubscribePositions",
-        __Marshaller_crosstrader_InstrumentIdRequest,
-        __Marshaller_crosstrader_bitmex_PositionsResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -66,14 +58,6 @@ namespace CrossTrader.Models.Remoting.BitMex {
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.BitMex.OrdersResponse> SubscribeOrders(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeOrders, null, options, request);
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.BitMex.PositionsResponse> SubscribePositions(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return SubscribePositions(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.BitMex.PositionsResponse> SubscribePositions(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_SubscribePositions, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override OrdersServiceClient NewInstance(ClientBaseConfiguration configuration)
