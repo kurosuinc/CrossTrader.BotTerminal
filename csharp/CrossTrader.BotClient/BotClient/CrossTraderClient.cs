@@ -241,6 +241,25 @@ namespace CrossTrader.BotClient
 
         #endregion InstrumentService
 
+        #region TickerService
+
+        [Rpc(nameof(TickerService))]
+        public async Task<Ticker> GetTickerAsync(int instrumentId, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            {
+                var res = await new TickerService.TickerServiceClient(Channel).GetTickerAsync(
+                    new InstrumentIdRequest() { InstrumentId = instrumentId },
+                    deadline: deadline,
+                    cancellationToken: cancellationToken);
+
+                var t = res != null ? new Ticker(instrumentId, res) : null;
+                return t?.IsValid == true ? t : null;
+            }
+        }
+
+        #endregion TickerService
+
         #region IDisposable Support
 
         protected bool IsDisposed { get; set; }

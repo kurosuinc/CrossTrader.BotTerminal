@@ -1,4 +1,4 @@
-﻿namespace CrossTrader.BotClient
+namespace CrossTrader.BotClient
 {
     internal static class StringHelper
     {

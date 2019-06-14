@@ -10,30 +10,64 @@
     Height="450"
     Width="800"
     IsEnabled="{Binding IsNotBusy}">
-    <DataGrid
-        AutoGenerateColumns="False"
-        ItemsSource="{Binding Instruments}">
-        <DataGrid.Columns>
-            <DataGridTextColumn
-                Header="Exchange"
-                IsReadOnly="True"
-                Binding="{Binding ExchangeDisplayName}" />
-            <DataGridTextColumn
-                Header="Id"
-                IsReadOnly="True"
-                Binding="{Binding Id}" />
-            <DataGridTextColumn
-                Header="Name"
-                IsReadOnly="True"
-                Binding="{Binding Name}" />
-            <DataGridTextColumn
-                Header="DisplayName"
-                IsReadOnly="True"
-                Binding="{Binding DisplayName}" />
-            <DataGridTextColumn
-                Header="Description"
-                IsReadOnly="True"
-                Binding="{Binding Description}" />
-        </DataGrid.Columns>
-    </DataGrid>
+    <v:CustomWindow.Resources>
+        <ContentPresenter
+            x:Key="Dummy"
+            Visibility="Collapsed"
+            Content="{Binding}" />
+    </v:CustomWindow.Resources>
+    <DockPanel>
+        <StaticResource
+            ResourceKey="Dummy" />
+        <GroupBox
+            DockPanel.Dock="Top"
+            Header="Ticker">
+            <WrapPanel
+                Orientation="Horizontal">
+                <Button
+                    Command="{Binding RefreshTickersCommand}">Refresh</Button>
+            </WrapPanel>
+        </GroupBox>
+        <DataGrid
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Instruments}">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn
+                    Binding="{Binding IsSelected}">
+                    <DataGridCheckBoxColumn.Header>
+                        <CheckBox
+                            IsChecked="{Binding Source={StaticResource Dummy}, Path=Content.AllInstrumentsSelected}" />
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
+                <DataGridTextColumn
+                    Header="Exchange"
+                    IsReadOnly="True"
+                    Binding="{Binding ExchangeDisplayName}" />
+                <DataGridTextColumn
+                    Header="Id"
+                    IsReadOnly="True"
+                    Binding="{Binding Id}" />
+                <DataGridTextColumn
+                    Header="Name"
+                    IsReadOnly="True"
+                    Binding="{Binding Name}" />
+                <DataGridTextColumn
+                    Header="DisplayName"
+                    IsReadOnly="True"
+                    Binding="{Binding DisplayName}" />
+                <DataGridTextColumn
+                    Header="BestBid"
+                    IsReadOnly="True"
+                    Binding="{Binding BestBid}" />
+                <DataGridTextColumn
+                    Header="BestAsk"
+                    IsReadOnly="True"
+                    Binding="{Binding BestAsk}" />
+                <DataGridTextColumn
+                    Header="LastError"
+                    IsReadOnly="True"
+                    Binding="{Binding LastError}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
 </v:CustomWindow>

@@ -1,4 +1,4 @@
-﻿using CrossTrader.Models.Remoting;
+using CrossTrader.Models.Remoting;
 
 namespace CrossTrader.BotClient
 {
