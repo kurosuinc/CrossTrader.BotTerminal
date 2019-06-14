@@ -64,5 +64,31 @@ namespace CrossTrader.ViewerExample.ViewModels
             }));
 
         #endregion ShowExchangesCommand
+
+        #region ShowInstrumentsCommand
+
+        private Command _ShowInstrumentsCommand;
+
+        public ICommand ShowInstrumentsCommand
+            => _ShowInstrumentsCommand
+            ?? (_ShowInstrumentsCommand = Command.Create(() =>
+            {
+                var sd = Settings.Default;
+                sd.Host = _Host;
+                sd.Port = _Port;
+                sd.Save();
+
+                new InstrumentsWindow()
+                {
+                    DataContext = new InstrumentsWindowViewModel(new CrossTraderClient()
+                    {
+                        Host = _Host,
+                        Port = _Port
+                    })
+                }.Show();
+                Close();
+            }));
+
+        #endregion ShowInstrumentsCommand
     }
 }

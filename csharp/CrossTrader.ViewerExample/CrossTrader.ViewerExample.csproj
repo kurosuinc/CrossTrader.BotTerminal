@@ -52,11 +52,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\Command.cs" />
+    <Compile Include="ViewModels\InstrumentsWindowViewModel.cs" />
     <Compile Include="ViewModels\ExchangesWindowViewModel.cs" />
+    <Compile Include="ViewModels\InstrumentViewModel.cs" />
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WindowViewModelBase.cs" />
     <Compile Include="Views\CustomWindow.cs" />
+    <Compile Include="Views\InstrumentsWindow.xaml.cs">
+      <DependentUpon>InstrumentsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExchangesWindow.xaml.cs">
       <DependentUpon>ExchangesWindow.xaml</DependentUpon>
     </Compile>
@@ -67,6 +72,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\InstrumentsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\ExchangesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

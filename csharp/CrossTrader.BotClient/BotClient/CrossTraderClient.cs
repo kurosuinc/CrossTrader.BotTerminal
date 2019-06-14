@@ -155,11 +155,16 @@ namespace CrossTrader.BotClient
 
         #region ExchangeService
 
-        public async Task<Exchange[]> GetExchangesAsync(CancellationToken cancellationToken = default)
+        [Rpc(nameof(ExchangeService))]
+        public async Task<Exchange[]> GetExchangesAsync(DateTime? deadline = null, CancellationToken cancellationToken = default)
         {
             using (await OpenAsync().ConfigureAwait(false))
             {
-                var res = await new ExchangeService.ExchangeServiceClient(Channel).GetExchangesAsync(new Empty(), cancellationToken: cancellationToken);
+                var res = await new ExchangeService.ExchangeServiceClient(Channel).GetExchangesAsync(
+                    new Empty(),
+                    deadline: deadline,
+                    cancellationToken: cancellationToken);
+
                 var items = new Exchange[res.Exchanges.Count];
                 for (var i = 0; i < items.Length; i++)
                 {
@@ -169,20 +174,72 @@ namespace CrossTrader.BotClient
             }
         }
 
-        public async Task<Exchange> GetExchangeAsync(string name, CancellationToken cancellationToken = default)
+        [Rpc(nameof(ExchangeService))]
+        public async Task<Exchange> GetExchangeAsync(string name, DateTime? deadline = null, CancellationToken cancellationToken = default)
         {
             using (await OpenAsync().ConfigureAwait(false))
             {
-                var res = await new ExchangeService.ExchangeServiceClient(Channel).GetExchangeAsync(new NameRequest() { Name = name }, cancellationToken: cancellationToken);
+                var res = await new ExchangeService.ExchangeServiceClient(Channel).GetExchangeAsync(
+                    new NameRequest() { Name = name },
+                    deadline: deadline,
+                    cancellationToken: cancellationToken);
+
                 if (res.Exchange != null)
                 {
                     return new Exchange(res.Exchange, res.Instruments);
                 }
+
                 return null;
             }
         }
 
         #endregion ExchangeService
+
+        #region InstrumentService
+
+        [Rpc(nameof(InstrumentService))]
+        public async Task<Instrument[]> GetInstrumentsAsync(DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            {
+                var res = await new InstrumentService.InstrumentServiceClient(Channel).GetInstrumentsAsync(
+                    new Empty(),
+                    deadline: deadline,
+                    cancellationToken: cancellationToken);
+
+                var exchanges = res.Exchanges.Select(e => new Exchange(e)).ToDictionary(e => e.Id);
+
+                var items = new Instrument[res.Instruments.Count];
+                for (var i = 0; i < items.Length; i++)
+                {
+                    var m = res.Instruments[i];
+                    exchanges.TryGetValue(m.ExchangeId, out var ex);
+                    items[i] = new Instrument(m, ex);
+                }
+                return items;
+            }
+        }
+
+        [Rpc(nameof(InstrumentService))]
+        public async Task<Instrument> GetInstrumentAsync(string name, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            {
+                var res = await new InstrumentService.InstrumentServiceClient(Channel).GetInstrumentAsync(
+                    new NameRequest() { Name = name },
+                    deadline: deadline,
+                    cancellationToken: cancellationToken);
+
+                if (res.Instrument != null)
+                {
+                    return new Instrument(res.Instrument, new Exchange(res.Exchange));
+                }
+
+                return null;
+            }
+        }
+
+        #endregion InstrumentService
 
         #region IDisposable Support
 

@@ -1,4 +1,4 @@
-﻿<v:CustomWindow
+<v:CustomWindow
     x:Class="CrossTrader.ViewerExample.Views.LoginWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -19,6 +19,8 @@
             DockPanel.Dock="Bottom">
             <Button
                 Command="{Binding ShowExchangesCommand}">Exchanges</Button>
+            <Button
+                Command="{Binding ShowInstrumentsCommand}">Instruments</Button>
         </StackPanel>
         <StackPanel
             Orientation="Horizontal"
