@@ -307,6 +307,61 @@ namespace CrossTrader.BotClient
 
         #endregion TickerService
 
+        #region ExecutionsService
+
+        private ExecutionsSubscriptionCollection _ExecutionsSubscriptions;
+
+        public event EventHandler<ReceivedEventArgs<CollectionReceivedEventArgs<Execution>>> ExecutionsReceived;
+
+        public event EventHandler<InstrumentIdErrorEventArgs> ExecutionsError;
+
+        internal ExecutionsSubscriptionCollection ExecutionsSubscriptions
+            => _ExecutionsSubscriptions ?? (_ExecutionsSubscriptions = new ExecutionsSubscriptionCollection(this));
+
+        [Rpc(nameof(ExecutionsService))]
+        public async Task SubscribeExecutionsAsync(int instrumentId, Func<int, CollectionReceivedEventArgs<Execution>, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            using (var res = new ExecutionsService.ExecutionsServiceClient(Channel).SubscribeExecutions(
+                                    new InstrumentIdRequest() { InstrumentId = instrumentId },
+                                    deadline: deadline,
+                                    cancellationToken: cancellationToken))
+            {
+                while (await res.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false)
+                        && !cancellationToken.IsCancellationRequested)
+                {
+                    var c = res.ResponseStream.Current;
+                    var m = new CollectionReceivedEventArgs<Execution>(
+                        c.Action,
+                        c.Executions.Select(e => new Execution(instrumentId, e)).Where(e => e.IsValid));
+
+                    if (callback?.Invoke(instrumentId, m) != true)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void SubscribeExecutions(int instrumentId)
+            => ExecutionsSubscriptions.Subscribe(instrumentId);
+
+        public void UnsubscribeExecutions(int instrumentId)
+            => ExecutionsSubscriptions.Unsubscribe(instrumentId);
+
+        protected internal void RaiseExecutionsReceived(CollectionReceivedEventArgs<Execution> e)
+        {
+            if (e?.Data?.Count > 0)
+            {
+                ExecutionsReceived?.Invoke(this, new ReceivedEventArgs<CollectionReceivedEventArgs<Execution>>(e));
+            }
+        }
+
+        protected internal void RaiseExecutionsError(int instrumentId, Exception exception)
+            => ExecutionsError?.Invoke(this, new InstrumentIdErrorEventArgs(instrumentId, exception));
+
+        #endregion ExecutionsService
+
         #region IDisposable Support
 
         protected bool IsDisposed { get; set; }
