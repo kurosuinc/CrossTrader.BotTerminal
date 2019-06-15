@@ -60,35 +60,33 @@ namespace CrossTrader.ViewerExample.ViewModels
                         Port = _Port
                     })
                 }.Show();
-                Close();
             }));
 
         #endregion ShowExchangesCommand
 
-        #region ShowInstrumentsCommand
+        #region ShowTickersCommand
 
-        private Command _ShowInstrumentsCommand;
+        private Command _ShowTickersCommand;
 
-        public ICommand ShowInstrumentsCommand
-            => _ShowInstrumentsCommand
-            ?? (_ShowInstrumentsCommand = Command.Create(() =>
+        public ICommand ShowTickersCommand
+            => _ShowTickersCommand
+            ?? (_ShowTickersCommand = Command.Create(() =>
             {
                 var sd = Settings.Default;
                 sd.Host = _Host;
                 sd.Port = _Port;
                 sd.Save();
 
-                new InstrumentsWindow()
+                new TickersWindow()
                 {
-                    DataContext = new InstrumentsWindowViewModel(new CrossTraderClient()
+                    DataContext = new TickersWindowViewModel(new CrossTraderClient()
                     {
                         Host = _Host,
                         Port = _Port
                     })
                 }.Show();
-                Close();
             }));
 
-        #endregion ShowInstrumentsCommand
+        #endregion ShowTickersCommand
     }
 }

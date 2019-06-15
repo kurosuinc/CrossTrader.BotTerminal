@@ -2,12 +2,12 @@ using CrossTrader.BotClient;
 
 namespace CrossTrader.ViewerExample.ViewModels
 {
-    public sealed class InstrumentViewModel : ViewModelBase
+    public class InstrumentViewModel : ViewModelBase
     {
-        private readonly InstrumentsWindowViewModel _Window;
+        private readonly InstrumentsWindowViewModelBase _Window;
         private readonly Instrument _Instrument;
 
-        internal InstrumentViewModel(InstrumentsWindowViewModel window, Instrument instrument)
+        internal InstrumentViewModel(InstrumentsWindowViewModelBase window, Instrument instrument)
         {
             _Window = window;
             _Instrument = instrument;
