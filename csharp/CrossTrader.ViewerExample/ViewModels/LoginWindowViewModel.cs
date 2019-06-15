@@ -88,5 +88,30 @@ namespace CrossTrader.ViewerExample.ViewModels
             }));
 
         #endregion ShowTickersCommand
+
+        #region ShowExecutionsCommand
+
+        private Command _ShowExecutionsCommand;
+
+        public ICommand ShowExecutionsCommand
+            => _ShowExecutionsCommand
+            ?? (_ShowExecutionsCommand = Command.Create(() =>
+            {
+                var sd = Settings.Default;
+                sd.Host = _Host;
+                sd.Port = _Port;
+                sd.Save();
+
+                new ExecutionsWindow()
+                {
+                    DataContext = new ExecutionsWindowViewModel(new CrossTraderClient()
+                    {
+                        Host = _Host,
+                        Port = _Port
+                    })
+                }.Show();
+            }));
+
+        #endregion ShowExecutionsCommand
     }
 }

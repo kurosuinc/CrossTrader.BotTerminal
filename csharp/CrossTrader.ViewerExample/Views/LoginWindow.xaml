@@ -38,5 +38,7 @@
             Command="{Binding ShowExchangesCommand}">Show Exchanges</Button>
         <Button
             Command="{Binding ShowTickersCommand}">Ticker</Button>
+        <Button
+            Command="{Binding ShowExecutionsCommand}">Executions</Button>
     </StackPanel>
 </v:CustomWindow>

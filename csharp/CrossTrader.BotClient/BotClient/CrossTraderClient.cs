@@ -311,7 +311,7 @@ namespace CrossTrader.BotClient
 
         private ExecutionsSubscriptionCollection _ExecutionsSubscriptions;
 
-        public event EventHandler<ReceivedEventArgs<CollectionReceivedEventArgs<Execution>>> ExecutionsReceived;
+        public event EventHandler<CollectionReceivedEventArgs<Execution>> ExecutionsReceived;
 
         public event EventHandler<InstrumentIdErrorEventArgs> ExecutionsError;
 
@@ -353,7 +353,7 @@ namespace CrossTrader.BotClient
         {
             if (e?.Data?.Count > 0)
             {
-                ExecutionsReceived?.Invoke(this, new ReceivedEventArgs<CollectionReceivedEventArgs<Execution>>(e));
+                ExecutionsReceived?.Invoke(this, e);
             }
         }
 

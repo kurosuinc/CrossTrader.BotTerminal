@@ -52,6 +52,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\Command.cs" />
+    <Compile Include="ViewModels\ExecutionsWindowViewModel.cs" />
     <Compile Include="ViewModels\InstrumentsWindowViewModelBase.cs" />
     <Compile Include="ViewModels\ExchangesWindowViewModel.cs" />
     <Compile Include="ViewModels\InstrumentViewModel.cs" />
@@ -60,6 +61,9 @@
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WindowViewModelBase.cs" />
     <Compile Include="Views\CustomWindow.cs" />
+    <Compile Include="Views\ExecutionsWindow.xaml.cs">
+      <DependentUpon>ExecutionsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TickersWindow.xaml.cs">
       <DependentUpon>TickersWindow.xaml</DependentUpon>
     </Compile>
@@ -73,6 +77,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ExecutionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TickersWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
