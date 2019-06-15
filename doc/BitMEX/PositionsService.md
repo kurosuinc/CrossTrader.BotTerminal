@@ -2,7 +2,7 @@
 
 ## 型定義ファイル
 
-- [BitMEX/positions.proto](../../proto/BitMEX/positions.proto)
+- [bitmex/positions.proto](../../proto/bitmex/positions.proto)
 
 ## データ型
 

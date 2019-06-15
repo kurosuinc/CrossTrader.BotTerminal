@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard1.5;netstandard2.0;net45</TargetFrameworks>
     <RootNamespace>CrossTrader</RootNamespace>
@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <Protobuf Include="..\..\proto\*" ProtoRoot="..\..\proto" Link="proto\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
-    <Protobuf Include="..\..\proto\bitFlyer\*" ProtoRoot="..\..\proto" Link="proto\bitFlyer\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting\BitFlyer" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
-    <Protobuf Include="..\..\proto\BitMEX\*" ProtoRoot="..\..\proto" Link="proto\BitMEX\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting\BitMex" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
+    <Protobuf Include="..\..\proto\bitflyer\*" ProtoRoot="..\..\proto" Link="proto\bitflyer\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting\BitFlyer" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
+    <Protobuf Include="..\..\proto\bitmex\*" ProtoRoot="..\..\proto" Link="proto\bitmex\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting\BitMex" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 ## 型定義ファイル
 
-- [bitFlyer/positions.proto](../../proto/bitFlyer/positions.proto)
+- [bitflyer/positions.proto](../../proto/bitflyer/positions.proto)
 
 ## データ型
 
