@@ -139,6 +139,31 @@ namespace CrossTrader.ViewerExample.ViewModels
 
         #endregion ShowBitFlyerExecutionsCommand
 
+        #region ShowBitFlyerChildOrdersCommand
+
+        private Command _ShowBitFlyerChildOrdersCommand;
+
+        public ICommand ShowBitFlyerChildOrdersCommand
+            => _ShowBitFlyerChildOrdersCommand
+            ?? (_ShowBitFlyerChildOrdersCommand = Command.Create(() =>
+            {
+                var sd = Settings.Default;
+                sd.Host = _Host;
+                sd.Port = _Port;
+                sd.Save();
+
+                new BitFlyerChildOrdersWindow()
+                {
+                    DataContext = new BitFlyerChildOrdersWindowViewModel(new CrossTraderClient()
+                    {
+                        Host = _Host,
+                        Port = _Port
+                    })
+                }.Show();
+            }));
+
+        #endregion ShowBitFlyerChildOrdersCommand
+
         #region ShowBitMexTradesCommand
 
         private Command _ShowBitMexTradesCommand;
