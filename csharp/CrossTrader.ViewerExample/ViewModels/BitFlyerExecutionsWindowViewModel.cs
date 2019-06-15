@@ -1,18 +1,19 @@
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Data;
 using CrossTrader.BotClient;
+using CrossTrader.BotClient.BitFlyer;
 
 namespace CrossTrader.ViewerExample.ViewModels
 {
-    public sealed class ExecutionsWindowViewModel : InstrumentsWindowViewModelBase<InstrumentViewModel>
+    public sealed class BitFlyerExecutionsWindowViewModel : InstrumentsWindowViewModelBase<InstrumentViewModel>
     {
-        internal ExecutionsWindowViewModel(CrossTraderClient client)
+        internal BitFlyerExecutionsWindowViewModel(CrossTraderClient client)
             : base(client)
         {
-            client.ExecutionsReceived += Client_ExecutionsReceived;
-            client.ExecutionsError += Client_ExecutionsError;
+            client.BitFlyer.ExecutionsReceived += BitFlyer_ExecutionsReceived;
+            client.BitFlyer.ExecutionsError += BitFlyer_ExecutionsError;
         }
 
         protected override InstrumentViewModel GetItem(Instrument e)
@@ -22,7 +23,7 @@ namespace CrossTrader.ViewerExample.ViewModels
 
         public class ExecutionEntry
         {
-            internal ExecutionEntry(NotifyCollectionChangedAction action, InstrumentViewModel instrument, Execution execution)
+            internal ExecutionEntry(NotifyCollectionChangedAction action, InstrumentViewModel instrument, BitFlyerExecution execution)
             {
                 Action = action;
                 Instrument = instrument;
@@ -32,7 +33,7 @@ namespace CrossTrader.ViewerExample.ViewModels
             public NotifyCollectionChangedAction Action { get; }
 
             public InstrumentViewModel Instrument { get; }
-            public Execution Execution { get; }
+            public BitFlyerExecution Execution { get; }
         }
 
         private ObservableCollection<ExecutionEntry> _Executions;
@@ -63,7 +64,7 @@ namespace CrossTrader.ViewerExample.ViewModels
                 {
                     if (i.IsSelected)
                     {
-                        Client.SubscribeExecutions(i.Id);
+                        Client.BitFlyer.SubscribeExecutions(i.Id);
                     }
                 }
             }));
@@ -81,14 +82,14 @@ namespace CrossTrader.ViewerExample.ViewModels
                 {
                     if (i.IsSelected)
                     {
-                        Client.UnsubscribeExecutions(i.Id);
+                        Client.BitFlyer.UnsubscribeExecutions(i.Id);
                     }
                 }
             }));
 
         #endregion UnsubscribeExecutionsCommand
 
-        private void Client_ExecutionsReceived(object sender, CollectionReceivedEventArgs<Execution> e)
+        private void BitFlyer_ExecutionsReceived(object sender, CollectionReceivedEventArgs<BitFlyerExecution> e)
         {
             var i = Instruments.FirstOrDefault(m => m.Id == e.Data[0].InstrumentId);
             if (i != null)
@@ -111,7 +112,7 @@ namespace CrossTrader.ViewerExample.ViewModels
             }
         }
 
-        private void Client_ExecutionsError(object sender, InstrumentIdErrorEventArgs e)
+        private void BitFlyer_ExecutionsError(object sender, InstrumentIdErrorEventArgs e)
         {
             var i = Instruments.FirstOrDefault(m => m.Id == e.InstrumentId);
             if (i != null)

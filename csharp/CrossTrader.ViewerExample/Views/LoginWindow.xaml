@@ -40,5 +40,12 @@
             Command="{Binding ShowTickersCommand}">Ticker</Button>
         <Button
             Command="{Binding ShowExecutionsCommand}">Executions</Button>
+        <GroupBox
+            Header="bitFlyer">
+            <StackPanel>
+                <Button
+                    Command="{Binding ShowBitFlyerExecutionsCommand}">Executions (bitFlyer)</Button>
+            </StackPanel>
+        </GroupBox>
     </StackPanel>
 </v:CustomWindow>

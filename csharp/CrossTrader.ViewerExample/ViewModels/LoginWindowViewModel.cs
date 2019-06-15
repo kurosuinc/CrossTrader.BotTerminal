@@ -113,5 +113,30 @@ namespace CrossTrader.ViewerExample.ViewModels
             }));
 
         #endregion ShowExecutionsCommand
+
+        #region ShowBitFlyerExecutionsCommand
+
+        private Command _ShowBitFlyerExecutionsCommand;
+
+        public ICommand ShowBitFlyerExecutionsCommand
+            => _ShowBitFlyerExecutionsCommand
+            ?? (_ShowBitFlyerExecutionsCommand = Command.Create(() =>
+            {
+                var sd = Settings.Default;
+                sd.Host = _Host;
+                sd.Port = _Port;
+                sd.Save();
+
+                new BitFlyerExecutionsWindow()
+                {
+                    DataContext = new BitFlyerExecutionsWindowViewModel(new CrossTraderClient()
+                    {
+                        Host = _Host,
+                        Port = _Port
+                    })
+                }.Show();
+            }));
+
+        #endregion ShowBitFlyerExecutionsCommand
     }
 }

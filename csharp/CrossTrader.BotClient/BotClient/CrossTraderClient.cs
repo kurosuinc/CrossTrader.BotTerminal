@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using CrossTrader.BotClient.BitFlyer;
 using CrossTrader.Models.Remoting;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
@@ -12,7 +13,7 @@ namespace CrossTrader.BotClient
 {
     public class CrossTraderClient : IDisposable
     {
-        protected struct ChannelSubscription : IEquatable<ChannelSubscription>, IDisposable
+        protected internal struct ChannelSubscription : IEquatable<ChannelSubscription>, IDisposable
         {
             internal ChannelSubscription(CrossTraderClient client, int id)
             {
@@ -82,10 +83,10 @@ namespace CrossTrader.BotClient
         private int _SubscriptionId;
         private readonly List<ChannelSubscription> _Subscriptions = new List<ChannelSubscription>();
 
-        protected Channel Channel
+        protected internal Channel Channel
             => _ChannelTask?.Status == TaskStatus.RanToCompletion ? _ChannelTask.Result : null;
 
-        protected Task<ChannelSubscription> OpenAsync()
+        protected internal Task<ChannelSubscription> OpenAsync()
         {
             lock (_Subscriptions)
             {
@@ -362,6 +363,11 @@ namespace CrossTrader.BotClient
 
         #endregion ExecutionsService
 
+        private BitFlyerClientPlugin _BitFlyer;
+
+        public BitFlyerClientPlugin BitFlyer
+            => _BitFlyer ?? (_BitFlyer = new BitFlyerClientPlugin(this));
+
         #region IDisposable Support
 
         protected bool IsDisposed { get; set; }
@@ -376,6 +382,14 @@ namespace CrossTrader.BotClient
                     _TickerSubscriptions = null;
                     TickerReceived = null;
                     TickerError = null;
+
+                    _ExecutionsSubscriptions?.Dispose();
+                    _ExecutionsSubscriptions = null;
+                    ExecutionsReceived = null;
+                    ExecutionsError = null;
+
+                    _BitFlyer?.Dispose();
+                    _BitFlyer = null;
 
                     lock (_Subscriptions)
                     {
