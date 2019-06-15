@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace CrossTrader.BotClient
 {
-    internal abstract class SubscriptionCollection<TKey, TResponse> : IDisposable
+    internal abstract class Subscriptions<TKey, TResponse> : IDisposable
     {
         private readonly Dictionary<TKey, CancellationTokenSource> _Subscriptions;
 
-        protected SubscriptionCollection(CrossTraderClient client)
+        protected Subscriptions(CrossTraderClient client)
         {
             Client = client;
             _Subscriptions = new Dictionary<TKey, CancellationTokenSource>();

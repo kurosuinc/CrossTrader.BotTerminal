@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace CrossTrader.BotClient
 {
-    internal sealed class TickerSubscriptionCollection : SubscriptionCollection<int, Ticker>
+    internal sealed class TickerSubscriptions : Subscriptions<int, Ticker>
     {
-        public TickerSubscriptionCollection(CrossTraderClient client)
+        public TickerSubscriptions(CrossTraderClient client)
             : base(client)
         {
         }

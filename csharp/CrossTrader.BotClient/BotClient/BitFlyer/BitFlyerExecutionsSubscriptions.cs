@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 
 namespace CrossTrader.BotClient.BitFlyer
 {
-    internal sealed class BitFlyerExecutionsSubscriptionCollection : SubscriptionCollection<int, CollectionReceivedEventArgs<BitFlyerExecution>>
+    internal sealed class BitFlyerExecutionsSubscriptions : Subscriptions<int, CollectionReceivedEventArgs<BitFlyerExecution>>
     {
-        public BitFlyerExecutionsSubscriptionCollection(CrossTraderClient client)
+        public BitFlyerExecutionsSubscriptions(CrossTraderClient client)
             : base(client)
         {
         }

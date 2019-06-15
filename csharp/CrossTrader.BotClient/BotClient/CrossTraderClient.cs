@@ -245,14 +245,14 @@ namespace CrossTrader.BotClient
 
         #region TickerService
 
-        private TickerSubscriptionCollection _TickerSubscriptions;
+        private TickerSubscriptions _TickerSubscriptions;
 
         public event EventHandler<ReceivedEventArgs<Ticker>> TickerReceived;
 
         public event EventHandler<InstrumentIdErrorEventArgs> TickerError;
 
-        internal TickerSubscriptionCollection TickerSubscriptions
-            => _TickerSubscriptions ?? (_TickerSubscriptions = new TickerSubscriptionCollection(this));
+        internal TickerSubscriptions TickerSubscriptions
+            => _TickerSubscriptions ?? (_TickerSubscriptions = new TickerSubscriptions(this));
 
         [Rpc(nameof(TickerService))]
         public async Task<Ticker> GetTickerAsync(int instrumentId, DateTime? deadline = null, CancellationToken cancellationToken = default)
@@ -311,14 +311,14 @@ namespace CrossTrader.BotClient
 
         #region ExecutionsService
 
-        private ExecutionsSubscriptionCollection _ExecutionsSubscriptions;
+        private ExecutionsSubscriptions _ExecutionsSubscriptions;
 
         public event EventHandler<CollectionReceivedEventArgs<Execution>> ExecutionsReceived;
 
         public event EventHandler<InstrumentIdErrorEventArgs> ExecutionsError;
 
-        internal ExecutionsSubscriptionCollection ExecutionsSubscriptions
-            => _ExecutionsSubscriptions ?? (_ExecutionsSubscriptions = new ExecutionsSubscriptionCollection(this));
+        internal ExecutionsSubscriptions ExecutionsSubscriptions
+            => _ExecutionsSubscriptions ?? (_ExecutionsSubscriptions = new ExecutionsSubscriptions(this));
 
         [Rpc(nameof(ExecutionsService))]
         public async Task SubscribeExecutionsAsync(int instrumentId, Func<int, CollectionReceivedEventArgs<Execution>, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)

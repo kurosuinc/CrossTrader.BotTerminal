@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 
 namespace CrossTrader.BotClient
 {
-    internal sealed class ExecutionsSubscriptionCollection : SubscriptionCollection<int, CollectionReceivedEventArgs<Execution>>
+    internal sealed class ExecutionsSubscriptions : Subscriptions<int, CollectionReceivedEventArgs<Execution>>
     {
-        public ExecutionsSubscriptionCollection(CrossTraderClient client)
+        public ExecutionsSubscriptions(CrossTraderClient client)
             : base(client)
         {
         }

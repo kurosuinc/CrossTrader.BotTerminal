@@ -17,14 +17,14 @@ namespace CrossTrader.BotClient.BitMex
 
         #region TradesService
 
-        private BitMexTradesSubscriptionCollection _TradesSubscriptions;
+        private BitMexTradesSubscriptions _TradesSubscriptions;
 
         public event EventHandler<CollectionReceivedEventArgs<BitMexTrade>> TradesReceived;
 
         public event EventHandler<InstrumentIdErrorEventArgs> TradesError;
 
-        internal BitMexTradesSubscriptionCollection TradesSubscriptions
-            => _TradesSubscriptions ?? (_TradesSubscriptions = new BitMexTradesSubscriptionCollection(_Client));
+        internal BitMexTradesSubscriptions TradesSubscriptions
+            => _TradesSubscriptions ?? (_TradesSubscriptions = new BitMexTradesSubscriptions(_Client));
 
         [Rpc(nameof(TradesService))]
         public async Task SubscribeTradesAsync(int instrumentId, Func<int, CollectionReceivedEventArgs<BitMexTrade>, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)

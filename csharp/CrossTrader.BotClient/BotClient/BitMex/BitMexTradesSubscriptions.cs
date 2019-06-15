@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace CrossTrader.BotClient.BitMex
 {
-    internal sealed class BitMexTradesSubscriptionCollection : SubscriptionCollection<int, CollectionReceivedEventArgs<BitMexTrade>>
+    internal sealed class BitMexTradesSubscriptions : Subscriptions<int, CollectionReceivedEventArgs<BitMexTrade>>
     {
-        public BitMexTradesSubscriptionCollection(CrossTraderClient client)
+        public BitMexTradesSubscriptions(CrossTraderClient client)
             : base(client)
         {
         }

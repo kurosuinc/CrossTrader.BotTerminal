@@ -17,14 +17,14 @@ namespace CrossTrader.BotClient.BitFlyer
 
         #region ExecutionsService
 
-        private BitFlyerExecutionsSubscriptionCollection _ExecutionsSubscriptions;
+        private BitFlyerExecutionsSubscriptions _ExecutionsSubscriptions;
 
         public event EventHandler<CollectionReceivedEventArgs<BitFlyerExecution>> ExecutionsReceived;
 
         public event EventHandler<InstrumentIdErrorEventArgs> ExecutionsError;
 
-        internal BitFlyerExecutionsSubscriptionCollection ExecutionsSubscriptions
-            => _ExecutionsSubscriptions ?? (_ExecutionsSubscriptions = new BitFlyerExecutionsSubscriptionCollection(_Client));
+        internal BitFlyerExecutionsSubscriptions ExecutionsSubscriptions
+            => _ExecutionsSubscriptions ?? (_ExecutionsSubscriptions = new BitFlyerExecutionsSubscriptions(_Client));
 
         [Rpc(nameof(ExecutionsService))]
         public async Task SubscribeExecutionsAsync(int instrumentId, Func<int, CollectionReceivedEventArgs<BitFlyerExecution>, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)
