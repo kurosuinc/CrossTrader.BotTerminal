@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using CrossTrader.BotClient.BitFlyer;
+using CrossTrader.BotClient.BitMex;
 using CrossTrader.Models.Remoting;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
@@ -363,10 +364,23 @@ namespace CrossTrader.BotClient
 
         #endregion ExecutionsService
 
+        #region BitFlyer
+
         private BitFlyerClientPlugin _BitFlyer;
 
         public BitFlyerClientPlugin BitFlyer
             => _BitFlyer ?? (_BitFlyer = new BitFlyerClientPlugin(this));
+
+        #endregion BitFlyer
+
+        #region BitMex
+
+        private BitMexClientPlugin _BitMex;
+
+        public BitMexClientPlugin BitMex
+            => _BitMex ?? (_BitMex = new BitMexClientPlugin(this));
+
+        #endregion BitMex
 
         #region IDisposable Support
 
@@ -390,6 +404,9 @@ namespace CrossTrader.BotClient
 
                     _BitFlyer?.Dispose();
                     _BitFlyer = null;
+
+                    _BitMex?.Dispose();
+                    _BitMex = null;
 
                     lock (_Subscriptions)
                     {

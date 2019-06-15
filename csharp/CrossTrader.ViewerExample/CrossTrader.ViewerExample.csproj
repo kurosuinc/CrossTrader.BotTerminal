@@ -51,6 +51,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\BitMexTradesWindowViewModel.cs" />
     <Compile Include="ViewModels\BitFlyerExecutionsWindowViewModel.cs" />
     <Compile Include="ViewModels\Command.cs" />
     <Compile Include="ViewModels\ExecutionsWindowViewModel.cs" />
@@ -61,6 +62,9 @@
     <Compile Include="ViewModels\TickersWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WindowViewModelBase.cs" />
+    <Compile Include="Views\BitMexTradesWindow.xaml.cs">
+      <DependentUpon>BitMexTradesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CustomWindow.cs" />
     <Compile Include="Views\BitFlyerExecutionsWindow.xaml.cs">
       <DependentUpon>BitFlyerExecutionsWindow.xaml</DependentUpon>
@@ -81,6 +85,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BitMexTradesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\BitFlyerExecutionsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

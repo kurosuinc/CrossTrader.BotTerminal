@@ -47,5 +47,12 @@
                     Command="{Binding ShowBitFlyerExecutionsCommand}">Executions (bitFlyer)</Button>
             </StackPanel>
         </GroupBox>
+        <GroupBox
+            Header="BitMEX">
+            <StackPanel>
+                <Button
+                    Command="{Binding ShowBitMexTradesCommand}">Trades (BitMEX)</Button>
+            </StackPanel>
+        </GroupBox>
     </StackPanel>
 </v:CustomWindow>
