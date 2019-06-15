@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package crosstrader.bitmex;
+option csharp_namespace = "CrossTrader.Models.Remoting.BitMex";
+ 
+import "google/protobuf/timestamp.proto";
+import "common.proto"; 
+
+enum OrderType
+{
+    ORDER_TYPE_NONE = 0;
+    MARKET = 1;
+    LIMIT = 2;
+    STOP = 3;
+    STOP_LIMIT = 4;
+    MARKET_IF_TOUCHED = 5;
+    LIMIT_IF_TOUCHED = 6;
+    MARKET_WITH_LEFT_OVER_AS_LIMIT = 7;
+}
+enum TimeInForce {
+    TIME_IN_FORCE_NONE = 0;
+    GOOD_TILL_CANCEL = 1;
+    IMMEDIATE_OR_CANCEL = 2;
+    FILL_OR_KILL = 3;
+    DAY = 4;
+}
+enum OrderStatus {
+    ORDER_STATUS_NONE = 0;
+    NEW = 1;
+    PARTIALLY_FILLED = 2;
+    FILLED = 3;
+    CANCELED = 4;
+    REJECTED = 5;
+    EXPIRED = 6;
+}
+
+message OrderMessage {
+    string order_id = 1;
+    string clinet_order_id = 2;
+    string clinet_order_link_id = 3;
+    OrderSide side = 4;
+    double simple_order_quantity = 5;
+    double order_quantity = 6;
+    double price = 7;
+    double display_quantity = 8;
+    double stop_price = 9;
+    double peg_offset_value = 10;
+    string peg_price_type = 11;
+    OrderType order_type = 12;
+    TimeInForce time_in_force = 13;
+    string execution_instruction = 14;
+    // string contingency_type =;
+    // string ex_destination =;
+    OrderStatus order_status = 15;
+    // string triggered =;
+    // string workingIndicator
+    // string ordRejReason
+    double simple_leaves_quantity = 16;
+    double leaves_quantity = 17;
+    // SimpleCumQuantity
+    // CumQuantity
+    double average_price = 18;
+    // string multiLegReportingType
+    string text = 19;
+    google.protobuf.Timestamp transact_time = 20;
+    google.protobuf.Timestamp timestamp = 21;
+}
+
+message OrdersResponse {
+    ChangedAction action = 1;
+    repeated  OrderMessage orders = 2;
+}
+
+service OrdersService {
+    rpc SubscribeOrders(InstrumentIdRequest) returns (stream OrdersResponse);
+}
