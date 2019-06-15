@@ -18,6 +18,8 @@ namespace CrossTrader.ViewerExample.ViewModels
         public string ExchangeDisplayName => _Instrument.Exchange.DisplayName;
         public string Name => _Instrument.Name;
         public string DisplayName => _Instrument.DisplayName;
+        public bool CanGetTicker => _Instrument.CanGetTicker;
+        public bool CanSubscribeTicker => _Instrument.CanSubscribeTicker;
 
         private bool _IsSelected;
 

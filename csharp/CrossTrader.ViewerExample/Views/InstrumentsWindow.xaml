@@ -26,6 +26,10 @@
                 Orientation="Horizontal">
                 <Button
                     Command="{Binding RefreshTickersCommand}">Refresh</Button>
+                <Button
+                    Command="{Binding SubscribeTickersCommand}">Subscribe</Button>
+                <Button
+                    Command="{Binding UnsubscribeTickersCommand}">Unsubscribe</Button>
             </WrapPanel>
         </GroupBox>
         <DataGrid
@@ -33,10 +37,10 @@
             ItemsSource="{Binding Instruments}">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn
-                    Binding="{Binding IsSelected}">
+                    Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}">
                     <DataGridCheckBoxColumn.Header>
                         <CheckBox
-                            IsChecked="{Binding Source={StaticResource Dummy}, Path=Content.AllInstrumentsSelected}" />
+                            IsChecked="{Binding Source={StaticResource Dummy}, Path=Content.AllInstrumentsSelected, UpdateSourceTrigger=PropertyChanged}" />
                     </DataGridCheckBoxColumn.Header>
                 </DataGridCheckBoxColumn>
                 <DataGridTextColumn
@@ -55,6 +59,14 @@
                     Header="DisplayName"
                     IsReadOnly="True"
                     Binding="{Binding DisplayName}" />
+                <DataGridCheckBoxColumn
+                    Header="Get"
+                    IsReadOnly="True"
+                    Binding="{Binding CanGetTicker, Mode=OneTime}" />
+                <DataGridCheckBoxColumn
+                    Header="Subscribe"
+                    IsReadOnly="True"
+                    Binding="{Binding CanSubscribeTicker, Mode=OneTime}" />
                 <DataGridTextColumn
                     Header="BestBid"
                     IsReadOnly="True"

@@ -11,7 +11,11 @@ namespace CrossTrader.ViewerExample.ViewModels
     {
         internal InstrumentsWindowViewModel(CrossTraderClient client)
             : base(client)
-        { }
+        {
+            client.TickerReceived += Client_TickerReceived;
+            client.TickerError += Client_TickerError;
+        }
+
 
         #region Instruments
 
@@ -140,7 +144,7 @@ namespace CrossTrader.ViewerExample.ViewModels
                                 }
                                 else if (task.Exception != null)
                                 {
-                                    current.LastError = task.Exception?.Message;
+                                    current.LastError = (task.Exception?.GetBaseException() ?? task.Exception)?.Message;
                                 }
                             }
                         }
@@ -157,6 +161,60 @@ namespace CrossTrader.ViewerExample.ViewModels
             }));
 
         #endregion RefreshTickersCommand
+
+        #region SubscribeTickersCommand
+
+        private Command _SubscribeTickersCommand;
+
+        public Command SubscribeTickersCommand
+            => _SubscribeTickersCommand ?? (_SubscribeTickersCommand = Command.Create(() =>
+            {
+                foreach (var i in Instruments)
+                {
+                    if (i.IsSelected)
+                    {
+                        Client.SubscribeTicker(i.Id);
+                    }
+                }
+            }));
+
+        #endregion SubscribeTickersCommand
+
+        #region UnsubscribeTickersCommand
+
+        private Command _UnsubscribeTickersCommand;
+
+        public Command UnsubscribeTickersCommand
+            => _UnsubscribeTickersCommand ?? (_UnsubscribeTickersCommand = Command.Create(() =>
+            {
+                foreach (var i in Instruments)
+                {
+                    if (i.IsSelected)
+                    {
+                        Client.UnsubscribeTicker(i.Id);
+                    }
+                }
+            }));
+
+        #endregion UnsubscribeTickersCommand
+
+        private void Client_TickerReceived(object sender, ReceivedEventArgs<Ticker> e)
+        {
+            var i = Instruments.FirstOrDefault(m => m.Id == e.Data.InstrumentId);
+            if (i != null)
+            {
+                i.Set(e.Data);
+                i.LastError = null;
+            }
+        }
+        private void Client_TickerError(object sender, InstrumentIdErrorEventArgs e)
+        {
+            var i = Instruments.FirstOrDefault(m => m.Id == e.InstrumentId);
+            if (i != null)
+            {
+                i.LastError = (e.Exception.GetBaseException() ?? e.Exception).Message;
+            }
+        }
 
         protected override void Dispose(bool disposing)
             => Client.Dispose();

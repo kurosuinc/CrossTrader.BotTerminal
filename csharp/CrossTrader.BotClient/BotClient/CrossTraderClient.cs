@@ -243,6 +243,15 @@ namespace CrossTrader.BotClient
 
         #region TickerService
 
+        private TickerSubscriptionCollection _TickerSubscriptions;
+
+        public event EventHandler<ReceivedEventArgs<Ticker>> TickerReceived;
+
+        public event EventHandler<InstrumentIdErrorEventArgs> TickerError;
+
+        internal TickerSubscriptionCollection TickerSubscriptions
+            => _TickerSubscriptions ?? (_TickerSubscriptions = new TickerSubscriptionCollection(this));
+
         [Rpc(nameof(TickerService))]
         public async Task<Ticker> GetTickerAsync(int instrumentId, DateTime? deadline = null, CancellationToken cancellationToken = default)
         {
@@ -258,6 +267,44 @@ namespace CrossTrader.BotClient
             }
         }
 
+        [Rpc(nameof(TickerService))]
+        public async Task SubscribeTickerAsync(int instrumentId, Func<int, Ticker, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            using (var res = new TickerService.TickerServiceClient(Channel).SubscribeTicker(
+                                    new InstrumentIdRequest() { InstrumentId = instrumentId },
+                                    deadline: deadline,
+                                    cancellationToken: cancellationToken))
+            {
+                while (await res.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false)
+                        && !cancellationToken.IsCancellationRequested)
+                {
+                    var t = new Ticker(instrumentId, res.ResponseStream.Current);
+                    if (callback?.Invoke(instrumentId, t) != true)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void SubscribeTicker(int instrumentId)
+            => TickerSubscriptions.Subscribe(instrumentId);
+
+        public void UnsubscribeTicker(int instrumentId)
+            => TickerSubscriptions.Unsubscribe(instrumentId);
+
+        protected internal void RaiseTickerReceived(Ticker ticker)
+        {
+            if (ticker?.IsValid == true)
+            {
+                TickerReceived?.Invoke(this, new ReceivedEventArgs<Ticker>(ticker));
+            }
+        }
+
+        protected internal void RaiseTickerError(int instrumentId, Exception exception)
+            => TickerError?.Invoke(this, new InstrumentIdErrorEventArgs(instrumentId, exception));
+
         #endregion TickerService
 
         #region IDisposable Support
@@ -270,6 +317,11 @@ namespace CrossTrader.BotClient
             {
                 if (disposing)
                 {
+                    _TickerSubscriptions?.Dispose();
+                    _TickerSubscriptions = null;
+                    TickerReceived = null;
+                    TickerError = null;
+
                     lock (_Subscriptions)
                     {
                         _Subscriptions.Clear();
