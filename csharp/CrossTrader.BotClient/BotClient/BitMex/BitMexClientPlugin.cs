@@ -70,12 +70,72 @@ namespace CrossTrader.BotClient.BitMex
 
         #endregion TradesService
 
+        #region OrdersService
+
+        private BitMexOrdersSubscriptions _OrdersSubscriptions;
+
+        public event EventHandler<CollectionReceivedEventArgs<BitMexOrder>> OrdersReceived;
+
+        public event EventHandler<InstrumentIdErrorEventArgs> OrdersError;
+
+        internal BitMexOrdersSubscriptions OrdersSubscriptions
+            => _OrdersSubscriptions ?? (_OrdersSubscriptions = new BitMexOrdersSubscriptions(_Client));
+
+        [Rpc(nameof(OrdersService))]
+        public async Task SubscribeOrdersAsync(int instrumentId, Func<int, CollectionReceivedEventArgs<BitMexOrder>, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await _Client.OpenAsync().ConfigureAwait(false))
+            using (var res = new OrdersService.OrdersServiceClient(_Client.Channel).SubscribeOrders(
+                                    new Models.Remoting.InstrumentIdRequest() { InstrumentId = instrumentId },
+                                    deadline: deadline,
+                                    cancellationToken: cancellationToken))
+            {
+                while (await res.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false)
+                        && !cancellationToken.IsCancellationRequested)
+                {
+                    var c = res.ResponseStream.Current;
+                    var m = new CollectionReceivedEventArgs<BitMexOrder>(
+                        c.Action,
+                        c.Orders.Select(e => new BitMexOrder(instrumentId, e)).Where(e => e.IsValid));
+
+                    if (callback?.Invoke(instrumentId, m) != true)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void SubscribeOrders(int instrumentId)
+            => OrdersSubscriptions.Subscribe(instrumentId);
+
+        public void UnsubscribeOrders(int instrumentId)
+            => OrdersSubscriptions.Unsubscribe(instrumentId);
+
+        internal void RaiseOrdersReceived(CollectionReceivedEventArgs<BitMexOrder> e)
+        {
+            if (e?.Data?.Count > 0)
+            {
+                OrdersReceived?.Invoke(this, e);
+            }
+        }
+
+        internal void RaiseOrdersError(int instrumentId, Exception exception)
+            => OrdersError?.Invoke(this, new InstrumentIdErrorEventArgs(instrumentId, exception));
+
+        #endregion OrdersService
+
         public void Dispose()
         {
             _TradesSubscriptions?.Dispose();
             _TradesSubscriptions = null;
             TradesReceived = null;
             TradesError = null;
+
+            _OrdersSubscriptions?.Dispose();
+            _OrdersSubscriptions = null;
+            OrdersReceived = null;
+            OrdersError = null;
         }
     }
 }

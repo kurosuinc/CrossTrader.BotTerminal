@@ -188,5 +188,30 @@ namespace CrossTrader.ViewerExample.ViewModels
             }));
 
         #endregion ShowBitMexTradesCommand
+
+        #region ShowBitMexOrdersCommand
+
+        private Command _ShowBitMexOrdersCommand;
+
+        public ICommand ShowBitMexOrdersCommand
+            => _ShowBitMexOrdersCommand
+            ?? (_ShowBitMexOrdersCommand = Command.Create(() =>
+            {
+                var sd = Settings.Default;
+                sd.Host = _Host;
+                sd.Port = _Port;
+                sd.Save();
+
+                new BitMexOrdersWindow()
+                {
+                    DataContext = new BitMexOrdersWindowViewModel(new CrossTraderClient()
+                    {
+                        Host = _Host,
+                        Port = _Port
+                    })
+                }.Show();
+            }));
+
+        #endregion ShowBitMexOrdersCommand
     }
 }
