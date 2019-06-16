@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\.editorconfig = ..\.editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossTrader.InagoTakerBotExample", "CrossTrader.InagoTakerBotExample\CrossTrader.InagoTakerBotExample.csproj", "{EAFB629E-6F6D-436C-ADBB-2842379049EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{DF20F611-5742-44DF-8951-DACF355D080D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF20F611-5742-44DF-8951-DACF355D080D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF20F611-5742-44DF-8951-DACF355D080D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAFB629E-6F6D-436C-ADBB-2842379049EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAFB629E-6F6D-436C-ADBB-2842379049EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAFB629E-6F6D-436C-ADBB-2842379049EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAFB629E-6F6D-436C-ADBB-2842379049EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
