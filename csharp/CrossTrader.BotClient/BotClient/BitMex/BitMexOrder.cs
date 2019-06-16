@@ -14,7 +14,7 @@ namespace CrossTrader.BotClient.BitMex
             ClinetOrderLinkId = message.ClinetOrderLinkId.EmptyToNull();
             Side = message.Side.ToClientValue();
             SimpleOrderQuantity = message.SimpleOrderQuantity;
-            OrderQuantity = message.OrderQuantity;
+            OrderQuantity = message.OrderQuantity.PositiveOrNull();
             Price = message.Price.PositiveOrNull();
             DisplayQuantity = message.DisplayQuantity.PositiveOrNull();
             StopPrice = message.StopPrice.PositiveOrNull();
@@ -43,7 +43,7 @@ namespace CrossTrader.BotClient.BitMex
 
         public double SimpleOrderQuantity { get; }
 
-        public double OrderQuantity { get; }
+        public double? OrderQuantity { get; }
 
         public double? Price { get; }
 

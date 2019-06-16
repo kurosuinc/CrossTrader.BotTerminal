@@ -15,7 +15,7 @@ namespace CrossTrader.BotClient.BitFlyer
             ChildOrderType = message.ChildOrderType.ToClientValue();
             Price = message.Price.PositiveOrNull();
             AveragePrice = message.AveragePrice.PositiveOrNull();
-            Size = message.Size;
+            Size = message.Size.PositiveOrNull();
             ChildOrderState = message.ChildOrderState.ToClientValue();
             ExpireDate = message.ExpireDate.ToClientValue() ?? default;
             ChildOrderDate = message.ChildOrderDate.ToClientValue() ?? default;
@@ -34,7 +34,7 @@ namespace CrossTrader.BotClient.BitFlyer
         public BitFlyerChildOrderType ChildOrderType { get; }
         public double? Price { get; }
         public double? AveragePrice { get; }
-        public double Size { get; }
+        public double? Size { get; }
         public BitFlyerChildOrderState ChildOrderState { get; }
         public DateTimeOffset ExpireDate { get; }
         public DateTimeOffset ChildOrderDate { get; }
