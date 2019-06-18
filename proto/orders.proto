@@ -50,38 +50,33 @@ message PositionsMessage {
 // Ordering
 // Order request that can be requested for all exchanges.
 message MarketOrderRequest {
-    reserved 1;
+    int32 instrument_id = 1;
     OrderSide side = 2;
     double size = 3;
     // Requests with the same key are guaranteed to be executed at most once.
     string idempotency_key = 4;
-    int32 instrument_id = 5;
 }
 // Order request that can be requested for all exchanges.
 message LimitOrderRequest {
-    reserved 1;
+    int32 instrument_id = 6;
     OrderSide side = 2;
     double size = 3;
     double price = 4;
     // Requests with the same key are guaranteed to be executed at most once.
     string idempotency_key = 5;
-    int32 instrument_id = 6;
 }
 message OrderIdResponse {
-    reserved 1;
+    int32 instrument_id = 1;
     string order_id = 2;
-    int32 instrument_id = 3;
 }
 message OrderCancellationRequest {
-    reserved 1;
+    int32 instrument_id = 1;
     string order_id = 2;
-    int32 instrument_id = 3;
 }
 message EntireOrderCancellationRequest {
-    reserved 1;
+    int32 instrument_id = 1;
     // Requests with the same key are guaranteed to be executed at most once.
-    string idempotency_key = 5;
-    int32 instrument_id = 6;
+    string idempotency_key = 2;
 }
 message OrderCancellationResponse {
     string order_id = 1;
