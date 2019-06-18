@@ -50,37 +50,45 @@ message PositionsMessage {
 // Ordering
 // Order request that can be requested for all exchanges.
 message MarketOrderRequest {
-    InstrumentIdRequest instrument_id = 1;
+    reserved 1;
     OrderSide side = 2;
     double size = 3;
     // Requests with the same key are guaranteed to be executed at most once.
     string idempotency_key = 4;
+    int32 instrument_id = 5;
 }
 // Order request that can be requested for all exchanges.
 message LimitOrderRequest {
-    InstrumentIdRequest instrument_id = 1;
+    reserved 1;
     OrderSide side = 2;
     double size = 3;
     double price = 4;
     // Requests with the same key are guaranteed to be executed at most once.
     string idempotency_key = 5;
+    int32 instrument_id = 6;
 }
 message OrderIdResponse {
-    InstrumentIdRequest instrument_id = 1;
+    reserved 1;
     string order_id = 2;
+    int32 instrument_id = 3;
 }
 message OrderCancellationRequest {
-    InstrumentIdRequest instrument_id = 1;
+    reserved 1;
     string order_id = 2;
+    int32 instrument_id = 3;
 }
 message EntireOrderCancellationRequest {
-    InstrumentIdRequest instrument_id = 1;
+    reserved 1;
     // Requests with the same key are guaranteed to be executed at most once.
     string idempotency_key = 5;
+    int32 instrument_id = 6;
 }
 message OrderCancellationResponse {
     string order_id = 1;
     bool canceled = 2;
+}
+message EntireOrderCancellationResponse {
+    bool canceled = 1;
 }
 
 
@@ -88,16 +96,16 @@ message OrderCancellationResponse {
 
 service OrdersService {
     // Orders
-    rpc getOrders(OrdersRequest) returns (OrdersMessage);
-    rpc subscribeOrders(InstrumentIdRequest) returns (stream OrdersMessage);
+    rpc GetOrders(OrdersRequest) returns (OrdersMessage);
+    rpc SubscribeOrders(InstrumentIdRequest) returns (stream OrdersMessage);
 
     // Positions
-    rpc getPositions(InstrumentIdRequest) returns (PositionsMessage);
-    rpc subscribePositions(InstrumentIdRequest) returns (stream PositionsMessage);
+    rpc GetPositions(InstrumentIdRequest) returns (PositionsMessage);
+    rpc SubscribePositions(InstrumentIdRequest) returns (stream PositionsMessage);
 
     // Ordering
-    rpc marketOrder(MarketOrderRequest) returns (OrderIdResponse);
-    rpc limitOrder(LimitOrderRequest) returns (OrderIdResponse);
-    rpc cancelOrder(OrderCancellationRequest) returns (OrderCancellationResponse);
-    rpc cancelAllOrder(EntireOrderCancellationRequest) returns (stream OrderCancellationResponse);
+    rpc MarketOrder(MarketOrderRequest) returns (OrderIdResponse);
+    rpc LimitOrder(LimitOrderRequest) returns (OrderIdResponse);
+    rpc CancelOrder(OrderCancellationRequest) returns (OrderCancellationResponse);
+    rpc CancelAllOrders(EntireOrderCancellationRequest) returns (EntireOrderCancellationResponse);
 }
