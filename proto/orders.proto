@@ -62,8 +62,7 @@ message LimitOrderRequest {
     double price = 4;
 }
 message OrderIdResponse {
-    int32 instrument_id = 1;
-    string order_id = 2;
+    string order_id = 1;
 }
 message OrderCancellationRequest {
     int32 instrument_id = 1;
