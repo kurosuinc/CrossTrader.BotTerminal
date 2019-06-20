@@ -43,36 +43,34 @@ namespace CrossTrader.Models.Remoting {
             "KAESLQoJb3BlbmVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
             "dGFtcCJbChBQb3NpdGlvbnNNZXNzYWdlEhUKDWluc3RydW1lbnRfaWQYASAB",
             "KAUSMAoJcG9zaXRpb25zGAIgAygLMh0uY3Jvc3N0cmFkZXIuT3JkZXJJdGVt",
-            "TWVzc2FnZSJ4ChJNYXJrZXRPcmRlclJlcXVlc3QSFQoNaW5zdHJ1bWVudF9p",
+            "TWVzc2FnZSJfChJNYXJrZXRPcmRlclJlcXVlc3QSFQoNaW5zdHJ1bWVudF9p",
             "ZBgBIAEoBRIkCgRzaWRlGAIgASgOMhYuY3Jvc3N0cmFkZXIuT3JkZXJTaWRl",
-            "EgwKBHNpemUYAyABKAESFwoPaWRlbXBvdGVuY3lfa2V5GAQgASgJIoYBChFM",
-            "aW1pdE9yZGVyUmVxdWVzdBIVCg1pbnN0cnVtZW50X2lkGAYgASgFEiQKBHNp",
-            "ZGUYAiABKA4yFi5jcm9zc3RyYWRlci5PcmRlclNpZGUSDAoEc2l6ZRgDIAEo",
-            "ARINCgVwcmljZRgEIAEoARIXCg9pZGVtcG90ZW5jeV9rZXkYBSABKAkiOgoP",
-            "T3JkZXJJZFJlc3BvbnNlEhUKDWluc3RydW1lbnRfaWQYASABKAUSEAoIb3Jk",
-            "ZXJfaWQYAiABKAkiQwoYT3JkZXJDYW5jZWxsYXRpb25SZXF1ZXN0EhUKDWlu",
-            "c3RydW1lbnRfaWQYASABKAUSEAoIb3JkZXJfaWQYAiABKAkiUAoeRW50aXJl",
-            "T3JkZXJDYW5jZWxsYXRpb25SZXF1ZXN0EhUKDWluc3RydW1lbnRfaWQYASAB",
-            "KAUSFwoPaWRlbXBvdGVuY3lfa2V5GAIgASgJIj8KGU9yZGVyQ2FuY2VsbGF0",
-            "aW9uUmVzcG9uc2USEAoIb3JkZXJfaWQYASABKAkSEAoIY2FuY2VsZWQYAiAB",
-            "KAgiMwofRW50aXJlT3JkZXJDYW5jZWxsYXRpb25SZXNwb25zZRIQCghjYW5j",
-            "ZWxlZBgBIAEoCDK3BQoNT3JkZXJzU2VydmljZRJDCglHZXRPcmRlcnMSGi5j",
-            "cm9zc3RyYWRlci5PcmRlcnNSZXF1ZXN0GhouY3Jvc3N0cmFkZXIuT3JkZXJz",
-            "TWVzc2FnZRJRCg9TdWJzY3JpYmVPcmRlcnMSIC5jcm9zc3RyYWRlci5JbnN0",
-            "cnVtZW50SWRSZXF1ZXN0GhouY3Jvc3N0cmFkZXIuT3JkZXJzTWVzc2FnZTAB",
-            "Ek8KDEdldFBvc2l0aW9ucxIgLmNyb3NzdHJhZGVyLkluc3RydW1lbnRJZFJl",
-            "cXVlc3QaHS5jcm9zc3RyYWRlci5Qb3NpdGlvbnNNZXNzYWdlElcKElN1YnNj",
-            "cmliZVBvc2l0aW9ucxIgLmNyb3NzdHJhZGVyLkluc3RydW1lbnRJZFJlcXVl",
-            "c3QaHS5jcm9zc3RyYWRlci5Qb3NpdGlvbnNNZXNzYWdlMAESTAoLTWFya2V0",
-            "T3JkZXISHy5jcm9zc3RyYWRlci5NYXJrZXRPcmRlclJlcXVlc3QaHC5jcm9z",
-            "c3RyYWRlci5PcmRlcklkUmVzcG9uc2USSgoKTGltaXRPcmRlchIeLmNyb3Nz",
-            "dHJhZGVyLkxpbWl0T3JkZXJSZXF1ZXN0GhwuY3Jvc3N0cmFkZXIuT3JkZXJJ",
-            "ZFJlc3BvbnNlElwKC0NhbmNlbE9yZGVyEiUuY3Jvc3N0cmFkZXIuT3JkZXJD",
-            "YW5jZWxsYXRpb25SZXF1ZXN0GiYuY3Jvc3N0cmFkZXIuT3JkZXJDYW5jZWxs",
-            "YXRpb25SZXNwb25zZRJsCg9DYW5jZWxBbGxPcmRlcnMSKy5jcm9zc3RyYWRl",
-            "ci5FbnRpcmVPcmRlckNhbmNlbGxhdGlvblJlcXVlc3QaLC5jcm9zc3RyYWRl",
-            "ci5FbnRpcmVPcmRlckNhbmNlbGxhdGlvblJlc3BvbnNlQh6qAhtDcm9zc1Ry",
-            "YWRlci5Nb2RlbHMuUmVtb3RpbmdiBnByb3RvMw=="));
+            "EgwKBHNpemUYAyABKAEibQoRTGltaXRPcmRlclJlcXVlc3QSFQoNaW5zdHJ1",
+            "bWVudF9pZBgGIAEoBRIkCgRzaWRlGAIgASgOMhYuY3Jvc3N0cmFkZXIuT3Jk",
+            "ZXJTaWRlEgwKBHNpemUYAyABKAESDQoFcHJpY2UYBCABKAEiOgoPT3JkZXJJ",
+            "ZFJlc3BvbnNlEhUKDWluc3RydW1lbnRfaWQYASABKAUSEAoIb3JkZXJfaWQY",
+            "AiABKAkiQwoYT3JkZXJDYW5jZWxsYXRpb25SZXF1ZXN0EhUKDWluc3RydW1l",
+            "bnRfaWQYASABKAUSEAoIb3JkZXJfaWQYAiABKAkiNwoeRW50aXJlT3JkZXJD",
+            "YW5jZWxsYXRpb25SZXF1ZXN0EhUKDWluc3RydW1lbnRfaWQYASABKAUiPwoZ",
+            "T3JkZXJDYW5jZWxsYXRpb25SZXNwb25zZRIQCghvcmRlcl9pZBgBIAEoCRIQ",
+            "CghjYW5jZWxlZBgCIAEoCCIzCh9FbnRpcmVPcmRlckNhbmNlbGxhdGlvblJl",
+            "c3BvbnNlEhAKCGNhbmNlbGVkGAEgASgIMrcFCg1PcmRlcnNTZXJ2aWNlEkMK",
+            "CUdldE9yZGVycxIaLmNyb3NzdHJhZGVyLk9yZGVyc1JlcXVlc3QaGi5jcm9z",
+            "c3RyYWRlci5PcmRlcnNNZXNzYWdlElEKD1N1YnNjcmliZU9yZGVycxIgLmNy",
+            "b3NzdHJhZGVyLkluc3RydW1lbnRJZFJlcXVlc3QaGi5jcm9zc3RyYWRlci5P",
+            "cmRlcnNNZXNzYWdlMAESTwoMR2V0UG9zaXRpb25zEiAuY3Jvc3N0cmFkZXIu",
+            "SW5zdHJ1bWVudElkUmVxdWVzdBodLmNyb3NzdHJhZGVyLlBvc2l0aW9uc01l",
+            "c3NhZ2USVwoSU3Vic2NyaWJlUG9zaXRpb25zEiAuY3Jvc3N0cmFkZXIuSW5z",
+            "dHJ1bWVudElkUmVxdWVzdBodLmNyb3NzdHJhZGVyLlBvc2l0aW9uc01lc3Nh",
+            "Z2UwARJMCgtNYXJrZXRPcmRlchIfLmNyb3NzdHJhZGVyLk1hcmtldE9yZGVy",
+            "UmVxdWVzdBocLmNyb3NzdHJhZGVyLk9yZGVySWRSZXNwb25zZRJKCgpMaW1p",
+            "dE9yZGVyEh4uY3Jvc3N0cmFkZXIuTGltaXRPcmRlclJlcXVlc3QaHC5jcm9z",
+            "c3RyYWRlci5PcmRlcklkUmVzcG9uc2USXAoLQ2FuY2VsT3JkZXISJS5jcm9z",
+            "c3RyYWRlci5PcmRlckNhbmNlbGxhdGlvblJlcXVlc3QaJi5jcm9zc3RyYWRl",
+            "ci5PcmRlckNhbmNlbGxhdGlvblJlc3BvbnNlEmwKD0NhbmNlbEFsbE9yZGVy",
+            "cxIrLmNyb3NzdHJhZGVyLkVudGlyZU9yZGVyQ2FuY2VsbGF0aW9uUmVxdWVz",
+            "dBosLmNyb3NzdHJhZGVyLkVudGlyZU9yZGVyQ2FuY2VsbGF0aW9uUmVzcG9u",
+            "c2VCHqoCG0Nyb3NzVHJhZGVyLk1vZGVscy5SZW1vdGluZ2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -81,11 +79,11 @@ namespace CrossTrader.Models.Remoting {
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrdersMessage), global::CrossTrader.Models.Remoting.OrdersMessage.Parser, new[]{ "InstrumentId", "Orders" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionItemMessage), global::CrossTrader.Models.Remoting.PositionItemMessage.Parser, new[]{ "Side", "Price", "Size", "OpenedAt" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionsMessage), global::CrossTrader.Models.Remoting.PositionsMessage.Parser, new[]{ "InstrumentId", "Positions" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.MarketOrderRequest), global::CrossTrader.Models.Remoting.MarketOrderRequest.Parser, new[]{ "InstrumentId", "Side", "Size", "IdempotencyKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.LimitOrderRequest), global::CrossTrader.Models.Remoting.LimitOrderRequest.Parser, new[]{ "InstrumentId", "Side", "Size", "Price", "IdempotencyKey" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.MarketOrderRequest), global::CrossTrader.Models.Remoting.MarketOrderRequest.Parser, new[]{ "InstrumentId", "Side", "Size" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.LimitOrderRequest), global::CrossTrader.Models.Remoting.LimitOrderRequest.Parser, new[]{ "InstrumentId", "Side", "Size", "Price" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderIdResponse), global::CrossTrader.Models.Remoting.OrderIdResponse.Parser, new[]{ "InstrumentId", "OrderId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderCancellationRequest), global::CrossTrader.Models.Remoting.OrderCancellationRequest.Parser, new[]{ "InstrumentId", "OrderId" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest), global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest.Parser, new[]{ "InstrumentId", "IdempotencyKey" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest), global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest.Parser, new[]{ "InstrumentId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderCancellationResponse), global::CrossTrader.Models.Remoting.OrderCancellationResponse.Parser, new[]{ "OrderId", "Canceled" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.EntireOrderCancellationResponse), global::CrossTrader.Models.Remoting.EntireOrderCancellationResponse.Parser, new[]{ "Canceled" }, null, null, null)
           }));
@@ -1261,7 +1259,6 @@ namespace CrossTrader.Models.Remoting {
       instrumentId_ = other.instrumentId_;
       side_ = other.side_;
       size_ = other.size_;
-      idempotencyKey_ = other.idempotencyKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1303,20 +1300,6 @@ namespace CrossTrader.Models.Remoting {
       }
     }
 
-    /// <summary>Field number for the "idempotency_key" field.</summary>
-    public const int IdempotencyKeyFieldNumber = 4;
-    private string idempotencyKey_ = "";
-    /// <summary>
-    /// Requests with the same key are guaranteed to be executed at most once.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string IdempotencyKey {
-      get { return idempotencyKey_; }
-      set {
-        idempotencyKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as MarketOrderRequest);
@@ -1333,7 +1316,6 @@ namespace CrossTrader.Models.Remoting {
       if (InstrumentId != other.InstrumentId) return false;
       if (Side != other.Side) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Size, other.Size)) return false;
-      if (IdempotencyKey != other.IdempotencyKey) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1343,7 +1325,6 @@ namespace CrossTrader.Models.Remoting {
       if (InstrumentId != 0) hash ^= InstrumentId.GetHashCode();
       if (Side != 0) hash ^= Side.GetHashCode();
       if (Size != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Size);
-      if (IdempotencyKey.Length != 0) hash ^= IdempotencyKey.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1369,10 +1350,6 @@ namespace CrossTrader.Models.Remoting {
         output.WriteRawTag(25);
         output.WriteDouble(Size);
       }
-      if (IdempotencyKey.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(IdempotencyKey);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1389,9 +1366,6 @@ namespace CrossTrader.Models.Remoting {
       }
       if (Size != 0D) {
         size += 1 + 8;
-      }
-      if (IdempotencyKey.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(IdempotencyKey);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1412,9 +1386,6 @@ namespace CrossTrader.Models.Remoting {
       }
       if (other.Size != 0D) {
         Size = other.Size;
-      }
-      if (other.IdempotencyKey.Length != 0) {
-        IdempotencyKey = other.IdempotencyKey;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1437,10 +1408,6 @@ namespace CrossTrader.Models.Remoting {
           }
           case 25: {
             Size = input.ReadDouble();
-            break;
-          }
-          case 34: {
-            IdempotencyKey = input.ReadString();
             break;
           }
         }
@@ -1481,7 +1448,6 @@ namespace CrossTrader.Models.Remoting {
       side_ = other.side_;
       size_ = other.size_;
       price_ = other.price_;
-      idempotencyKey_ = other.idempotencyKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1534,20 +1500,6 @@ namespace CrossTrader.Models.Remoting {
       }
     }
 
-    /// <summary>Field number for the "idempotency_key" field.</summary>
-    public const int IdempotencyKeyFieldNumber = 5;
-    private string idempotencyKey_ = "";
-    /// <summary>
-    /// Requests with the same key are guaranteed to be executed at most once.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string IdempotencyKey {
-      get { return idempotencyKey_; }
-      set {
-        idempotencyKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as LimitOrderRequest);
@@ -1565,7 +1517,6 @@ namespace CrossTrader.Models.Remoting {
       if (Side != other.Side) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Size, other.Size)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
-      if (IdempotencyKey != other.IdempotencyKey) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1576,7 +1527,6 @@ namespace CrossTrader.Models.Remoting {
       if (Side != 0) hash ^= Side.GetHashCode();
       if (Size != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Size);
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
-      if (IdempotencyKey.Length != 0) hash ^= IdempotencyKey.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1602,10 +1552,6 @@ namespace CrossTrader.Models.Remoting {
         output.WriteRawTag(33);
         output.WriteDouble(Price);
       }
-      if (IdempotencyKey.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(IdempotencyKey);
-      }
       if (InstrumentId != 0) {
         output.WriteRawTag(48);
         output.WriteInt32(InstrumentId);
@@ -1630,9 +1576,6 @@ namespace CrossTrader.Models.Remoting {
       if (Price != 0D) {
         size += 1 + 8;
       }
-      if (IdempotencyKey.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(IdempotencyKey);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1656,9 +1599,6 @@ namespace CrossTrader.Models.Remoting {
       if (other.Price != 0D) {
         Price = other.Price;
       }
-      if (other.IdempotencyKey.Length != 0) {
-        IdempotencyKey = other.IdempotencyKey;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1680,10 +1620,6 @@ namespace CrossTrader.Models.Remoting {
           }
           case 33: {
             Price = input.ReadDouble();
-            break;
-          }
-          case 42: {
-            IdempotencyKey = input.ReadString();
             break;
           }
           case 48: {
@@ -2036,7 +1972,6 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public EntireOrderCancellationRequest(EntireOrderCancellationRequest other) : this() {
       instrumentId_ = other.instrumentId_;
-      idempotencyKey_ = other.idempotencyKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2056,20 +1991,6 @@ namespace CrossTrader.Models.Remoting {
       }
     }
 
-    /// <summary>Field number for the "idempotency_key" field.</summary>
-    public const int IdempotencyKeyFieldNumber = 2;
-    private string idempotencyKey_ = "";
-    /// <summary>
-    /// Requests with the same key are guaranteed to be executed at most once.
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string IdempotencyKey {
-      get { return idempotencyKey_; }
-      set {
-        idempotencyKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as EntireOrderCancellationRequest);
@@ -2084,7 +2005,6 @@ namespace CrossTrader.Models.Remoting {
         return true;
       }
       if (InstrumentId != other.InstrumentId) return false;
-      if (IdempotencyKey != other.IdempotencyKey) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2092,7 +2012,6 @@ namespace CrossTrader.Models.Remoting {
     public override int GetHashCode() {
       int hash = 1;
       if (InstrumentId != 0) hash ^= InstrumentId.GetHashCode();
-      if (IdempotencyKey.Length != 0) hash ^= IdempotencyKey.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2110,10 +2029,6 @@ namespace CrossTrader.Models.Remoting {
         output.WriteRawTag(8);
         output.WriteInt32(InstrumentId);
       }
-      if (IdempotencyKey.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(IdempotencyKey);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2124,9 +2039,6 @@ namespace CrossTrader.Models.Remoting {
       int size = 0;
       if (InstrumentId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(InstrumentId);
-      }
-      if (IdempotencyKey.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(IdempotencyKey);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2142,9 +2054,6 @@ namespace CrossTrader.Models.Remoting {
       if (other.InstrumentId != 0) {
         InstrumentId = other.InstrumentId;
       }
-      if (other.IdempotencyKey.Length != 0) {
-        IdempotencyKey = other.IdempotencyKey;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -2158,10 +2067,6 @@ namespace CrossTrader.Models.Remoting {
             break;
           case 8: {
             InstrumentId = input.ReadInt32();
-            break;
-          }
-          case 18: {
-            IdempotencyKey = input.ReadString();
             break;
           }
         }
