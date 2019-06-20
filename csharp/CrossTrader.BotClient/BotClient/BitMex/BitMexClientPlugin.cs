@@ -125,6 +125,61 @@ namespace CrossTrader.BotClient.BitMex
 
         #endregion OrdersService
 
+        #region PositionsService
+
+        private BitMexPositionsSubscriptions _PositionsSubscriptions;
+
+        public event EventHandler<CollectionReceivedEventArgs<BitMexPosition>> PositionsReceived;
+
+        public event EventHandler<InstrumentIdErrorEventArgs> PositionsError;
+
+        internal BitMexPositionsSubscriptions PositionsSubscriptions
+            => _PositionsSubscriptions ?? (_PositionsSubscriptions = new BitMexPositionsSubscriptions(_Client));
+
+        [Rpc(nameof(PositionsService))]
+        public async Task SubscribePositionsAsync(int instrumentId, Func<int, CollectionReceivedEventArgs<BitMexPosition>, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await _Client.OpenAsync().ConfigureAwait(false))
+            using (var res = new PositionsService.PositionsServiceClient(_Client.Channel).SubscribePositions(
+                                    new Models.Remoting.InstrumentIdRequest() { InstrumentId = instrumentId },
+                                    deadline: deadline,
+                                    cancellationToken: cancellationToken))
+            {
+                while (await res.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false)
+                        && !cancellationToken.IsCancellationRequested)
+                {
+                    var c = res.ResponseStream.Current;
+                    var m = new CollectionReceivedEventArgs<BitMexPosition>(
+                        c.Action,
+                        c.Positions.Select(e => new BitMexPosition(instrumentId, e)).Where(e => e.IsValid));
+
+                    if (callback?.Invoke(instrumentId, m) != true)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void SubscribePositions(int instrumentId)
+            => PositionsSubscriptions.Subscribe(instrumentId);
+
+        public void UnsubscribePositions(int instrumentId)
+            => PositionsSubscriptions.Unsubscribe(instrumentId);
+
+        internal void RaisePositionsReceived(CollectionReceivedEventArgs<BitMexPosition> e)
+        {
+            if (e?.Data?.Count > 0)
+            {
+                PositionsReceived?.Invoke(this, e);
+            }
+        }
+
+        internal void RaisePositionsError(int instrumentId, Exception exception)
+            => PositionsError?.Invoke(this, new InstrumentIdErrorEventArgs(instrumentId, exception));
+
+        #endregion PositionsService
+
         public void Dispose()
         {
             _TradesSubscriptions?.Dispose();
@@ -136,6 +191,11 @@ namespace CrossTrader.BotClient.BitMex
             _OrdersSubscriptions = null;
             OrdersReceived = null;
             OrdersError = null;
+
+            _PositionsSubscriptions?.Dispose();
+            _PositionsSubscriptions = null;
+            PositionsReceived = null;
+            PositionsError = null;
         }
     }
 }
