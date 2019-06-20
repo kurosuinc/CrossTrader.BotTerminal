@@ -213,5 +213,30 @@ namespace CrossTrader.ViewerExample.ViewModels
             }));
 
         #endregion ShowBitMexOrdersCommand
+
+        #region ShowBitMexPositionsCommand
+
+        private Command _ShowBitMexPositionsCommand;
+
+        public ICommand ShowBitMexPositionsCommand
+            => _ShowBitMexPositionsCommand
+            ?? (_ShowBitMexPositionsCommand = Command.Create(() =>
+            {
+                var sd = Settings.Default;
+                sd.Host = _Host;
+                sd.Port = _Port;
+                sd.Save();
+
+                new BitMexPositionsWindow()
+                {
+                    DataContext = new BitMexPositionsWindowViewModel(new CrossTraderClient()
+                    {
+                        Host = _Host,
+                        Port = _Port
+                    })
+                }.Show();
+            }));
+
+        #endregion ShowBitMexPositionsCommand
     }
 }

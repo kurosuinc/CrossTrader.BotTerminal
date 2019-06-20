@@ -43,39 +43,36 @@ namespace CrossTrader.Models.Remoting {
             "KAESLQoJb3BlbmVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVz",
             "dGFtcCJbChBQb3NpdGlvbnNNZXNzYWdlEhUKDWluc3RydW1lbnRfaWQYASAB",
             "KAUSMAoJcG9zaXRpb25zGAIgAygLMh0uY3Jvc3N0cmFkZXIuT3JkZXJJdGVt",
-            "TWVzc2FnZSKaAQoSTWFya2V0T3JkZXJSZXF1ZXN0EjcKDWluc3RydW1lbnRf",
-            "aWQYASABKAsyIC5jcm9zc3RyYWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0EiQK",
-            "BHNpZGUYAiABKA4yFi5jcm9zc3RyYWRlci5PcmRlclNpZGUSDAoEc2l6ZRgD",
-            "IAEoARIXCg9pZGVtcG90ZW5jeV9rZXkYBCABKAkiqAEKEUxpbWl0T3JkZXJS",
-            "ZXF1ZXN0EjcKDWluc3RydW1lbnRfaWQYASABKAsyIC5jcm9zc3RyYWRlci5J",
-            "bnN0cnVtZW50SWRSZXF1ZXN0EiQKBHNpZGUYAiABKA4yFi5jcm9zc3RyYWRl",
-            "ci5PcmRlclNpZGUSDAoEc2l6ZRgDIAEoARINCgVwcmljZRgEIAEoARIXCg9p",
-            "ZGVtcG90ZW5jeV9rZXkYBSABKAkiXAoPT3JkZXJJZFJlc3BvbnNlEjcKDWlu",
-            "c3RydW1lbnRfaWQYASABKAsyIC5jcm9zc3RyYWRlci5JbnN0cnVtZW50SWRS",
-            "ZXF1ZXN0EhAKCG9yZGVyX2lkGAIgASgJImUKGE9yZGVyQ2FuY2VsbGF0aW9u",
-            "UmVxdWVzdBI3Cg1pbnN0cnVtZW50X2lkGAEgASgLMiAuY3Jvc3N0cmFkZXIu",
-            "SW5zdHJ1bWVudElkUmVxdWVzdBIQCghvcmRlcl9pZBgCIAEoCSJyCh5FbnRp",
-            "cmVPcmRlckNhbmNlbGxhdGlvblJlcXVlc3QSNwoNaW5zdHJ1bWVudF9pZBgB",
-            "IAEoCzIgLmNyb3NzdHJhZGVyLkluc3RydW1lbnRJZFJlcXVlc3QSFwoPaWRl",
-            "bXBvdGVuY3lfa2V5GAUgASgJIj8KGU9yZGVyQ2FuY2VsbGF0aW9uUmVzcG9u",
-            "c2USEAoIb3JkZXJfaWQYASABKAkSEAoIY2FuY2VsZWQYAiABKAgysgUKDU9y",
-            "ZGVyc1NlcnZpY2USQwoJZ2V0T3JkZXJzEhouY3Jvc3N0cmFkZXIuT3JkZXJz",
-            "UmVxdWVzdBoaLmNyb3NzdHJhZGVyLk9yZGVyc01lc3NhZ2USUQoPc3Vic2Ny",
-            "aWJlT3JkZXJzEiAuY3Jvc3N0cmFkZXIuSW5zdHJ1bWVudElkUmVxdWVzdBoa",
-            "LmNyb3NzdHJhZGVyLk9yZGVyc01lc3NhZ2UwARJPCgxnZXRQb3NpdGlvbnMS",
-            "IC5jcm9zc3RyYWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0Gh0uY3Jvc3N0cmFk",
-            "ZXIuUG9zaXRpb25zTWVzc2FnZRJXChJzdWJzY3JpYmVQb3NpdGlvbnMSIC5j",
-            "cm9zc3RyYWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0Gh0uY3Jvc3N0cmFkZXIu",
-            "UG9zaXRpb25zTWVzc2FnZTABEkwKC21hcmtldE9yZGVyEh8uY3Jvc3N0cmFk",
-            "ZXIuTWFya2V0T3JkZXJSZXF1ZXN0GhwuY3Jvc3N0cmFkZXIuT3JkZXJJZFJl",
-            "c3BvbnNlEkoKCmxpbWl0T3JkZXISHi5jcm9zc3RyYWRlci5MaW1pdE9yZGVy",
-            "UmVxdWVzdBocLmNyb3NzdHJhZGVyLk9yZGVySWRSZXNwb25zZRJcCgtjYW5j",
-            "ZWxPcmRlchIlLmNyb3NzdHJhZGVyLk9yZGVyQ2FuY2VsbGF0aW9uUmVxdWVz",
-            "dBomLmNyb3NzdHJhZGVyLk9yZGVyQ2FuY2VsbGF0aW9uUmVzcG9uc2USZwoO",
-            "Y2FuY2VsQWxsT3JkZXISKy5jcm9zc3RyYWRlci5FbnRpcmVPcmRlckNhbmNl",
-            "bGxhdGlvblJlcXVlc3QaJi5jcm9zc3RyYWRlci5PcmRlckNhbmNlbGxhdGlv",
-            "blJlc3BvbnNlMAFCHqoCG0Nyb3NzVHJhZGVyLk1vZGVscy5SZW1vdGluZ2IG",
-            "cHJvdG8z"));
+            "TWVzc2FnZSJ4ChJNYXJrZXRPcmRlclJlcXVlc3QSFQoNaW5zdHJ1bWVudF9p",
+            "ZBgBIAEoBRIkCgRzaWRlGAIgASgOMhYuY3Jvc3N0cmFkZXIuT3JkZXJTaWRl",
+            "EgwKBHNpemUYAyABKAESFwoPaWRlbXBvdGVuY3lfa2V5GAQgASgJIoYBChFM",
+            "aW1pdE9yZGVyUmVxdWVzdBIVCg1pbnN0cnVtZW50X2lkGAYgASgFEiQKBHNp",
+            "ZGUYAiABKA4yFi5jcm9zc3RyYWRlci5PcmRlclNpZGUSDAoEc2l6ZRgDIAEo",
+            "ARINCgVwcmljZRgEIAEoARIXCg9pZGVtcG90ZW5jeV9rZXkYBSABKAkiOgoP",
+            "T3JkZXJJZFJlc3BvbnNlEhUKDWluc3RydW1lbnRfaWQYASABKAUSEAoIb3Jk",
+            "ZXJfaWQYAiABKAkiQwoYT3JkZXJDYW5jZWxsYXRpb25SZXF1ZXN0EhUKDWlu",
+            "c3RydW1lbnRfaWQYASABKAUSEAoIb3JkZXJfaWQYAiABKAkiUAoeRW50aXJl",
+            "T3JkZXJDYW5jZWxsYXRpb25SZXF1ZXN0EhUKDWluc3RydW1lbnRfaWQYASAB",
+            "KAUSFwoPaWRlbXBvdGVuY3lfa2V5GAIgASgJIj8KGU9yZGVyQ2FuY2VsbGF0",
+            "aW9uUmVzcG9uc2USEAoIb3JkZXJfaWQYASABKAkSEAoIY2FuY2VsZWQYAiAB",
+            "KAgiMwofRW50aXJlT3JkZXJDYW5jZWxsYXRpb25SZXNwb25zZRIQCghjYW5j",
+            "ZWxlZBgBIAEoCDK3BQoNT3JkZXJzU2VydmljZRJDCglHZXRPcmRlcnMSGi5j",
+            "cm9zc3RyYWRlci5PcmRlcnNSZXF1ZXN0GhouY3Jvc3N0cmFkZXIuT3JkZXJz",
+            "TWVzc2FnZRJRCg9TdWJzY3JpYmVPcmRlcnMSIC5jcm9zc3RyYWRlci5JbnN0",
+            "cnVtZW50SWRSZXF1ZXN0GhouY3Jvc3N0cmFkZXIuT3JkZXJzTWVzc2FnZTAB",
+            "Ek8KDEdldFBvc2l0aW9ucxIgLmNyb3NzdHJhZGVyLkluc3RydW1lbnRJZFJl",
+            "cXVlc3QaHS5jcm9zc3RyYWRlci5Qb3NpdGlvbnNNZXNzYWdlElcKElN1YnNj",
+            "cmliZVBvc2l0aW9ucxIgLmNyb3NzdHJhZGVyLkluc3RydW1lbnRJZFJlcXVl",
+            "c3QaHS5jcm9zc3RyYWRlci5Qb3NpdGlvbnNNZXNzYWdlMAESTAoLTWFya2V0",
+            "T3JkZXISHy5jcm9zc3RyYWRlci5NYXJrZXRPcmRlclJlcXVlc3QaHC5jcm9z",
+            "c3RyYWRlci5PcmRlcklkUmVzcG9uc2USSgoKTGltaXRPcmRlchIeLmNyb3Nz",
+            "dHJhZGVyLkxpbWl0T3JkZXJSZXF1ZXN0GhwuY3Jvc3N0cmFkZXIuT3JkZXJJ",
+            "ZFJlc3BvbnNlElwKC0NhbmNlbE9yZGVyEiUuY3Jvc3N0cmFkZXIuT3JkZXJD",
+            "YW5jZWxsYXRpb25SZXF1ZXN0GiYuY3Jvc3N0cmFkZXIuT3JkZXJDYW5jZWxs",
+            "YXRpb25SZXNwb25zZRJsCg9DYW5jZWxBbGxPcmRlcnMSKy5jcm9zc3RyYWRl",
+            "ci5FbnRpcmVPcmRlckNhbmNlbGxhdGlvblJlcXVlc3QaLC5jcm9zc3RyYWRl",
+            "ci5FbnRpcmVPcmRlckNhbmNlbGxhdGlvblJlc3BvbnNlQh6qAhtDcm9zc1Ry",
+            "YWRlci5Nb2RlbHMuUmVtb3RpbmdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -89,7 +86,8 @@ namespace CrossTrader.Models.Remoting {
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderIdResponse), global::CrossTrader.Models.Remoting.OrderIdResponse.Parser, new[]{ "InstrumentId", "OrderId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderCancellationRequest), global::CrossTrader.Models.Remoting.OrderCancellationRequest.Parser, new[]{ "InstrumentId", "OrderId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest), global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest.Parser, new[]{ "InstrumentId", "IdempotencyKey" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderCancellationResponse), global::CrossTrader.Models.Remoting.OrderCancellationResponse.Parser, new[]{ "OrderId", "Canceled" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderCancellationResponse), global::CrossTrader.Models.Remoting.OrderCancellationResponse.Parser, new[]{ "OrderId", "Canceled" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.EntireOrderCancellationResponse), global::CrossTrader.Models.Remoting.EntireOrderCancellationResponse.Parser, new[]{ "Canceled" }, null, null, null)
           }));
     }
     #endregion
@@ -1260,7 +1258,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public MarketOrderRequest(MarketOrderRequest other) : this() {
-      instrumentId_ = other.instrumentId_ != null ? other.instrumentId_.Clone() : null;
+      instrumentId_ = other.instrumentId_;
       side_ = other.side_;
       size_ = other.size_;
       idempotencyKey_ = other.idempotencyKey_;
@@ -1274,9 +1272,9 @@ namespace CrossTrader.Models.Remoting {
 
     /// <summary>Field number for the "instrument_id" field.</summary>
     public const int InstrumentIdFieldNumber = 1;
-    private global::CrossTrader.Models.Remoting.InstrumentIdRequest instrumentId_;
+    private int instrumentId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::CrossTrader.Models.Remoting.InstrumentIdRequest InstrumentId {
+    public int InstrumentId {
       get { return instrumentId_; }
       set {
         instrumentId_ = value;
@@ -1332,7 +1330,7 @@ namespace CrossTrader.Models.Remoting {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(InstrumentId, other.InstrumentId)) return false;
+      if (InstrumentId != other.InstrumentId) return false;
       if (Side != other.Side) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Size, other.Size)) return false;
       if (IdempotencyKey != other.IdempotencyKey) return false;
@@ -1342,7 +1340,7 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (instrumentId_ != null) hash ^= InstrumentId.GetHashCode();
+      if (InstrumentId != 0) hash ^= InstrumentId.GetHashCode();
       if (Side != 0) hash ^= Side.GetHashCode();
       if (Size != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Size);
       if (IdempotencyKey.Length != 0) hash ^= IdempotencyKey.GetHashCode();
@@ -1359,9 +1357,9 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (instrumentId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(InstrumentId);
+      if (InstrumentId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(InstrumentId);
       }
       if (Side != 0) {
         output.WriteRawTag(16);
@@ -1383,8 +1381,8 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (instrumentId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(InstrumentId);
+      if (InstrumentId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(InstrumentId);
       }
       if (Side != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Side);
@@ -1406,11 +1404,8 @@ namespace CrossTrader.Models.Remoting {
       if (other == null) {
         return;
       }
-      if (other.instrumentId_ != null) {
-        if (instrumentId_ == null) {
-          InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-        }
-        InstrumentId.MergeFrom(other.InstrumentId);
+      if (other.InstrumentId != 0) {
+        InstrumentId = other.InstrumentId;
       }
       if (other.Side != 0) {
         Side = other.Side;
@@ -1432,11 +1427,8 @@ namespace CrossTrader.Models.Remoting {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (instrumentId_ == null) {
-              InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-            }
-            input.ReadMessage(InstrumentId);
+          case 8: {
+            InstrumentId = input.ReadInt32();
             break;
           }
           case 16: {
@@ -1485,7 +1477,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LimitOrderRequest(LimitOrderRequest other) : this() {
-      instrumentId_ = other.instrumentId_ != null ? other.instrumentId_.Clone() : null;
+      instrumentId_ = other.instrumentId_;
       side_ = other.side_;
       size_ = other.size_;
       price_ = other.price_;
@@ -1499,10 +1491,10 @@ namespace CrossTrader.Models.Remoting {
     }
 
     /// <summary>Field number for the "instrument_id" field.</summary>
-    public const int InstrumentIdFieldNumber = 1;
-    private global::CrossTrader.Models.Remoting.InstrumentIdRequest instrumentId_;
+    public const int InstrumentIdFieldNumber = 6;
+    private int instrumentId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::CrossTrader.Models.Remoting.InstrumentIdRequest InstrumentId {
+    public int InstrumentId {
       get { return instrumentId_; }
       set {
         instrumentId_ = value;
@@ -1569,7 +1561,7 @@ namespace CrossTrader.Models.Remoting {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(InstrumentId, other.InstrumentId)) return false;
+      if (InstrumentId != other.InstrumentId) return false;
       if (Side != other.Side) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Size, other.Size)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
@@ -1580,7 +1572,7 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (instrumentId_ != null) hash ^= InstrumentId.GetHashCode();
+      if (InstrumentId != 0) hash ^= InstrumentId.GetHashCode();
       if (Side != 0) hash ^= Side.GetHashCode();
       if (Size != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Size);
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
@@ -1598,10 +1590,6 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (instrumentId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(InstrumentId);
-      }
       if (Side != 0) {
         output.WriteRawTag(16);
         output.WriteEnum((int) Side);
@@ -1618,6 +1606,10 @@ namespace CrossTrader.Models.Remoting {
         output.WriteRawTag(42);
         output.WriteString(IdempotencyKey);
       }
+      if (InstrumentId != 0) {
+        output.WriteRawTag(48);
+        output.WriteInt32(InstrumentId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1626,8 +1618,8 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (instrumentId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(InstrumentId);
+      if (InstrumentId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(InstrumentId);
       }
       if (Side != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Side);
@@ -1652,11 +1644,8 @@ namespace CrossTrader.Models.Remoting {
       if (other == null) {
         return;
       }
-      if (other.instrumentId_ != null) {
-        if (instrumentId_ == null) {
-          InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-        }
-        InstrumentId.MergeFrom(other.InstrumentId);
+      if (other.InstrumentId != 0) {
+        InstrumentId = other.InstrumentId;
       }
       if (other.Side != 0) {
         Side = other.Side;
@@ -1681,13 +1670,6 @@ namespace CrossTrader.Models.Remoting {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (instrumentId_ == null) {
-              InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-            }
-            input.ReadMessage(InstrumentId);
-            break;
-          }
           case 16: {
             Side = (global::CrossTrader.Models.Remoting.OrderSide) input.ReadEnum();
             break;
@@ -1702,6 +1684,10 @@ namespace CrossTrader.Models.Remoting {
           }
           case 42: {
             IdempotencyKey = input.ReadString();
+            break;
+          }
+          case 48: {
+            InstrumentId = input.ReadInt32();
             break;
           }
         }
@@ -1735,7 +1721,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public OrderIdResponse(OrderIdResponse other) : this() {
-      instrumentId_ = other.instrumentId_ != null ? other.instrumentId_.Clone() : null;
+      instrumentId_ = other.instrumentId_;
       orderId_ = other.orderId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1747,9 +1733,9 @@ namespace CrossTrader.Models.Remoting {
 
     /// <summary>Field number for the "instrument_id" field.</summary>
     public const int InstrumentIdFieldNumber = 1;
-    private global::CrossTrader.Models.Remoting.InstrumentIdRequest instrumentId_;
+    private int instrumentId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::CrossTrader.Models.Remoting.InstrumentIdRequest InstrumentId {
+    public int InstrumentId {
       get { return instrumentId_; }
       set {
         instrumentId_ = value;
@@ -1780,7 +1766,7 @@ namespace CrossTrader.Models.Remoting {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(InstrumentId, other.InstrumentId)) return false;
+      if (InstrumentId != other.InstrumentId) return false;
       if (OrderId != other.OrderId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1788,7 +1774,7 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (instrumentId_ != null) hash ^= InstrumentId.GetHashCode();
+      if (InstrumentId != 0) hash ^= InstrumentId.GetHashCode();
       if (OrderId.Length != 0) hash ^= OrderId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1803,9 +1789,9 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (instrumentId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(InstrumentId);
+      if (InstrumentId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(InstrumentId);
       }
       if (OrderId.Length != 0) {
         output.WriteRawTag(18);
@@ -1819,8 +1805,8 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (instrumentId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(InstrumentId);
+      if (InstrumentId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(InstrumentId);
       }
       if (OrderId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(OrderId);
@@ -1836,11 +1822,8 @@ namespace CrossTrader.Models.Remoting {
       if (other == null) {
         return;
       }
-      if (other.instrumentId_ != null) {
-        if (instrumentId_ == null) {
-          InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-        }
-        InstrumentId.MergeFrom(other.InstrumentId);
+      if (other.InstrumentId != 0) {
+        InstrumentId = other.InstrumentId;
       }
       if (other.OrderId.Length != 0) {
         OrderId = other.OrderId;
@@ -1856,11 +1839,8 @@ namespace CrossTrader.Models.Remoting {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (instrumentId_ == null) {
-              InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-            }
-            input.ReadMessage(InstrumentId);
+          case 8: {
+            InstrumentId = input.ReadInt32();
             break;
           }
           case 18: {
@@ -1898,7 +1878,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public OrderCancellationRequest(OrderCancellationRequest other) : this() {
-      instrumentId_ = other.instrumentId_ != null ? other.instrumentId_.Clone() : null;
+      instrumentId_ = other.instrumentId_;
       orderId_ = other.orderId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1910,9 +1890,9 @@ namespace CrossTrader.Models.Remoting {
 
     /// <summary>Field number for the "instrument_id" field.</summary>
     public const int InstrumentIdFieldNumber = 1;
-    private global::CrossTrader.Models.Remoting.InstrumentIdRequest instrumentId_;
+    private int instrumentId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::CrossTrader.Models.Remoting.InstrumentIdRequest InstrumentId {
+    public int InstrumentId {
       get { return instrumentId_; }
       set {
         instrumentId_ = value;
@@ -1943,7 +1923,7 @@ namespace CrossTrader.Models.Remoting {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(InstrumentId, other.InstrumentId)) return false;
+      if (InstrumentId != other.InstrumentId) return false;
       if (OrderId != other.OrderId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1951,7 +1931,7 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (instrumentId_ != null) hash ^= InstrumentId.GetHashCode();
+      if (InstrumentId != 0) hash ^= InstrumentId.GetHashCode();
       if (OrderId.Length != 0) hash ^= OrderId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1966,9 +1946,9 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (instrumentId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(InstrumentId);
+      if (InstrumentId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(InstrumentId);
       }
       if (OrderId.Length != 0) {
         output.WriteRawTag(18);
@@ -1982,8 +1962,8 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (instrumentId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(InstrumentId);
+      if (InstrumentId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(InstrumentId);
       }
       if (OrderId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(OrderId);
@@ -1999,11 +1979,8 @@ namespace CrossTrader.Models.Remoting {
       if (other == null) {
         return;
       }
-      if (other.instrumentId_ != null) {
-        if (instrumentId_ == null) {
-          InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-        }
-        InstrumentId.MergeFrom(other.InstrumentId);
+      if (other.InstrumentId != 0) {
+        InstrumentId = other.InstrumentId;
       }
       if (other.OrderId.Length != 0) {
         OrderId = other.OrderId;
@@ -2019,11 +1996,8 @@ namespace CrossTrader.Models.Remoting {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (instrumentId_ == null) {
-              InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-            }
-            input.ReadMessage(InstrumentId);
+          case 8: {
+            InstrumentId = input.ReadInt32();
             break;
           }
           case 18: {
@@ -2061,7 +2035,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public EntireOrderCancellationRequest(EntireOrderCancellationRequest other) : this() {
-      instrumentId_ = other.instrumentId_ != null ? other.instrumentId_.Clone() : null;
+      instrumentId_ = other.instrumentId_;
       idempotencyKey_ = other.idempotencyKey_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -2073,9 +2047,9 @@ namespace CrossTrader.Models.Remoting {
 
     /// <summary>Field number for the "instrument_id" field.</summary>
     public const int InstrumentIdFieldNumber = 1;
-    private global::CrossTrader.Models.Remoting.InstrumentIdRequest instrumentId_;
+    private int instrumentId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::CrossTrader.Models.Remoting.InstrumentIdRequest InstrumentId {
+    public int InstrumentId {
       get { return instrumentId_; }
       set {
         instrumentId_ = value;
@@ -2083,7 +2057,7 @@ namespace CrossTrader.Models.Remoting {
     }
 
     /// <summary>Field number for the "idempotency_key" field.</summary>
-    public const int IdempotencyKeyFieldNumber = 5;
+    public const int IdempotencyKeyFieldNumber = 2;
     private string idempotencyKey_ = "";
     /// <summary>
     /// Requests with the same key are guaranteed to be executed at most once.
@@ -2109,7 +2083,7 @@ namespace CrossTrader.Models.Remoting {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(InstrumentId, other.InstrumentId)) return false;
+      if (InstrumentId != other.InstrumentId) return false;
       if (IdempotencyKey != other.IdempotencyKey) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2117,7 +2091,7 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (instrumentId_ != null) hash ^= InstrumentId.GetHashCode();
+      if (InstrumentId != 0) hash ^= InstrumentId.GetHashCode();
       if (IdempotencyKey.Length != 0) hash ^= IdempotencyKey.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2132,12 +2106,12 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (instrumentId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(InstrumentId);
+      if (InstrumentId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(InstrumentId);
       }
       if (IdempotencyKey.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(18);
         output.WriteString(IdempotencyKey);
       }
       if (_unknownFields != null) {
@@ -2148,8 +2122,8 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (instrumentId_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(InstrumentId);
+      if (InstrumentId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(InstrumentId);
       }
       if (IdempotencyKey.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(IdempotencyKey);
@@ -2165,11 +2139,8 @@ namespace CrossTrader.Models.Remoting {
       if (other == null) {
         return;
       }
-      if (other.instrumentId_ != null) {
-        if (instrumentId_ == null) {
-          InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-        }
-        InstrumentId.MergeFrom(other.InstrumentId);
+      if (other.InstrumentId != 0) {
+        InstrumentId = other.InstrumentId;
       }
       if (other.IdempotencyKey.Length != 0) {
         IdempotencyKey = other.IdempotencyKey;
@@ -2185,14 +2156,11 @@ namespace CrossTrader.Models.Remoting {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (instrumentId_ == null) {
-              InstrumentId = new global::CrossTrader.Models.Remoting.InstrumentIdRequest();
-            }
-            input.ReadMessage(InstrumentId);
+          case 8: {
+            InstrumentId = input.ReadInt32();
             break;
           }
-          case 42: {
+          case 18: {
             IdempotencyKey = input.ReadString();
             break;
           }
@@ -2350,6 +2318,135 @@ namespace CrossTrader.Models.Remoting {
             break;
           }
           case 16: {
+            Canceled = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  internal sealed partial class EntireOrderCancellationResponse : pb::IMessage<EntireOrderCancellationResponse> {
+    private static readonly pb::MessageParser<EntireOrderCancellationResponse> _parser = new pb::MessageParser<EntireOrderCancellationResponse>(() => new EntireOrderCancellationResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<EntireOrderCancellationResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public EntireOrderCancellationResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public EntireOrderCancellationResponse(EntireOrderCancellationResponse other) : this() {
+      canceled_ = other.canceled_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public EntireOrderCancellationResponse Clone() {
+      return new EntireOrderCancellationResponse(this);
+    }
+
+    /// <summary>Field number for the "canceled" field.</summary>
+    public const int CanceledFieldNumber = 1;
+    private bool canceled_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Canceled {
+      get { return canceled_; }
+      set {
+        canceled_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as EntireOrderCancellationResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(EntireOrderCancellationResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Canceled != other.Canceled) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Canceled != false) hash ^= Canceled.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Canceled != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Canceled);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Canceled != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(EntireOrderCancellationResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Canceled != false) {
+        Canceled = other.Canceled;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
             Canceled = input.ReadBool();
             break;
           }

@@ -56,6 +56,8 @@
                     Command="{Binding ShowBitMexTradesCommand}">Trades (BitMEX)</Button>
                 <Button
                     Command="{Binding ShowBitMexOrdersCommand}">Orders (BitMEX)</Button>
+                <Button
+                    Command="{Binding ShowBitMexPositionsCommand}">Positions (BitMEX)</Button>
             </StackPanel>
         </GroupBox>
     </StackPanel>

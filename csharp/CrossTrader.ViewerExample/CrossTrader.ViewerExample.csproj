@@ -53,6 +53,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\BitMexOrdersWindowViewModel.cs" />
     <Compile Include="ViewModels\BitFlyerChildOrdersWindowViewModel.cs" />
+    <Compile Include="ViewModels\BitMexPositionsWindowViewModel.cs" />
     <Compile Include="ViewModels\BitMexTradesWindowViewModel.cs" />
     <Compile Include="ViewModels\BitFlyerExecutionsWindowViewModel.cs" />
     <Compile Include="ViewModels\Command.cs" />
@@ -64,6 +65,9 @@
     <Compile Include="ViewModels\TickersWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WindowViewModelBase.cs" />
+    <Compile Include="Views\BitMexPositionsWindow.xaml.cs">
+      <DependentUpon>BitMexPositionsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BitMexOrdersWindow.xaml.cs">
       <DependentUpon>BitMexOrdersWindow.xaml</DependentUpon>
     </Compile>
@@ -93,6 +97,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\BitMexPositionsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\BitMexOrdersWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
