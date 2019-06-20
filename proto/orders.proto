@@ -63,17 +63,20 @@ message LimitOrderRequest {
 }
 message OrderIdResponse {
     string order_id = 1;
+    string request_id = 2;
 }
 message OrderCancellationRequest {
     int32 instrument_id = 1;
     string order_id = 2;
+    string request_id = 3;
 }
 message EntireOrderCancellationRequest {
     int32 instrument_id = 1;
 }
 message OrderCancellationResponse {
     string order_id = 1;
-    bool canceled = 2;
+    string request_id = 2;
+    bool canceled = 3;
 }
 message EntireOrderCancellationResponse {
     bool canceled = 1;
