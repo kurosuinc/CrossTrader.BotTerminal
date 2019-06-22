@@ -364,6 +364,83 @@ namespace CrossTrader.BotClient
 
         #endregion ExecutionsService
 
+        #region OrdersService
+        
+        [Rpc(nameof(OrdersService))]
+        public async Task<OrderParameter> MarketOrderAsync(int instrumentId, OrderSide side, double size, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            {
+                var res = await new OrdersService.OrdersServiceClient(Channel).MarketOrderAsync(
+                    new MarketOrderRequest()
+                    {
+                        InstrumentId = instrumentId,
+                        Side = side.ToMessage(),
+                        Size = size
+                    },
+                    deadline: deadline,
+                    cancellationToken: cancellationToken);
+                var t = res != null ? new OrderParameter(instrumentId, res) : null;
+                return t?.IsValid == true ? t : null;
+            }
+        }
+        
+        [Rpc(nameof(OrdersService))]
+        public async Task<OrderParameter> LimitOrderAsync(int instrumentId, OrderSide side, double size, double price, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            {
+                var res = await new OrdersService.OrdersServiceClient(Channel).LimitOrderAsync(
+                    new LimitOrderRequest()
+                    {
+                        InstrumentId = instrumentId,
+                        Side = side.ToMessage(),
+                        Size = size,
+                        Price = price
+                    },
+                    deadline: deadline,
+                    cancellationToken: cancellationToken);
+                var t = res != null ? new OrderParameter(instrumentId, res) : null;
+                return t?.IsValid == true ? t : null;
+            }
+        }
+        
+        [Rpc(nameof(OrdersService))]
+        public async Task<bool> CancelOrderAsync(int instrumentId, string OrderId, string RequestId, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            {
+                var res = await new OrdersService.OrdersServiceClient(Channel).CancelOrderAsync(
+                    new OrderCancellationRequest()
+                    {
+                        InstrumentId = instrumentId,
+                        OrderId = OrderId,
+                        RequestId = RequestId
+                    },
+                    deadline: deadline,
+                    cancellationToken: cancellationToken);
+                return res?.Canceled ?? false;
+            }
+        }
+        
+        [Rpc(nameof(OrdersService))]
+        public async Task<bool> CancelAllOrderAsync(int instrumentId, string OrderId, string RequestId, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            {
+                var res = await new OrdersService.OrdersServiceClient(Channel).CancelAllOrdersAsync(
+                    new EntireOrderCancellationRequest()
+                    {
+                        InstrumentId = instrumentId
+                    },
+                    deadline: deadline,
+                    cancellationToken: cancellationToken);
+                return res?.Canceled ?? false;
+            }
+        }
+
+        #endregion
+
         #region BitFlyer
 
         private BitFlyerClientPlugin _BitFlyer;

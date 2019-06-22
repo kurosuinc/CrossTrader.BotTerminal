@@ -78,6 +78,24 @@ namespace CrossTrader.BotClient
 
         [TargetedPatchingOptOut("")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static OrderType ToClientValue(this MR.OrderType v)
+        {
+            switch (v)
+            {
+                case MR.OrderType.Limit:
+                    return OrderType.Limit;
+
+                case MR.OrderType.Market:
+                    return OrderType.Market;
+
+                case MR.OrderType.Unknown:
+                    return OrderType.Unknown;
+            }
+            return OrderType.None;
+        }
+
+        [TargetedPatchingOptOut("")]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static BitFlyerChildOrderType ToClientValue(this MBF.ChildOrderType v)
         {
             switch (v)
