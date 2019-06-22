@@ -2,6 +2,8 @@ using System;
 using System.Threading.Tasks;
 using CrossTrader.BotClient;
 using System.Linq;
+using System.Collections.ObjectModel;
+using Grpc.Core;
 
 namespace CrossTrader.InagoTakerBotExample
 {
@@ -14,6 +16,9 @@ namespace CrossTrader.InagoTakerBotExample
 
         private CrossTraderClient Client { get; }
         private int Spread { get; set; } 
+
+        private Instrument BitMexInstrument { get; set; }
+        private Instrument BitFlyerInstrument { get; set; }
 
         #endregion
 
@@ -28,36 +33,36 @@ namespace CrossTrader.InagoTakerBotExample
 
         public async Task RunAsync()
         {
-            Client.ExecutionsReceived += Client_ExecutionsReceived;
-            Client.TickerReceived += Client_TickerReceived;
-
             var instruments = await Client.GetInstrumentsAsync();
 
-            var mex = instruments.FirstOrDefault(ins =>
+            BitMexInstrument = instruments.FirstOrDefault(ins =>
                 ins.Name == "bitmex" &&
                 ins.CanSubscribeExecutions == true);
 
-            var bf = instruments.FirstOrDefault(ins =>
+            BitFlyerInstrument = instruments.FirstOrDefault(ins =>
                 ins.Name == "bitflyer" &&
                 //ins.CanSubscribeOrders == true &&
                 //ins.CanSubscribePositions == true &&
                 ins.CanSubscribeTicker == true &&
                 ins.IsOrderSupported == true);
 
-            if (mex == null)
+            if (BitMexInstrument == null)
             {
                 Console.WriteLine("Couldn't find BitMEX instrument.");
                 return;
             }
 
-            if (bf == null)
+            if (BitFlyerInstrument == null)
             {
                 Console.WriteLine("Couldn't find bitFlyer instrument.");
                 return;
             }
 
-            Client.SubscribeExecutions(mex.Id);
-            Client.SubscribeTicker(bf.Id);
+            Client.ExecutionsReceived += this.Client_ExecutionsReceived;
+            Client.TickerReceived += this.Client_TickerReceived;
+
+            Client.SubscribeExecutions(BitMexInstrument.Id);
+            Client.SubscribeTicker(BitFlyerInstrument.Id);
             while (true)
             {
                 await Task.Delay(1000);
@@ -73,22 +78,57 @@ namespace CrossTrader.InagoTakerBotExample
         }
 
         private void Client_ExecutionsReceived(object sender, CollectionReceivedEventArgs<Execution> e)
+            => HandleExecutionsAsync(e.Data).ConfigureAwait(false);
+
+        private async Task HandleExecutionsAsync(ReadOnlyCollection<Execution> executions)
         {
-            var executions = e.Data;
+            Console.WriteLine($"BitMEX executions received: {executions.Count()} executions.");
+
+            var sizeToOrder = 0.01;
+
+            // executions grouped by size.
+            var groups = executions.GroupBy(ex => ex.Side)
+                .OrderByDescending(exs => exs.Sum(ex => ex.Size));
+            // executions group which has bigger volume
+            var group = groups.First();
+
             lock (_ConsoleLock)
             {
-                Console.WriteLine($"BitMEX executions received: {executions.Count()} executions.");
-                foreach (var ex in executions)
+                foreach (var exs in groups)
                 {
+                    var ex = exs.First();
                     Console.Write($"  => {ex.CreatedAt} ");
                     Console.ForegroundColor = ex.Side == OrderSide.Buy ? ConsoleColor.Green : ConsoleColor.Red;
                     Console.Write(ex.Side.ToString().ToUpper().PadRight(4));
                     Console.ResetColor();
-                    Console.Write($" {ex.Size:F3}BTC at price ${ex.Price:F1}.");
+                    Console.Write($" {exs.Sum(it => it.Size):F3}BTC.");
                     Console.Write(Environment.NewLine);
                 }
-                // TODO: Create market order if executed volume is bigger than threshold.
             }
+
+            var size = group.Sum(ex => ex.Size);
+            var side = group.First().Side;
+            if (size > 1)
+            {
+                lock (_ConsoleLock)
+                {
+                    Console.Write($"    => ");
+                    Console.ForegroundColor = side == OrderSide.Buy ? ConsoleColor.Green : ConsoleColor.Red;
+                    Console.Write(side.ToString().ToUpper().PadRight(4));
+                    Console.ResetColor();
+                    Console.Write($" {sizeToOrder}BTC.");
+                }
+
+                try
+                {
+                    var res = await Client.LimitOrderAsync(BitFlyerInstrument.Id, OrderSide.Sell, sizeToOrder, 1350000).ConfigureAwait(false);
+                    Console.WriteLine($"    => {res.CreatedAt} '{res.OrderId}', '{res.RequestId}'");
+                } catch(RpcException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
         }
     }
 }
