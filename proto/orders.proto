@@ -79,8 +79,6 @@ message EntireOrderCancellationRequest {
     int32 instrument_id = 1;
 }
 message OrderCancellationResponse {
-    string order_id = 1;
-    string request_id = 2;
     bool canceled = 3;
 }
 message EntireOrderCancellationResponse {
