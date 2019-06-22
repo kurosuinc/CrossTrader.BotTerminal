@@ -108,7 +108,7 @@ namespace CrossTrader.InagoTakerBotExample
 
             var size = group.Sum(ex => ex.Size);
             var side = group.First().Side;
-            if (size > 1)
+            if (size > 10)
             {
                 lock (_ConsoleLock)
                 {
@@ -125,7 +125,7 @@ namespace CrossTrader.InagoTakerBotExample
                     Console.WriteLine($"    => {res.CreatedAt} '{res.OrderId}', '{res.RequestId}'");
                 } catch(RpcException e)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine($"    => Got error: {e.Message}");
                 }
             }
 
