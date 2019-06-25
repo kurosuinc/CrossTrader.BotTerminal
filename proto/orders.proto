@@ -53,12 +53,6 @@ message MarketOrderRequest {
     int32 instrument_id = 1;
     OrderSide side = 2;
     double size = 3;
-}
-// Order request that can be requested for all exchanges.
-message LimitOrderRequest {
-    int32 instrument_id = 6;
-    OrderSide side = 2;
-    double size = 3;
     double price = 4;
 }
 message OrderParametersResponse {
@@ -97,8 +91,7 @@ service OrdersService {
     rpc SubscribePositions(InstrumentIdRequest) returns (stream PositionsMessage);
 
     // Ordering
-    rpc PostMarketOrder(MarketOrderRequest) returns (OrderParametersResponse);
-    rpc PostLimitOrder(LimitOrderRequest) returns (OrderParametersResponse);
+    rpc PostOrder(PostOrderRequest) returns (OrderParametersResponse);
     rpc CancelOrder(OrderCancellationRequest) returns (OrderCancellationResponse);
     rpc CancelAllOrders(EntireOrderCancellationRequest) returns (EntireOrderCancellationResponse);
 }

@@ -18,7 +18,6 @@ namespace CrossTrader.Models.Remoting {
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.PositionsMessage> __Marshaller_crosstrader_PositionsMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.PositionsMessage.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.MarketOrderRequest> __Marshaller_crosstrader_MarketOrderRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.MarketOrderRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderParametersResponse> __Marshaller_crosstrader_OrderParametersResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrderParametersResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.LimitOrderRequest> __Marshaller_crosstrader_LimitOrderRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.LimitOrderRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderCancellationRequest> __Marshaller_crosstrader_OrderCancellationRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrderCancellationRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderCancellationResponse> __Marshaller_crosstrader_OrderCancellationResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrderCancellationResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest> __Marshaller_crosstrader_EntireOrderCancellationRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest.Parser.ParseFrom);
@@ -52,18 +51,11 @@ namespace CrossTrader.Models.Remoting {
         __Marshaller_crosstrader_InstrumentIdRequest,
         __Marshaller_crosstrader_PositionsMessage);
 
-    static readonly grpc::Method<global::CrossTrader.Models.Remoting.MarketOrderRequest, global::CrossTrader.Models.Remoting.OrderParametersResponse> __Method_PostMarketOrder = new grpc::Method<global::CrossTrader.Models.Remoting.MarketOrderRequest, global::CrossTrader.Models.Remoting.OrderParametersResponse>(
+    static readonly grpc::Method<global::CrossTrader.Models.Remoting.MarketOrderRequest, global::CrossTrader.Models.Remoting.OrderParametersResponse> __Method_PostOrder = new grpc::Method<global::CrossTrader.Models.Remoting.MarketOrderRequest, global::CrossTrader.Models.Remoting.OrderParametersResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "PostMarketOrder",
+        "PostOrder",
         __Marshaller_crosstrader_MarketOrderRequest,
-        __Marshaller_crosstrader_OrderParametersResponse);
-
-    static readonly grpc::Method<global::CrossTrader.Models.Remoting.LimitOrderRequest, global::CrossTrader.Models.Remoting.OrderParametersResponse> __Method_PostLimitOrder = new grpc::Method<global::CrossTrader.Models.Remoting.LimitOrderRequest, global::CrossTrader.Models.Remoting.OrderParametersResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "PostLimitOrder",
-        __Marshaller_crosstrader_LimitOrderRequest,
         __Marshaller_crosstrader_OrderParametersResponse);
 
     static readonly grpc::Method<global::CrossTrader.Models.Remoting.OrderCancellationRequest, global::CrossTrader.Models.Remoting.OrderCancellationResponse> __Method_CancelOrder = new grpc::Method<global::CrossTrader.Models.Remoting.OrderCancellationRequest, global::CrossTrader.Models.Remoting.OrderCancellationResponse>(
@@ -221,9 +213,9 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::CrossTrader.Models.Remoting.OrderParametersResponse PostMarketOrder(global::CrossTrader.Models.Remoting.MarketOrderRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::CrossTrader.Models.Remoting.OrderParametersResponse PostOrder(global::CrossTrader.Models.Remoting.MarketOrderRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return PostMarketOrder(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return PostOrder(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       /// Ordering
@@ -231,9 +223,9 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The response received from the server.</returns>
-      public virtual global::CrossTrader.Models.Remoting.OrderParametersResponse PostMarketOrder(global::CrossTrader.Models.Remoting.MarketOrderRequest request, grpc::CallOptions options)
+      public virtual global::CrossTrader.Models.Remoting.OrderParametersResponse PostOrder(global::CrossTrader.Models.Remoting.MarketOrderRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_PostMarketOrder, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_PostOrder, null, options, request);
       }
       /// <summary>
       /// Ordering
@@ -243,9 +235,9 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::CrossTrader.Models.Remoting.OrderParametersResponse> PostMarketOrderAsync(global::CrossTrader.Models.Remoting.MarketOrderRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::CrossTrader.Models.Remoting.OrderParametersResponse> PostOrderAsync(global::CrossTrader.Models.Remoting.MarketOrderRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return PostMarketOrderAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return PostOrderAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       /// Ordering
@@ -253,25 +245,9 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::CrossTrader.Models.Remoting.OrderParametersResponse> PostMarketOrderAsync(global::CrossTrader.Models.Remoting.MarketOrderRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::CrossTrader.Models.Remoting.OrderParametersResponse> PostOrderAsync(global::CrossTrader.Models.Remoting.MarketOrderRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_PostMarketOrder, null, options, request);
-      }
-      public virtual global::CrossTrader.Models.Remoting.OrderParametersResponse PostLimitOrder(global::CrossTrader.Models.Remoting.LimitOrderRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return PostLimitOrder(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::CrossTrader.Models.Remoting.OrderParametersResponse PostLimitOrder(global::CrossTrader.Models.Remoting.LimitOrderRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_PostLimitOrder, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::CrossTrader.Models.Remoting.OrderParametersResponse> PostLimitOrderAsync(global::CrossTrader.Models.Remoting.LimitOrderRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return PostLimitOrderAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::CrossTrader.Models.Remoting.OrderParametersResponse> PostLimitOrderAsync(global::CrossTrader.Models.Remoting.LimitOrderRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_PostLimitOrder, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_PostOrder, null, options, request);
       }
       public virtual global::CrossTrader.Models.Remoting.OrderCancellationResponse CancelOrder(global::CrossTrader.Models.Remoting.OrderCancellationRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
