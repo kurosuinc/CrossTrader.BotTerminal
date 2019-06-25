@@ -58,10 +58,6 @@ message PostOrderRequest {
 }
 message OrderParametersResponse {
     string request_id = 1;
-    OrderSide side = 2;
-    OrderType type = 3;
-    double size = 4;
-    double price = 5;
     google.protobuf.Timestamp created_at = 6;
 }
 message OrderCancellationRequest {
