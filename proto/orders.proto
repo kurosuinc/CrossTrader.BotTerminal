@@ -49,11 +49,12 @@ message PositionsMessage {
 
 // Ordering
 // Order request that can be requested for all exchanges.
-message MarketOrderRequest {
+message PostOrderRequest {
     int32 instrument_id = 1;
     OrderSide side = 2;
-    double size = 3;
-    double price = 4;
+    OrderType type = 3;
+    double size = 4;
+    double price = 5;
 }
 message OrderParametersResponse {
     string request_id = 1;
