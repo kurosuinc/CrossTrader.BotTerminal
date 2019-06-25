@@ -367,40 +367,22 @@ namespace CrossTrader.BotClient
         #region OrdersService
         
         [Rpc(nameof(OrdersService))]
-        public async Task<OrderParameter> MarketOrderAsync(int instrumentId, OrderSide side, double size, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        public async Task<OrderParameter> PostOrderAsync(int instrumentId, OrderType type, OrderSide side, double size, double? price, DateTime? deadline = null, CancellationToken cancellationToken = default)
         {
             using (await OpenAsync().ConfigureAwait(false))
             {
-                var res = await new OrdersService.OrdersServiceClient(Channel).MarketOrderAsync(
-                    new MarketOrderRequest()
+                var res = await new OrdersService.OrdersServiceClient(Channel).PostOrderAsync(
+                    new PostOrderRequest()
                     {
                         InstrumentId = instrumentId,
                         Side = side.ToMessage(),
-                        Size = size
-                    },
-                    deadline: deadline,
-                    cancellationToken: cancellationToken);
-                var t = res != null ? new OrderParameter(instrumentId, res) : null;
-                return t?.IsValid == true ? t : null;
-            }
-        }
-        
-        [Rpc(nameof(OrdersService))]
-        public async Task<OrderParameter> LimitOrderAsync(int instrumentId, OrderSide side, double size, double price, DateTime? deadline = null, CancellationToken cancellationToken = default)
-        {
-            using (await OpenAsync().ConfigureAwait(false))
-            {
-                var res = await new OrdersService.OrdersServiceClient(Channel).LimitOrderAsync(
-                    new LimitOrderRequest()
-                    {
-                        InstrumentId = instrumentId,
-                        Side = side.ToMessage(),
+                        Type = type.ToMessage(),
                         Size = size,
-                        Price = price
+                        Price = price ?? 0.0
                     },
                     deadline: deadline,
                     cancellationToken: cancellationToken);
-                var t = res != null ? new OrderParameter(instrumentId, res) : null;
+                var t = res != null ? new OrderParameter(instrumentId, type, side, size, price, res) : null;
                 return t?.IsValid == true ? t : null;
             }
         }

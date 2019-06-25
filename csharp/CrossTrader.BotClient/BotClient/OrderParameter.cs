@@ -5,22 +5,19 @@ namespace CrossTrader.BotClient
 {
     public sealed class OrderParameter
     {
-        internal OrderParameter(int instrumentId, OrderParametersResponse message)
+        internal OrderParameter(int instrumentId, OrderType type, OrderSide side, double size, double? price, OrderParametersResponse message)
         {
             InstrumentId = instrumentId;
-            OrderId = message.OrderId;
             RequestId = message.RequestId;
-            Side = message.Side.ToClientValue();
-            Type = message.Type.ToClientValue();
-            Size = message.Size;
-            Price = message.Price;
+            Side = side;
+            Type = type;
+            Size = size;
+            Price = price;
         }
 
         #region Properties
 
         public int InstrumentId { get; }
-
-        public string OrderId { get; set; }
 
         public string RequestId { get; set; }
 
@@ -30,7 +27,7 @@ namespace CrossTrader.BotClient
 
         public double Size { get; set; }
 
-        public double Price { get; set; }
+        public double? Price { get; set; }
 
         public DateTimeOffset CreatedAt { get; set; }
 
@@ -41,6 +38,6 @@ namespace CrossTrader.BotClient
               (Type == OrderType.Market && Price != 0) ||
               Type == OrderType.None ||
               Side == OrderSide.None ||
-              (string.IsNullOrEmpty(OrderId) && string.IsNullOrEmpty(RequestId)));
+              string.IsNullOrEmpty(RequestId));
     }
 }
