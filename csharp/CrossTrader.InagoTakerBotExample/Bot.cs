@@ -121,8 +121,8 @@ namespace CrossTrader.InagoTakerBotExample
 
                 try
                 {
-                    var res = await Client.LimitOrderAsync(BitFlyerInstrument.Id, OrderSide.Sell, sizeToOrder, 1350000).ConfigureAwait(false);
-                    Console.WriteLine($"    => {res.CreatedAt} '{res.OrderId}', '{res.RequestId}'");
+                    var res = await Client.PostOrderAsync(BitFlyerInstrument.Id, OrderType.Limit, OrderSide.Sell, sizeToOrder, 1350000).ConfigureAwait(false);
+                    Console.WriteLine($"    => {res.CreatedAt} '{res.RequestId}'");
                 } catch(RpcException e)
                 {
                     Console.WriteLine($"    => Got error: {e.Message}");
