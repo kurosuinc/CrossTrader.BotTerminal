@@ -11,11 +11,11 @@ message OrdersRequest {
     int32 instrument_id = 1;
     int32 limit = 2;
     OrderState state = 3;
-    OrderItemMessage before = 4;
-    OrderItemMessage after = 5;
+    OrderMessage before = 4;
+    OrderMessage after = 5;
 }
 
-message OrderItemMessage {
+message OrderMessage {
     string id = 1;
     string request_id = 2;
     OrderSide side = 3;
@@ -27,9 +27,8 @@ message OrderItemMessage {
     google.protobuf.Timestamp ordered_at = 9;
 }
 
-message OrdersMessage {
-    int32 instrument_id = 1;
-    repeated OrderItemMessage orders = 2;
+message OrdersResponse {
+    repeated OrderMessage orders = 1;
 }
 
 
@@ -42,8 +41,7 @@ message PositionItemMessage {
 }
 
 message PositionsMessage {
-    int32 instrument_id = 1;
-    repeated OrderItemMessage positions = 2;
+    repeated OrderMessage positions = 1;
 }
 
 
@@ -80,15 +78,15 @@ message EntireOrderCancellationResponse {
 
 service OrdersService {
     // Orders
-    rpc GetOrders(OrdersRequest) returns (OrdersMessage);
-    rpc SubscribeOrders(InstrumentIdRequest) returns (stream OrdersMessage);
+    rpc GetOrders(OrdersRequest) returns (OrdersResponse);
+    rpc SubscribeOrders(InstrumentIdRequest) returns (stream OrdersResponse);
 
     // Positions
-    rpc GetPositions(InstrumentIdRequest) returns (PositionsMessage);
-    rpc SubscribePositions(InstrumentIdRequest) returns (stream PositionsMessage);
+    rpc GetPositions(InstrumentIdRequest) returns (PositionsResponse);
+    rpc SubscribePositions(InstrumentIdRequest) returns (stream PositionsResponse);
 
     // Ordering
-    rpc PostOrder(PostOrderRequest) returns (OrderParametersResponse);
+    rpc PostOrder(PostOrderRequest) returns (OrderMessage);
     rpc CancelOrder(OrderCancellationRequest) returns (OrderCancellationResponse);
     rpc CancelAllOrders(EntireOrderCancellationRequest) returns (EntireOrderCancellationResponse);
 }

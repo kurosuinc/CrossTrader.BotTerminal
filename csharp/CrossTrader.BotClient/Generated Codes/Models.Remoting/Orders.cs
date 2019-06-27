@@ -48,27 +48,34 @@ namespace CrossTrader.Models.Remoting {
             "JAoEdHlwZRgDIAEoDjIWLmNyb3NzdHJhZGVyLk9yZGVyVHlwZRIMCgRzaXpl",
             "GAQgASgBEg0KBXByaWNlGAUgASgBIl0KF09yZGVyUGFyYW1ldGVyc1Jlc3Bv",
             "bnNlEhIKCnJlcXVlc3RfaWQYASABKAkSLgoKY3JlYXRlZF9hdBgGIAEoCzIa",
-            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiVwoYT3JkZXJDYW5jZWxsYXRp",
-            "b25SZXF1ZXN0EhUKDWluc3RydW1lbnRfaWQYASABKAUSEAoIb3JkZXJfaWQY",
-            "AiABKAkSEgoKcmVxdWVzdF9pZBgDIAEoCSI3Ch5FbnRpcmVPcmRlckNhbmNl",
-            "bGxhdGlvblJlcXVlc3QSFQoNaW5zdHJ1bWVudF9pZBgBIAEoBSItChlPcmRl",
-            "ckNhbmNlbGxhdGlvblJlc3BvbnNlEhAKCGNhbmNlbGVkGAMgASgIIjMKH0Vu",
-            "dGlyZU9yZGVyQ2FuY2VsbGF0aW9uUmVzcG9uc2USEAoIY2FuY2VsZWQYASAB",
-            "KAgy7wQKDU9yZGVyc1NlcnZpY2USQwoJR2V0T3JkZXJzEhouY3Jvc3N0cmFk",
-            "ZXIuT3JkZXJzUmVxdWVzdBoaLmNyb3NzdHJhZGVyLk9yZGVyc01lc3NhZ2US",
-            "UQoPU3Vic2NyaWJlT3JkZXJzEiAuY3Jvc3N0cmFkZXIuSW5zdHJ1bWVudElk",
-            "UmVxdWVzdBoaLmNyb3NzdHJhZGVyLk9yZGVyc01lc3NhZ2UwARJPCgxHZXRQ",
-            "b3NpdGlvbnMSIC5jcm9zc3RyYWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0Gh0u",
-            "Y3Jvc3N0cmFkZXIuUG9zaXRpb25zTWVzc2FnZRJXChJTdWJzY3JpYmVQb3Np",
-            "dGlvbnMSIC5jcm9zc3RyYWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0Gh0uY3Jv",
-            "c3N0cmFkZXIuUG9zaXRpb25zTWVzc2FnZTABElAKCVBvc3RPcmRlchIdLmNy",
-            "b3NzdHJhZGVyLlBvc3RPcmRlclJlcXVlc3QaJC5jcm9zc3RyYWRlci5PcmRl",
-            "clBhcmFtZXRlcnNSZXNwb25zZRJcCgtDYW5jZWxPcmRlchIlLmNyb3NzdHJh",
-            "ZGVyLk9yZGVyQ2FuY2VsbGF0aW9uUmVxdWVzdBomLmNyb3NzdHJhZGVyLk9y",
-            "ZGVyQ2FuY2VsbGF0aW9uUmVzcG9uc2USbAoPQ2FuY2VsQWxsT3JkZXJzEisu",
-            "Y3Jvc3N0cmFkZXIuRW50aXJlT3JkZXJDYW5jZWxsYXRpb25SZXF1ZXN0Giwu",
-            "Y3Jvc3N0cmFkZXIuRW50aXJlT3JkZXJDYW5jZWxsYXRpb25SZXNwb25zZUIe",
-            "qgIbQ3Jvc3NUcmFkZXIuTW9kZWxzLlJlbW90aW5nYgZwcm90bzM="));
+            "Lmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiqAIKDU9yZGVyUmVzcG9uc2US",
+            "EgoKcmVxdWVzdF9pZBgBIAEoCRIRCglzZXJ2ZXJfaWQYAiABKAkSJAoEc2lk",
+            "ZRgDIAEoDjIWLmNyb3NzdHJhZGVyLk9yZGVyU2lkZRIkCgR0eXBlGAQgASgO",
+            "MhYuY3Jvc3N0cmFkZXIuT3JkZXJUeXBlEgwKBHNpemUYBSABKAESGAoQb3V0",
+            "c3RhbmRpbmdfc2l6ZRgGIAEoARINCgVwcmljZRgHIAEoARIVCg1hdmVyYXRl",
+            "X3ByaWNlGAggASgBEiYKBXN0YXRlGAkgASgOMhcuY3Jvc3N0cmFkZXIuT3Jk",
+            "ZXJTdGF0ZRIuCgpjcmVhdGVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVm",
+            "LlRpbWVzdGFtcCJXChhPcmRlckNhbmNlbGxhdGlvblJlcXVlc3QSFQoNaW5z",
+            "dHJ1bWVudF9pZBgBIAEoBRIQCghvcmRlcl9pZBgCIAEoCRISCgpyZXF1ZXN0",
+            "X2lkGAMgASgJIjcKHkVudGlyZU9yZGVyQ2FuY2VsbGF0aW9uUmVxdWVzdBIV",
+            "Cg1pbnN0cnVtZW50X2lkGAEgASgFIi0KGU9yZGVyQ2FuY2VsbGF0aW9uUmVz",
+            "cG9uc2USEAoIY2FuY2VsZWQYAyABKAgiMwofRW50aXJlT3JkZXJDYW5jZWxs",
+            "YXRpb25SZXNwb25zZRIQCghjYW5jZWxlZBgBIAEoCDLvBAoNT3JkZXJzU2Vy",
+            "dmljZRJDCglHZXRPcmRlcnMSGi5jcm9zc3RyYWRlci5PcmRlcnNSZXF1ZXN0",
+            "GhouY3Jvc3N0cmFkZXIuT3JkZXJzTWVzc2FnZRJRCg9TdWJzY3JpYmVPcmRl",
+            "cnMSIC5jcm9zc3RyYWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0GhouY3Jvc3N0",
+            "cmFkZXIuT3JkZXJzTWVzc2FnZTABEk8KDEdldFBvc2l0aW9ucxIgLmNyb3Nz",
+            "dHJhZGVyLkluc3RydW1lbnRJZFJlcXVlc3QaHS5jcm9zc3RyYWRlci5Qb3Np",
+            "dGlvbnNNZXNzYWdlElcKElN1YnNjcmliZVBvc2l0aW9ucxIgLmNyb3NzdHJh",
+            "ZGVyLkluc3RydW1lbnRJZFJlcXVlc3QaHS5jcm9zc3RyYWRlci5Qb3NpdGlv",
+            "bnNNZXNzYWdlMAESUAoJUG9zdE9yZGVyEh0uY3Jvc3N0cmFkZXIuUG9zdE9y",
+            "ZGVyUmVxdWVzdBokLmNyb3NzdHJhZGVyLk9yZGVyUGFyYW1ldGVyc1Jlc3Bv",
+            "bnNlElwKC0NhbmNlbE9yZGVyEiUuY3Jvc3N0cmFkZXIuT3JkZXJDYW5jZWxs",
+            "YXRpb25SZXF1ZXN0GiYuY3Jvc3N0cmFkZXIuT3JkZXJDYW5jZWxsYXRpb25S",
+            "ZXNwb25zZRJsCg9DYW5jZWxBbGxPcmRlcnMSKy5jcm9zc3RyYWRlci5FbnRp",
+            "cmVPcmRlckNhbmNlbGxhdGlvblJlcXVlc3QaLC5jcm9zc3RyYWRlci5FbnRp",
+            "cmVPcmRlckNhbmNlbGxhdGlvblJlc3BvbnNlQh6qAhtDcm9zc1RyYWRlci5N",
+            "b2RlbHMuUmVtb3RpbmdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -79,6 +86,7 @@ namespace CrossTrader.Models.Remoting {
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionsMessage), global::CrossTrader.Models.Remoting.PositionsMessage.Parser, new[]{ "InstrumentId", "Positions" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PostOrderRequest), global::CrossTrader.Models.Remoting.PostOrderRequest.Parser, new[]{ "InstrumentId", "Side", "Type", "Size", "Price" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderParametersResponse), global::CrossTrader.Models.Remoting.OrderParametersResponse.Parser, new[]{ "RequestId", "CreatedAt" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderResponse), global::CrossTrader.Models.Remoting.OrderResponse.Parser, new[]{ "RequestId", "ServerId", "Side", "Type", "Size", "OutstandingSize", "Price", "AveratePrice", "State", "CreatedAt" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderCancellationRequest), global::CrossTrader.Models.Remoting.OrderCancellationRequest.Parser, new[]{ "InstrumentId", "OrderId", "RequestId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest), global::CrossTrader.Models.Remoting.EntireOrderCancellationRequest.Parser, new[]{ "InstrumentId" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderCancellationResponse), global::CrossTrader.Models.Remoting.OrderCancellationResponse.Parser, new[]{ "Canceled" }, null, null, null),
@@ -1632,6 +1640,393 @@ namespace CrossTrader.Models.Remoting {
 
   }
 
+  internal sealed partial class OrderResponse : pb::IMessage<OrderResponse> {
+    private static readonly pb::MessageParser<OrderResponse> _parser = new pb::MessageParser<OrderResponse>(() => new OrderResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<OrderResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[7]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OrderResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OrderResponse(OrderResponse other) : this() {
+      requestId_ = other.requestId_;
+      serverId_ = other.serverId_;
+      side_ = other.side_;
+      type_ = other.type_;
+      size_ = other.size_;
+      outstandingSize_ = other.outstandingSize_;
+      price_ = other.price_;
+      averatePrice_ = other.averatePrice_;
+      state_ = other.state_;
+      createdAt_ = other.createdAt_ != null ? other.createdAt_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OrderResponse Clone() {
+      return new OrderResponse(this);
+    }
+
+    /// <summary>Field number for the "request_id" field.</summary>
+    public const int RequestIdFieldNumber = 1;
+    private string requestId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RequestId {
+      get { return requestId_; }
+      set {
+        requestId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "server_id" field.</summary>
+    public const int ServerIdFieldNumber = 2;
+    private string serverId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ServerId {
+      get { return serverId_; }
+      set {
+        serverId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "side" field.</summary>
+    public const int SideFieldNumber = 3;
+    private global::CrossTrader.Models.Remoting.OrderSide side_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::CrossTrader.Models.Remoting.OrderSide Side {
+      get { return side_; }
+      set {
+        side_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "type" field.</summary>
+    public const int TypeFieldNumber = 4;
+    private global::CrossTrader.Models.Remoting.OrderType type_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::CrossTrader.Models.Remoting.OrderType Type {
+      get { return type_; }
+      set {
+        type_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "size" field.</summary>
+    public const int SizeFieldNumber = 5;
+    private double size_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double Size {
+      get { return size_; }
+      set {
+        size_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "outstanding_size" field.</summary>
+    public const int OutstandingSizeFieldNumber = 6;
+    private double outstandingSize_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double OutstandingSize {
+      get { return outstandingSize_; }
+      set {
+        outstandingSize_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "price" field.</summary>
+    public const int PriceFieldNumber = 7;
+    private double price_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double Price {
+      get { return price_; }
+      set {
+        price_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "averate_price" field.</summary>
+    public const int AveratePriceFieldNumber = 8;
+    private double averatePrice_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double AveratePrice {
+      get { return averatePrice_; }
+      set {
+        averatePrice_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "state" field.</summary>
+    public const int StateFieldNumber = 9;
+    private global::CrossTrader.Models.Remoting.OrderState state_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::CrossTrader.Models.Remoting.OrderState State {
+      get { return state_; }
+      set {
+        state_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "created_at" field.</summary>
+    public const int CreatedAtFieldNumber = 10;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp createdAt_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Google.Protobuf.WellKnownTypes.Timestamp CreatedAt {
+      get { return createdAt_; }
+      set {
+        createdAt_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as OrderResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(OrderResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RequestId != other.RequestId) return false;
+      if (ServerId != other.ServerId) return false;
+      if (Side != other.Side) return false;
+      if (Type != other.Type) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Size, other.Size)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(OutstandingSize, other.OutstandingSize)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(AveratePrice, other.AveratePrice)) return false;
+      if (State != other.State) return false;
+      if (!object.Equals(CreatedAt, other.CreatedAt)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RequestId.Length != 0) hash ^= RequestId.GetHashCode();
+      if (ServerId.Length != 0) hash ^= ServerId.GetHashCode();
+      if (Side != 0) hash ^= Side.GetHashCode();
+      if (Type != 0) hash ^= Type.GetHashCode();
+      if (Size != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Size);
+      if (OutstandingSize != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(OutstandingSize);
+      if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
+      if (AveratePrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(AveratePrice);
+      if (State != 0) hash ^= State.GetHashCode();
+      if (createdAt_ != null) hash ^= CreatedAt.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RequestId.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RequestId);
+      }
+      if (ServerId.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(ServerId);
+      }
+      if (Side != 0) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Side);
+      }
+      if (Type != 0) {
+        output.WriteRawTag(32);
+        output.WriteEnum((int) Type);
+      }
+      if (Size != 0D) {
+        output.WriteRawTag(41);
+        output.WriteDouble(Size);
+      }
+      if (OutstandingSize != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(OutstandingSize);
+      }
+      if (Price != 0D) {
+        output.WriteRawTag(57);
+        output.WriteDouble(Price);
+      }
+      if (AveratePrice != 0D) {
+        output.WriteRawTag(65);
+        output.WriteDouble(AveratePrice);
+      }
+      if (State != 0) {
+        output.WriteRawTag(72);
+        output.WriteEnum((int) State);
+      }
+      if (createdAt_ != null) {
+        output.WriteRawTag(82);
+        output.WriteMessage(CreatedAt);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RequestId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RequestId);
+      }
+      if (ServerId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ServerId);
+      }
+      if (Side != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Side);
+      }
+      if (Type != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Type);
+      }
+      if (Size != 0D) {
+        size += 1 + 8;
+      }
+      if (OutstandingSize != 0D) {
+        size += 1 + 8;
+      }
+      if (Price != 0D) {
+        size += 1 + 8;
+      }
+      if (AveratePrice != 0D) {
+        size += 1 + 8;
+      }
+      if (State != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) State);
+      }
+      if (createdAt_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(CreatedAt);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(OrderResponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RequestId.Length != 0) {
+        RequestId = other.RequestId;
+      }
+      if (other.ServerId.Length != 0) {
+        ServerId = other.ServerId;
+      }
+      if (other.Side != 0) {
+        Side = other.Side;
+      }
+      if (other.Type != 0) {
+        Type = other.Type;
+      }
+      if (other.Size != 0D) {
+        Size = other.Size;
+      }
+      if (other.OutstandingSize != 0D) {
+        OutstandingSize = other.OutstandingSize;
+      }
+      if (other.Price != 0D) {
+        Price = other.Price;
+      }
+      if (other.AveratePrice != 0D) {
+        AveratePrice = other.AveratePrice;
+      }
+      if (other.State != 0) {
+        State = other.State;
+      }
+      if (other.createdAt_ != null) {
+        if (createdAt_ == null) {
+          CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+        }
+        CreatedAt.MergeFrom(other.CreatedAt);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RequestId = input.ReadString();
+            break;
+          }
+          case 18: {
+            ServerId = input.ReadString();
+            break;
+          }
+          case 24: {
+            Side = (global::CrossTrader.Models.Remoting.OrderSide) input.ReadEnum();
+            break;
+          }
+          case 32: {
+            Type = (global::CrossTrader.Models.Remoting.OrderType) input.ReadEnum();
+            break;
+          }
+          case 41: {
+            Size = input.ReadDouble();
+            break;
+          }
+          case 49: {
+            OutstandingSize = input.ReadDouble();
+            break;
+          }
+          case 57: {
+            Price = input.ReadDouble();
+            break;
+          }
+          case 65: {
+            AveratePrice = input.ReadDouble();
+            break;
+          }
+          case 72: {
+            State = (global::CrossTrader.Models.Remoting.OrderState) input.ReadEnum();
+            break;
+          }
+          case 82: {
+            if (createdAt_ == null) {
+              CreatedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(CreatedAt);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   internal sealed partial class OrderCancellationRequest : pb::IMessage<OrderCancellationRequest> {
     private static readonly pb::MessageParser<OrderCancellationRequest> _parser = new pb::MessageParser<OrderCancellationRequest>(() => new OrderCancellationRequest());
     private pb::UnknownFieldSet _unknownFields;
@@ -1640,7 +2035,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[7]; }
+      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1825,7 +2220,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[8]; }
+      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1954,7 +2349,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[9]; }
+      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2083,7 +2478,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[10]; }
+      get { return global::CrossTrader.Models.Remoting.OrdersReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
