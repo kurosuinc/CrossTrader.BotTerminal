@@ -365,7 +365,7 @@ namespace CrossTrader.BotClient
         #endregion ExecutionsService
 
         #region OrdersService
-        
+
         [Rpc(nameof(OrdersService))]
         public async Task<OrderParameter> PostOrderAsync(int instrumentId, OrderType type, OrderSide side, double size, double? price, DateTime? deadline = null, CancellationToken cancellationToken = default)
         {
@@ -386,7 +386,7 @@ namespace CrossTrader.BotClient
                 return t?.IsValid == true ? t : null;
             }
         }
-        
+
         [Rpc(nameof(OrdersService))]
         public async Task<bool> CancelOrderAsync(int instrumentId, string OrderId, string RequestId, DateTime? deadline = null, CancellationToken cancellationToken = default)
         {
@@ -404,7 +404,7 @@ namespace CrossTrader.BotClient
                 return res?.Canceled ?? false;
             }
         }
-        
+
         [Rpc(nameof(OrdersService))]
         public async Task<bool> CancelAllOrderAsync(int instrumentId, string OrderId, string RequestId, DateTime? deadline = null, CancellationToken cancellationToken = default)
         {
@@ -422,6 +422,66 @@ namespace CrossTrader.BotClient
         }
 
         #endregion
+
+        #region OrderBookService
+
+        #region SubscribeOrderBookAsync
+
+        private OrderBookSubscriptions _OrderBookSubscriptions;
+
+        public event EventHandler<ReceivedEventArgs<OrderBook>> OrderBookReceived;
+
+        public event EventHandler<OrderBookErrorEventArgs> OrderBookError;
+
+        internal OrderBookSubscriptions OrderBookSubscriptions
+            => _OrderBookSubscriptions ?? (_OrderBookSubscriptions = new OrderBookSubscriptions(this));
+
+        [Rpc(nameof(OrderBookService))]
+        public async Task SubscribeOrderBookAsync(int instrumentId, double groupSize, int levelCount, Func<OrderBook, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            using (var res = new OrderBookService.OrderBookServiceClient(Channel).SubscribeOrderBook(
+                                    new OrderBookRequest()
+                                    {
+                                        InstrumentId = instrumentId,
+                                        GroupSize = groupSize,
+                                        LevelCount = levelCount
+                                    },
+                                    deadline: deadline,
+                                    cancellationToken: cancellationToken))
+            {
+                while (await res.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false)
+                        && !cancellationToken.IsCancellationRequested)
+                {
+                    var t = new OrderBook(instrumentId, groupSize, levelCount, res.ResponseStream.Current);
+                    if (callback?.Invoke(t) != true)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void SubscribeOrderBook(int instrumentId, double groupSize, int levelCount)
+            => OrderBookSubscriptions.Subscribe(Tuple.Create(instrumentId, groupSize, levelCount));
+
+        public void UnsubscribeOrderBook(int instrumentId, double groupSize, int levelCount)
+            => OrderBookSubscriptions.Unsubscribe(Tuple.Create(instrumentId, groupSize, levelCount));
+
+        protected internal void RaiseOrderBookReceived(OrderBook OrderBook)
+        {
+            if (OrderBook?.IsValid == true)
+            {
+                OrderBookReceived?.Invoke(this, new ReceivedEventArgs<OrderBook>(OrderBook));
+            }
+        }
+
+        protected internal void RaiseOrderBookError(int instrumentId, double groupSize, int levelCount, Exception exception)
+            => OrderBookError?.Invoke(this, new OrderBookErrorEventArgs(instrumentId, groupSize, levelCount, exception));
+
+        #endregion
+
+        #endregion OrderBookService
 
         #region BitFlyer
 
@@ -478,10 +538,7 @@ namespace CrossTrader.BotClient
             }
         }
 
-        public void Dispose()
-        {
-            Dispose(true);
-        }
+        public void Dispose() => Dispose(true);
 
         #endregion IDisposable Support
     }

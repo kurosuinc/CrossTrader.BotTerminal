@@ -32,9 +32,19 @@
                     Command="{Binding UnsubscribeTickersCommand}">Unsubscribe</Button>
             </WrapPanel>
         </GroupBox>
+        <GroupBox
+            DockPanel.Dock="Top"
+            Header="OrderBook">
+            <WrapPanel
+                Orientation="Horizontal">
+                <Button
+                    Command="{Binding ShowOrderBookCommand}">OrderBook</Button>
+            </WrapPanel>
+        </GroupBox>
         <DataGrid
             AutoGenerateColumns="False"
-            ItemsSource="{Binding Instruments}">
+            ItemsSource="{Binding Instruments}"
+            SelectedItem="{Binding SelectedInstrument}">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn
                     CanUserSort="False"

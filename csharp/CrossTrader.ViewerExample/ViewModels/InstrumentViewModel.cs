@@ -5,7 +5,7 @@ namespace CrossTrader.ViewerExample.ViewModels
     public class InstrumentViewModel : ViewModelBase
     {
         private readonly InstrumentsWindowViewModelBase _Window;
-        private readonly Instrument _Instrument;
+        internal readonly Instrument _Instrument;
 
         internal InstrumentViewModel(InstrumentsWindowViewModelBase window, Instrument instrument)
         {

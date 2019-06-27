@@ -63,6 +63,7 @@
     <Compile Include="ViewModels\ExchangesWindowViewModel.cs" />
     <Compile Include="ViewModels\InstrumentViewModel.cs" />
     <Compile Include="ViewModels\LoginWindowViewModel.cs" />
+    <Compile Include="ViewModels\OrderBookWindowViewModel.cs" />
     <Compile Include="ViewModels\TickersWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WindowViewModelBase.cs" />
@@ -87,6 +88,9 @@
     </Compile>
     <Compile Include="Views\ExecutionsWindow.xaml.cs">
       <DependentUpon>ExecutionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderBookWindow.xaml.cs">
+      <DependentUpon>OrderBookWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TickersWindow.xaml.cs">
       <DependentUpon>TickersWindow.xaml</DependentUpon>
@@ -126,6 +130,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ExecutionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrderBookWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using CrossTrader.BotClient;
+using CrossTrader.ViewerExample.Views;
 
 namespace CrossTrader.ViewerExample.ViewModels
 {
@@ -17,6 +18,17 @@ namespace CrossTrader.ViewerExample.ViewModels
 
         protected override InstrumentViewModel GetItem(Instrument e)
             => new InstrumentViewModel(this, e);
+
+        #region SelectedInstrument
+
+        private InstrumentViewModel _SelectedInstrument;
+        public InstrumentViewModel SelectedInstrument
+        {
+            get => _SelectedInstrument;
+            set => SetProperty(ref _SelectedInstrument, value);
+        }
+
+        #endregion
 
         #region RefreshTickersCommand
 
@@ -41,7 +53,7 @@ namespace CrossTrader.ViewerExample.ViewModels
                         }
                         catch { }
 
-                        for (int i = 0; i < items.Count; i++)
+                        for (var i = 0; i < items.Count; i++)
                         {
                             var item = items[i];
                             var task = tasks[i];
@@ -115,6 +127,19 @@ namespace CrossTrader.ViewerExample.ViewModels
             }));
 
         #endregion UnsubscribeTickersCommand
+
+        private Command _ShowOrderBookCommand;
+        public Command ShowOrderBookCommand
+            => _ShowOrderBookCommand ?? (_ShowOrderBookCommand = Command.Create(() =>
+            {
+                if (_SelectedInstrument != null)
+                {
+                    new OrderBookWindow()
+                    {
+                        DataContext = new OrderBookWindowViewModel(Client, _SelectedInstrument._Instrument),
+                    }.ShowDialog();
+                }
+            }));
 
         private void Client_TickerReceived(object sender, ReceivedEventArgs<Ticker> e)
         {
