@@ -33,15 +33,15 @@ message OrdersResponse {
 
 
 // Positions
-message PositionItemMessage {
+message PositionMessage {
     OrderSide side = 1;
     double price = 2;
     double size = 3;
     google.protobuf.Timestamp opened_at = 4;
 }
 
-message PositionsMessage {
-    repeated OrderMessage positions = 1;
+message PositionsResponse {
+    repeated PositionMessage positions = 1;
 }
 
 
