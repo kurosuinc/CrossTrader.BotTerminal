@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -8,6 +9,13 @@ namespace CrossTrader.BotKit
 {
     public class BotBase : IBot
     {
+        #region Properties
+
+        public CrossTraderClient Client { get; set; }
+        public Dictionary<string, int> InstrumentIds { get; set; }
+        
+        #endregion
+
         public BotBase(string host, ushort port)
         {
             Client = new CrossTraderClient()
@@ -15,12 +23,28 @@ namespace CrossTrader.BotKit
                 Host = host,
                 Port = port
             };
-            // TODO: Client から取得した情報で InstrumentIds を初期化
-            InstrumentIds = new Dictionary<string, int>() { };
         }
 
-        public CrossTraderClient Client { get; set; }
-        public Dictionary<string, int> InstrumentIds { get; set; }
+        #region Init
+
+        public async Task Init()
+        {
+            var instruments = await Client.GetInstrumentsAsync();
+            InstrumentIds = instruments.ToDictionary(i => i.Name, i => i.Id);
+            await OnInitAsync();
+        }
+
+        #endregion
+
+        #region DeInit
+
+        public async Task DeInit()
+        {
+            Client.Dispose();
+            await OnDeinitAsync();
+        }
+
+        #endregion
 
         #region EventHandlers
 
