@@ -7,6 +7,8 @@ namespace CrossTrader.BotKit
     /// </summary>
     public class BotSample : BotBase
     {
+        public BotSample(string host, ushort port) : base(host, port) { }
+
         [Category("全般設定"), DisplayName("トレード銘柄"), Description("トレードを行う対象の銘柄")]
         public string TradingInstrument { get; set; }
         [Category("いなご検知設定"), DisplayName("監視銘柄"), Description("発注の条件となるボリューム検知の対象銘柄")]

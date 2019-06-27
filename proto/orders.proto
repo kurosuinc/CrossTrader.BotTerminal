@@ -19,12 +19,13 @@ message OrderMessage {
     string id = 1;
     string request_id = 2;
     OrderSide side = 3;
-    double outstanding_size = 4;
-    double price = 5;
-    double average_price = 6;
-    OrderState state = 7;
-    OrderType type = 8;
-    google.protobuf.Timestamp ordered_at = 9;
+    double size = 4;
+    double outstanding_size = 5;
+    double price = 6;
+    double average_price = 7;
+    OrderState state = 8;
+    OrderType type = 9;
+    google.protobuf.Timestamp ordered_at = 10;
 }
 
 message OrdersResponse {

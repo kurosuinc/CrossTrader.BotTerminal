@@ -96,6 +96,32 @@ namespace CrossTrader.BotClient
 
         [TargetedPatchingOptOut("")]
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static OrderState ToClientValue(this MR.OrderState v)
+        {
+            switch (v)
+            {
+                case MR.OrderState.Active:
+                    return OrderState.Active;
+                case MR.OrderState.Canceled:
+                    return OrderState.Canceled;
+                case MR.OrderState.Canceling:
+                    return OrderState.Canceling;
+                case MR.OrderState.Completed:
+                    return OrderState.Completed;
+                case MR.OrderState.Expired:
+                    return OrderState.Expired;
+                case MR.OrderState.Failed:
+                    return OrderState.Failed;
+                case MR.OrderState.Requesting:
+                    return OrderState.Requesting;
+                case MR.OrderState.None:
+                    return OrderState.None;
+            }
+            return OrderState.None;
+        }
+
+        [TargetedPatchingOptOut("")]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static BitFlyerChildOrderType ToClientValue(this MBF.ChildOrderType v)
         {
             switch (v)

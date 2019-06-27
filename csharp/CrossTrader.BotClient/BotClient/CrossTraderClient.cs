@@ -367,7 +367,7 @@ namespace CrossTrader.BotClient
         #region OrdersService
 
         [Rpc(nameof(OrdersService))]
-        public async Task<OrderParameter> PostOrderAsync(int instrumentId, OrderType type, OrderSide side, double size, double? price, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        public async Task<Order> PostOrderAsync(int instrumentId, OrderType type, OrderSide side, double size, double? price, DateTime? deadline = null, CancellationToken cancellationToken = default)
         {
             using (await OpenAsync().ConfigureAwait(false))
             {
@@ -382,7 +382,7 @@ namespace CrossTrader.BotClient
                     },
                     deadline: deadline,
                     cancellationToken: cancellationToken);
-                var t = res != null ? new OrderParameter(instrumentId, type, side, size, price, res) : null;
+                var t = res != null ? new Order(instrumentId, res) : null;
                 return t?.IsValid == true ? t : null;
             }
         }
