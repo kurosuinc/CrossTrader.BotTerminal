@@ -114,6 +114,31 @@ namespace CrossTrader.ViewerExample.ViewModels
 
         #endregion ShowExecutionsCommand
 
+        #region ShowOrdersCommand
+
+        private Command _ShowOrdersCommand;
+
+        public ICommand ShowOrdersCommand
+            => _ShowOrdersCommand
+            ?? (_ShowOrdersCommand = Command.Create(() =>
+            {
+                var sd = Settings.Default;
+                sd.Host = _Host;
+                sd.Port = _Port;
+                sd.Save();
+
+                new OrdersWindow()
+                {
+                    DataContext = new OrdersWindowViewModel(new CrossTraderClient()
+                    {
+                        Host = _Host,
+                        Port = _Port
+                    })
+                }.Show();
+            }));
+
+        #endregion ShowOrdersCommand
+
         #region ShowBitFlyerExecutionsCommand
 
         private Command _ShowBitFlyerExecutionsCommand;

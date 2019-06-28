@@ -29,7 +29,8 @@ message OrderMessage {
 }
 
 message OrdersResponse {
-    repeated OrderMessage orders = 1;
+    ChangedAction action = 1;
+    repeated OrderMessage orders = 2;
 }
 
 

@@ -8,6 +8,7 @@ namespace CrossTrader.BotClient
         internal Order(int instrumentId, OrderMessage message)
         {
             InstrumentId = instrumentId;
+            Id = message.Id;
             RequestId = message.RequestId;
             Side = message.Side.ToClientValue();
             Type = message.Type.ToClientValue();

@@ -366,6 +366,57 @@ namespace CrossTrader.BotClient
 
         #region OrdersService
 
+        private OrdersSubscriptions _OrdersSubscriptions;
+
+        public event EventHandler<CollectionReceivedEventArgs<Order>> OrdersReceived;
+
+        public event EventHandler<InstrumentIdErrorEventArgs> OrdersError;
+
+        internal OrdersSubscriptions OrdersSubscriptions
+            => _OrdersSubscriptions ?? (_OrdersSubscriptions = new OrdersSubscriptions(this));
+
+        [Rpc(nameof(OrdersService))]
+        public async Task SubscribeOrdersAsync(int instrumentId, Func<int, CollectionReceivedEventArgs<Order>, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            using (var res = new OrdersService.OrdersServiceClient(Channel).SubscribeOrders(
+                                    new InstrumentIdRequest() { InstrumentId = instrumentId },
+                                    deadline: deadline,
+                                    cancellationToken: cancellationToken))
+            {
+                while (await res.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false)
+                        && !cancellationToken.IsCancellationRequested)
+                {
+                    var c = res.ResponseStream.Current;
+                    var m = new CollectionReceivedEventArgs<Order>(
+                        c.Action,
+                        c.Orders.Select(e => new Order(instrumentId, e)).Where(e => e.IsValid));
+
+                    if (callback?.Invoke(instrumentId, m) != true)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void SubscribeOrders(int instrumentId)
+            => OrdersSubscriptions.Subscribe(instrumentId);
+
+        public void UnsubscribeOrders(int instrumentId)
+            => OrdersSubscriptions.Unsubscribe(instrumentId);
+
+        protected internal void RaiseOrdersReceived(CollectionReceivedEventArgs<Order> e)
+        {
+            if (e?.Data?.Count > 0)
+            {
+                OrdersReceived?.Invoke(this, e);
+            }
+        }
+
+        protected internal void RaiseOrdersError(int instrumentId, Exception exception)
+            => OrdersError?.Invoke(this, new InstrumentIdErrorEventArgs(instrumentId, exception));
+
         [Rpc(nameof(OrdersService))]
         public async Task<Order> PostOrderAsync(int instrumentId, OrderType type, OrderSide side, double size, double? price, DateTime? deadline = null, CancellationToken cancellationToken = default)
         {

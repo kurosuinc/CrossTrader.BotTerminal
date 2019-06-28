@@ -40,6 +40,8 @@
             Command="{Binding ShowTickersCommand}">Ticker</Button>
         <Button
             Command="{Binding ShowExecutionsCommand}">Executions</Button>
+        <Button
+            Command="{Binding ShowOrdersCommand}">Orders</Button>
         <GroupBox
             Header="bitFlyer">
             <StackPanel>

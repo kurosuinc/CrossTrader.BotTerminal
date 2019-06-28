@@ -1,0 +1,126 @@
+<v:CustomWindow
+    x:Class="CrossTrader.ViewerExample.Views.OrdersWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:CrossTrader.ViewerExample.Views"
+    mc:Ignorable="d"
+    Title="OrdersWindow"
+    Height="600"
+    Width="800"
+    IsEnabled="{Binding IsNotBusy}">
+    <v:CustomWindow.Resources>
+        <ContentPresenter
+            x:Key="Dummy"
+            Visibility="Collapsed"
+            Content="{Binding}" />
+    </v:CustomWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="*" />
+            <RowDefinition
+                Height="4" />
+            <RowDefinition
+                Height="3*" />
+        </Grid.RowDefinitions>
+        <StaticResource
+            ResourceKey="Dummy" />
+        <DockPanel>
+            <GroupBox
+                DockPanel.Dock="Top"
+                Header="Orders">
+                <WrapPanel
+                    Orientation="Horizontal">
+                    <Button
+                        Command="{Binding SubscribeOrdersCommand}">Subscribe</Button>
+                    <Button
+                        Command="{Binding UnsubscribeOrdersCommand}">Unsubscribe</Button>
+                </WrapPanel>
+            </GroupBox>
+            <DataGrid
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding Instruments}">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn
+                        CanUserSort="False"
+                        Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGridCheckBoxColumn.Header>
+                            <CheckBox
+                                IsChecked="{Binding Source={StaticResource Dummy}, Path=Content.AllInstrumentsSelected, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataGridCheckBoxColumn.Header>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn
+                        Header="Exchange"
+                        IsReadOnly="True"
+                        Binding="{Binding ExchangeDisplayName}" />
+                    <DataGridTextColumn
+                        Header="Id"
+                        IsReadOnly="True"
+                        Binding="{Binding Id}" />
+                    <DataGridTextColumn
+                        Header="Name"
+                        IsReadOnly="True"
+                        Binding="{Binding Name}" />
+                    <DataGridTextColumn
+                        Header="DisplayName"
+                        IsReadOnly="True"
+                        Binding="{Binding DisplayName}" />
+                    <DataGridTextColumn
+                        Header="LastError"
+                        IsReadOnly="True"
+                        Binding="{Binding LastError}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        <GridSplitter
+            Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" />
+        <DataGrid
+            Grid.Row="2"
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Orders}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Action"
+                    Binding="{Binding Action}" />
+                <DataGridTextColumn
+                    Header="Instrument"
+                    Binding="{Binding Instrument.DisplayName}" />
+                <DataGridTextColumn
+                    Header="Id"
+                    Binding="{Binding Order.Id}" />
+                <DataGridTextColumn
+                    Header="RequestId"
+                    Binding="{Binding Order.RequestId}" />
+                <DataGridTextColumn
+                    Header="Side"
+                    Binding="{Binding Order.Side}" />
+                <DataGridTextColumn
+                    Header="Type"
+                    Binding="{Binding Order.Type}" />
+                <DataGridTextColumn
+                    Header="Size"
+                    Binding="{Binding Order.Size}" />
+                <DataGridTextColumn
+                    Header="OutstandingSize"
+                    Binding="{Binding Order.OutstandingSize}" />
+                <DataGridTextColumn
+                    Header="Price"
+                    Binding="{Binding Order.Price}" />
+                <DataGridTextColumn
+                    Header="AveragePrice"
+                    Binding="{Binding Order.AveragePrice}" />
+                <DataGridTextColumn
+                    Header="State"
+                    Binding="{Binding Order.State}" />
+                <DataGridTextColumn
+                    Header="OrderedAt"
+                    Binding="{Binding Order.OrderedAt}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</v:CustomWindow>
