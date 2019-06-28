@@ -30,7 +30,7 @@
         <DockPanel>
             <GroupBox
                 DockPanel.Dock="Top"
-                Header="Ticker">
+                Header="Executions">
                 <WrapPanel
                     Orientation="Horizontal">
                     <Button
