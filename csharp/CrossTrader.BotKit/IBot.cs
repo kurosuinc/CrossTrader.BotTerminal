@@ -37,7 +37,7 @@ namespace CrossTrader.BotKit
         /// <param name="instrumentName"></param>
         /// <param name="orders"></param>
         /// <returns></returns>
-        Task OnOrdersChanged(string instrumentName, IReadOnlyCollection<OrderParameter> orders); // TODO: OrderParameter -> Order
+        Task OnOrdersChanged(string instrumentName, IReadOnlyCollection<Order> orders); // TODO: OrderParameter -> Order
 
         /// <summary>
         /// ポジション情報が変化した際に呼ばれます

@@ -78,7 +78,7 @@ namespace CrossTrader.BotKit
             throw new NotImplementedException();
         }
 
-        public Task OnOrdersChanged(string instrumentName, IReadOnlyCollection<OrderParameter> orders)
+        public Task OnOrdersChanged(string instrumentName, IReadOnlyCollection<Order> orders)
         {
             throw new NotImplementedException();
         }
