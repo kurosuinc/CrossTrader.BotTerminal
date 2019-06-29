@@ -42,6 +42,8 @@
             Command="{Binding ShowExecutionsCommand}">Executions</Button>
         <Button
             Command="{Binding ShowOrdersCommand}">Orders</Button>
+        <Button
+            Command="{Binding ShowPositionsCommand}">Positions</Button>
         <GroupBox
             Header="bitFlyer">
             <StackPanel>

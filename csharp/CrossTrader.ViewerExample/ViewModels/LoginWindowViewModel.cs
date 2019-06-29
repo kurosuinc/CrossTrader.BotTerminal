@@ -139,6 +139,31 @@ namespace CrossTrader.ViewerExample.ViewModels
 
         #endregion ShowOrdersCommand
 
+        #region ShowPositionsCommand
+
+        private Command _ShowPositionsCommand;
+
+        public ICommand ShowPositionsCommand
+            => _ShowPositionsCommand
+            ?? (_ShowPositionsCommand = Command.Create(() =>
+            {
+                var sd = Settings.Default;
+                sd.Host = _Host;
+                sd.Port = _Port;
+                sd.Save();
+
+                new PositionsWindow()
+                {
+                    DataContext = new PositionsWindowViewModel(new CrossTraderClient()
+                    {
+                        Host = _Host,
+                        Port = _Port
+                    })
+                }.Show();
+            }));
+
+        #endregion ShowPositionsCommand
+
         #region ShowBitFlyerExecutionsCommand
 
         private Command _ShowBitFlyerExecutionsCommand;
