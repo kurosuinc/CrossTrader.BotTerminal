@@ -58,6 +58,7 @@
     <Compile Include="ViewModels\BitMexTradesWindowViewModel.cs" />
     <Compile Include="ViewModels\BitFlyerExecutionsWindowViewModel.cs" />
     <Compile Include="ViewModels\Command.cs" />
+    <Compile Include="ViewModels\AsyncCommand.cs" />
     <Compile Include="ViewModels\ExecutionsWindowViewModel.cs" />
     <Compile Include="ViewModels\InstrumentsWindowViewModelBase.cs" />
     <Compile Include="ViewModels\ExchangesWindowViewModel.cs" />

@@ -18,6 +18,71 @@ namespace CrossTrader.ViewerExample.ViewModels
         protected override InstrumentViewModel GetItem(Instrument e)
             => new InstrumentViewModel(this, e);
 
+        #region PostOrderCommand
+
+        private OrderType _Type;
+        public OrderType Type
+        {
+            get => _Type;
+            set => SetProperty(ref _Type, value, onChanged: () =>
+            {
+                if (Type == OrderType.Limit)
+                {
+                    CanInputPrice = true;
+                }
+                else
+                {
+                    Price = 0;
+                    CanInputPrice = false;
+                }
+            });
+        }
+
+        private OrderSide _Side;
+        public OrderSide Side
+        {
+            get => _Side;
+            set => SetProperty(ref _Side, value);
+        }
+
+        private double _Size;
+        public double Size
+        {
+            get => _Size;
+            set => SetProperty(ref _Size, value);
+        }
+
+        private double _Price;
+        public double Price
+        {
+            get => _Price;
+            set => SetProperty(ref _Price, value);
+        }
+
+
+        private bool _CanInputPrice;
+        public bool CanInputPrice
+        {
+            get => _CanInputPrice;
+            set => SetProperty(ref _CanInputPrice, value);
+        }
+
+        private AsyncCommand _PostOrderCommand;
+
+        public AsyncCommand PostOrderCommand
+            => _PostOrderCommand ?? (_PostOrderCommand = AsyncCommand.Create(async () =>
+            {
+                foreach (var i in Instruments)
+                {
+                    if (i.IsSelected)
+                    {
+                        await Client.PostOrderAsync(i.Id, Type, Side, Size, Price);
+                    }
+                }
+            }));
+
+        #endregion
+
         #region Orders
 
         public class OrderEntry
