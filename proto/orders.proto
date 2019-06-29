@@ -33,20 +33,6 @@ message OrdersResponse {
     repeated OrderMessage orders = 2;
 }
 
-
-// Positions
-message PositionMessage {
-    OrderSide side = 1;
-    double price = 2;
-    double size = 3;
-    google.protobuf.Timestamp opened_at = 4;
-}
-
-message PositionsResponse {
-    repeated PositionMessage positions = 1;
-}
-
-
 // Ordering
 // Order request that can be requested for all exchanges.
 message PostOrderRequest {
@@ -69,23 +55,16 @@ message EntireOrderCancellationRequest {
     int32 instrument_id = 1;
 }
 message OrderCancellationResponse {
-    bool canceled = 3;
+    bool canceled = 1;
 }
 message EntireOrderCancellationResponse {
     bool canceled = 1;
 }
 
-
-
-
 service OrdersService {
     // Orders
     rpc GetOrders(OrdersRequest) returns (OrdersResponse);
     rpc SubscribeOrders(InstrumentIdRequest) returns (stream OrdersResponse);
-
-    // Positions
-    rpc GetPositions(InstrumentIdRequest) returns (PositionsResponse);
-    rpc SubscribePositions(InstrumentIdRequest) returns (stream PositionsResponse);
 
     // Ordering
     rpc PostOrder(PostOrderRequest) returns (OrderMessage);

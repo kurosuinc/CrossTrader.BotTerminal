@@ -15,7 +15,6 @@ namespace CrossTrader.Models.Remoting {
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrdersRequest> __Marshaller_crosstrader_OrdersRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrdersRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrdersResponse> __Marshaller_crosstrader_OrdersResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrdersResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.InstrumentIdRequest> __Marshaller_crosstrader_InstrumentIdRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.InstrumentIdRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.PositionsResponse> __Marshaller_crosstrader_PositionsResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.PositionsResponse.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.PostOrderRequest> __Marshaller_crosstrader_PostOrderRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.PostOrderRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderMessage> __Marshaller_crosstrader_OrderMessage = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrderMessage.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderCancellationRequest> __Marshaller_crosstrader_OrderCancellationRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrderCancellationRequest.Parser.ParseFrom);
@@ -36,20 +35,6 @@ namespace CrossTrader.Models.Remoting {
         "SubscribeOrders",
         __Marshaller_crosstrader_InstrumentIdRequest,
         __Marshaller_crosstrader_OrdersResponse);
-
-    static readonly grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.PositionsResponse> __Method_GetPositions = new grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.PositionsResponse>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "GetPositions",
-        __Marshaller_crosstrader_InstrumentIdRequest,
-        __Marshaller_crosstrader_PositionsResponse);
-
-    static readonly grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.PositionsResponse> __Method_SubscribePositions = new grpc::Method<global::CrossTrader.Models.Remoting.InstrumentIdRequest, global::CrossTrader.Models.Remoting.PositionsResponse>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "SubscribePositions",
-        __Marshaller_crosstrader_InstrumentIdRequest,
-        __Marshaller_crosstrader_PositionsResponse);
 
     static readonly grpc::Method<global::CrossTrader.Models.Remoting.PostOrderRequest, global::CrossTrader.Models.Remoting.OrderMessage> __Method_PostOrder = new grpc::Method<global::CrossTrader.Models.Remoting.PostOrderRequest, global::CrossTrader.Models.Remoting.OrderMessage>(
         grpc::MethodType.Unary,
@@ -152,58 +137,6 @@ namespace CrossTrader.Models.Remoting {
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.OrdersResponse> SubscribeOrders(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeOrders, null, options, request);
-      }
-      /// <summary>
-      /// Positions
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::CrossTrader.Models.Remoting.PositionsResponse GetPositions(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetPositions(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// Positions
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The response received from the server.</returns>
-      public virtual global::CrossTrader.Models.Remoting.PositionsResponse GetPositions(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_GetPositions, null, options, request);
-      }
-      /// <summary>
-      /// Positions
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::CrossTrader.Models.Remoting.PositionsResponse> GetPositionsAsync(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetPositionsAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// Positions
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncUnaryCall<global::CrossTrader.Models.Remoting.PositionsResponse> GetPositionsAsync(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetPositions, null, options, request);
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.PositionsResponse> SubscribePositions(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return SubscribePositions(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.PositionsResponse> SubscribePositions(global::CrossTrader.Models.Remoting.InstrumentIdRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_SubscribePositions, null, options, request);
       }
       /// <summary>
       /// Ordering

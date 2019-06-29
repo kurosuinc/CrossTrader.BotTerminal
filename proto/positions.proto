@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package crosstrader;
+option csharp_namespace = "CrossTrader.Models.Remoting";
+
+import "common.proto";
+import "google/protobuf/timestamp.proto";
+
+message PositionMessage {
+    OrderSide side = 1;
+    double price = 2;
+    double size = 3;
+    google.protobuf.Timestamp opened_at = 4;
+}
+
+message PositionsResponse {
+    repeated PositionMessage positions = 1;
+}
+
+service PositionsService {
+    rpc GetPositions(InstrumentIdRequest) returns (PositionsResponse);
+    rpc SubscribePositions(InstrumentIdRequest) returns (stream PositionsResponse);
+}
