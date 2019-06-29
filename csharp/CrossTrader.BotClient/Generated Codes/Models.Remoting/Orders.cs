@@ -48,7 +48,7 @@ namespace CrossTrader.Models.Remoting {
             "BRIQCghvcmRlcl9pZBgCIAEoCRISCgpyZXF1ZXN0X2lkGAMgASgJIjcKHkVu",
             "dGlyZU9yZGVyQ2FuY2VsbGF0aW9uUmVxdWVzdBIVCg1pbnN0cnVtZW50X2lk",
             "GAEgASgFIi0KGU9yZGVyQ2FuY2VsbGF0aW9uUmVzcG9uc2USEAoIY2FuY2Vs",
-            "ZWQYAyABKAgiMwofRW50aXJlT3JkZXJDYW5jZWxsYXRpb25SZXNwb25zZRIQ",
+            "ZWQYASABKAgiMwofRW50aXJlT3JkZXJDYW5jZWxsYXRpb25SZXNwb25zZRIQ",
             "CghjYW5jZWxlZBgBIAEoCDK8AwoNT3JkZXJzU2VydmljZRJECglHZXRPcmRl",
             "cnMSGi5jcm9zc3RyYWRlci5PcmRlcnNSZXF1ZXN0GhsuY3Jvc3N0cmFkZXIu",
             "T3JkZXJzUmVzcG9uc2USUgoPU3Vic2NyaWJlT3JkZXJzEiAuY3Jvc3N0cmFk",
@@ -1628,7 +1628,7 @@ namespace CrossTrader.Models.Remoting {
     }
 
     /// <summary>Field number for the "canceled" field.</summary>
-    public const int CanceledFieldNumber = 3;
+    public const int CanceledFieldNumber = 1;
     private bool canceled_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Canceled {
@@ -1673,7 +1673,7 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Canceled != false) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(8);
         output.WriteBool(Canceled);
       }
       if (_unknownFields != null) {
@@ -1712,7 +1712,7 @@ namespace CrossTrader.Models.Remoting {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 24: {
+          case 8: {
             Canceled = input.ReadBool();
             break;
           }

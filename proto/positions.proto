@@ -14,7 +14,8 @@ message PositionMessage {
 }
 
 message PositionsResponse {
-    repeated PositionMessage positions = 1;
+    ChangedAction action = 1;
+    repeated PositionMessage positions = 2;
 }
 
 service PositionsService {

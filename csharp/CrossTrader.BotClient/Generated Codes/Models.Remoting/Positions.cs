@@ -28,19 +28,20 @@ namespace CrossTrader.Models.Remoting {
             "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8igwEKD1Bvc2l0aW9u",
             "TWVzc2FnZRIkCgRzaWRlGAEgASgOMhYuY3Jvc3N0cmFkZXIuT3JkZXJTaWRl",
             "Eg0KBXByaWNlGAIgASgBEgwKBHNpemUYAyABKAESLQoJb3BlbmVkX2F0GAQg",
-            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCJEChFQb3NpdGlvbnNS",
-            "ZXNwb25zZRIvCglwb3NpdGlvbnMYASADKAsyHC5jcm9zc3RyYWRlci5Qb3Np",
-            "dGlvbk1lc3NhZ2UyvgEKEFBvc2l0aW9uc1NlcnZpY2USUAoMR2V0UG9zaXRp",
-            "b25zEiAuY3Jvc3N0cmFkZXIuSW5zdHJ1bWVudElkUmVxdWVzdBoeLmNyb3Nz",
-            "dHJhZGVyLlBvc2l0aW9uc1Jlc3BvbnNlElgKElN1YnNjcmliZVBvc2l0aW9u",
-            "cxIgLmNyb3NzdHJhZGVyLkluc3RydW1lbnRJZFJlcXVlc3QaHi5jcm9zc3Ry",
-            "YWRlci5Qb3NpdGlvbnNSZXNwb25zZTABQh6qAhtDcm9zc1RyYWRlci5Nb2Rl",
-            "bHMuUmVtb3RpbmdiBnByb3RvMw=="));
+            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCJwChFQb3NpdGlvbnNS",
+            "ZXNwb25zZRIqCgZhY3Rpb24YASABKA4yGi5jcm9zc3RyYWRlci5DaGFuZ2Vk",
+            "QWN0aW9uEi8KCXBvc2l0aW9ucxgCIAMoCzIcLmNyb3NzdHJhZGVyLlBvc2l0",
+            "aW9uTWVzc2FnZTK+AQoQUG9zaXRpb25zU2VydmljZRJQCgxHZXRQb3NpdGlv",
+            "bnMSIC5jcm9zc3RyYWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0Gh4uY3Jvc3N0",
+            "cmFkZXIuUG9zaXRpb25zUmVzcG9uc2USWAoSU3Vic2NyaWJlUG9zaXRpb25z",
+            "EiAuY3Jvc3N0cmFkZXIuSW5zdHJ1bWVudElkUmVxdWVzdBoeLmNyb3NzdHJh",
+            "ZGVyLlBvc2l0aW9uc1Jlc3BvbnNlMAFCHqoCG0Nyb3NzVHJhZGVyLk1vZGVs",
+            "cy5SZW1vdGluZ2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionMessage), global::CrossTrader.Models.Remoting.PositionMessage.Parser, new[]{ "Side", "Price", "Size", "OpenedAt" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionsResponse), global::CrossTrader.Models.Remoting.PositionsResponse.Parser, new[]{ "Positions" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionsResponse), global::CrossTrader.Models.Remoting.PositionsResponse.Parser, new[]{ "Action", "Positions" }, null, null, null)
           }));
     }
     #endregion
@@ -291,6 +292,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public PositionsResponse(PositionsResponse other) : this() {
+      action_ = other.action_;
       positions_ = other.positions_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -300,10 +302,21 @@ namespace CrossTrader.Models.Remoting {
       return new PositionsResponse(this);
     }
 
+    /// <summary>Field number for the "action" field.</summary>
+    public const int ActionFieldNumber = 1;
+    private global::CrossTrader.Models.Remoting.ChangedAction action_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::CrossTrader.Models.Remoting.ChangedAction Action {
+      get { return action_; }
+      set {
+        action_ = value;
+      }
+    }
+
     /// <summary>Field number for the "positions" field.</summary>
-    public const int PositionsFieldNumber = 1;
+    public const int PositionsFieldNumber = 2;
     private static readonly pb::FieldCodec<global::CrossTrader.Models.Remoting.PositionMessage> _repeated_positions_codec
-        = pb::FieldCodec.ForMessage(10, global::CrossTrader.Models.Remoting.PositionMessage.Parser);
+        = pb::FieldCodec.ForMessage(18, global::CrossTrader.Models.Remoting.PositionMessage.Parser);
     private readonly pbc::RepeatedField<global::CrossTrader.Models.Remoting.PositionMessage> positions_ = new pbc::RepeatedField<global::CrossTrader.Models.Remoting.PositionMessage>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::CrossTrader.Models.Remoting.PositionMessage> Positions {
@@ -323,6 +336,7 @@ namespace CrossTrader.Models.Remoting {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Action != other.Action) return false;
       if(!positions_.Equals(other.positions_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -330,6 +344,7 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (Action != 0) hash ^= Action.GetHashCode();
       hash ^= positions_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -344,6 +359,10 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
+      if (Action != 0) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Action);
+      }
       positions_.WriteTo(output, _repeated_positions_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -353,6 +372,9 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (Action != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Action);
+      }
       size += positions_.CalculateSize(_repeated_positions_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -364,6 +386,9 @@ namespace CrossTrader.Models.Remoting {
     public void MergeFrom(PositionsResponse other) {
       if (other == null) {
         return;
+      }
+      if (other.Action != 0) {
+        Action = other.Action;
       }
       positions_.Add(other.positions_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -377,7 +402,11 @@ namespace CrossTrader.Models.Remoting {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
+          case 8: {
+            Action = (global::CrossTrader.Models.Remoting.ChangedAction) input.ReadEnum();
+            break;
+          }
+          case 18: {
             positions_.AddEntriesFrom(input, _repeated_positions_codec);
             break;
           }
