@@ -534,6 +534,66 @@ namespace CrossTrader.BotClient
 
         #endregion OrderBookService
 
+        #region ChartService
+
+        #region SubscribeOhlcAsync
+
+        private OhlcSubscriptions _OhlcSubscriptions;
+
+        public event EventHandler<CollectionReceivedEventArgs<Ohlc>> OhlcReceived;
+
+        public event EventHandler<TimeFrameErrorEventArgs> OhlcError;
+
+        internal OhlcSubscriptions OhlcSubscriptions
+            => _OhlcSubscriptions ?? (_OhlcSubscriptions = new OhlcSubscriptions(this));
+
+        [Rpc(nameof(ChartService))]
+        public async Task SubscribeOhlcAsync(int instrumentId, TimeSpan timeFrame, Func<CollectionReceivedEventArgs<Ohlc>, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            using (var res = new ChartService.ChartServiceClient(Channel).SubscribeOhlc(
+                                    new TimeFrameRequest()
+                                    {
+                                        InstrumentId = instrumentId,
+                                        TimeFrame = timeFrame.ToDuration()
+                                    },
+                                    deadline: deadline,
+                                    cancellationToken: cancellationToken))
+            {
+                while (await res.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false)
+                        && !cancellationToken.IsCancellationRequested)
+                {
+                    var c = res.ResponseStream.Current;
+                    var t = new CollectionReceivedEventArgs<Ohlc>(c.Action, c.Items.Select(e => new Ohlc(instrumentId, timeFrame, e)).Where(e => e.IsValid));
+                    if (callback?.Invoke(t) != true)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void SubscribeOhlc(int instrumentId, TimeSpan timeFrame)
+            => OhlcSubscriptions.Subscribe(Tuple.Create(instrumentId, timeFrame));
+
+        public void UnsubscribeOhlc(int instrumentId, TimeSpan timeFrame)
+            => OhlcSubscriptions.Unsubscribe(Tuple.Create(instrumentId, timeFrame));
+
+        protected internal void RaiseOhlcReceived(CollectionReceivedEventArgs<Ohlc> e)
+        {
+            if (e.Data.Any())
+            {
+                OhlcReceived?.Invoke(this, e);
+            }
+        }
+
+        protected internal void RaiseOhlcError(int instrumentId, TimeSpan timeFrame, Exception exception)
+            => OhlcError?.Invoke(this, new TimeFrameErrorEventArgs(instrumentId, timeFrame, exception));
+
+        #endregion
+
+        #endregion OhlcService
+
         #region BitFlyer
 
         private BitFlyerClientPlugin _BitFlyer;

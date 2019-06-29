@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using CrossTrader.Models.Remoting;
 
 namespace CrossTrader.BotClient

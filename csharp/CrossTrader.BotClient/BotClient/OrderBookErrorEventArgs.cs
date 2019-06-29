@@ -11,6 +11,7 @@ namespace CrossTrader.BotClient
             LevelCount = levelCount;
             Exception = exception;
         }
+
         public int InstrumentId { get; }
         public double GroupSize { get; }
 
