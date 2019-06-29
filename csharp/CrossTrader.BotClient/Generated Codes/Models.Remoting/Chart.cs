@@ -28,7 +28,7 @@ namespace CrossTrader.Models.Remoting {
             "Z2xlL3Byb3RvYnVmL2R1cmF0aW9uLnByb3RvGh9nb29nbGUvcHJvdG9idWYv",
             "dGltZXN0YW1wLnByb3RvIlgKEFRpbWVGcmFtZVJlcXVlc3QSFQoNaW5zdHJ1",
             "bWVudF9pZBgBIAEoBRItCgp0aW1lX2ZyYW1lGAIgASgLMhkuZ29vZ2xlLnBy",
-            "b3RvYnVmLkR1cmF0aW9uIpwBCgtPaGxjTWVzc2FnZRItCglvcGVuX3RpbWUY",
+            "b3RvYnVmLkR1cmF0aW9uIpwBCgtPaGxjTWVzc2FnZRItCglvcGVuZWRfYXQY",
             "ASABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhIKCm9wZW5fcHJp",
             "Y2UYAiABKAESEgoKaGlnaF9wcmljZRgDIAEoARIRCglsb3dfcHJpY2UYBCAB",
             "KAESEwoLY2xvc2VfcHJpY2UYBSABKAESDgoGdm9sdW1lGAYgASgBImMKDE9o",
@@ -42,7 +42,7 @@ namespace CrossTrader.Models.Remoting {
           new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.TimeFrameRequest), global::CrossTrader.Models.Remoting.TimeFrameRequest.Parser, new[]{ "InstrumentId", "TimeFrame" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OhlcMessage), global::CrossTrader.Models.Remoting.OhlcMessage.Parser, new[]{ "OpenTime", "OpenPrice", "HighPrice", "LowPrice", "ClosePrice", "Volume" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OhlcMessage), global::CrossTrader.Models.Remoting.OhlcMessage.Parser, new[]{ "OpenedAt", "OpenPrice", "HighPrice", "LowPrice", "ClosePrice", "Volume" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OhlcResponse), global::CrossTrader.Models.Remoting.OhlcResponse.Parser, new[]{ "Action", "Items" }, null, null, null)
           }));
     }
@@ -238,7 +238,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public OhlcMessage(OhlcMessage other) : this() {
-      openTime_ = other.openTime_ != null ? other.openTime_.Clone() : null;
+      openedAt_ = other.openedAt_ != null ? other.openedAt_.Clone() : null;
       openPrice_ = other.openPrice_;
       highPrice_ = other.highPrice_;
       lowPrice_ = other.lowPrice_;
@@ -252,14 +252,14 @@ namespace CrossTrader.Models.Remoting {
       return new OhlcMessage(this);
     }
 
-    /// <summary>Field number for the "open_time" field.</summary>
-    public const int OpenTimeFieldNumber = 1;
-    private global::Google.Protobuf.WellKnownTypes.Timestamp openTime_;
+    /// <summary>Field number for the "opened_at" field.</summary>
+    public const int OpenedAtFieldNumber = 1;
+    private global::Google.Protobuf.WellKnownTypes.Timestamp openedAt_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Google.Protobuf.WellKnownTypes.Timestamp OpenTime {
-      get { return openTime_; }
+    public global::Google.Protobuf.WellKnownTypes.Timestamp OpenedAt {
+      get { return openedAt_; }
       set {
-        openTime_ = value;
+        openedAt_ = value;
       }
     }
 
@@ -331,7 +331,7 @@ namespace CrossTrader.Models.Remoting {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(OpenTime, other.OpenTime)) return false;
+      if (!object.Equals(OpenedAt, other.OpenedAt)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(OpenPrice, other.OpenPrice)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(HighPrice, other.HighPrice)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(LowPrice, other.LowPrice)) return false;
@@ -343,7 +343,7 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (openTime_ != null) hash ^= OpenTime.GetHashCode();
+      if (openedAt_ != null) hash ^= OpenedAt.GetHashCode();
       if (OpenPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(OpenPrice);
       if (HighPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(HighPrice);
       if (LowPrice != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(LowPrice);
@@ -362,9 +362,9 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (openTime_ != null) {
+      if (openedAt_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(OpenTime);
+        output.WriteMessage(OpenedAt);
       }
       if (OpenPrice != 0D) {
         output.WriteRawTag(17);
@@ -394,8 +394,8 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (openTime_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OpenTime);
+      if (openedAt_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(OpenedAt);
       }
       if (OpenPrice != 0D) {
         size += 1 + 8;
@@ -423,11 +423,11 @@ namespace CrossTrader.Models.Remoting {
       if (other == null) {
         return;
       }
-      if (other.openTime_ != null) {
-        if (openTime_ == null) {
-          OpenTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+      if (other.openedAt_ != null) {
+        if (openedAt_ == null) {
+          OpenedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
         }
-        OpenTime.MergeFrom(other.OpenTime);
+        OpenedAt.MergeFrom(other.OpenedAt);
       }
       if (other.OpenPrice != 0D) {
         OpenPrice = other.OpenPrice;
@@ -456,10 +456,10 @@ namespace CrossTrader.Models.Remoting {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (openTime_ == null) {
-              OpenTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            if (openedAt_ == null) {
+              OpenedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
-            input.ReadMessage(OpenTime);
+            input.ReadMessage(OpenedAt);
             break;
           }
           case 17: {
