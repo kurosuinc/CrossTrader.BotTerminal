@@ -474,6 +474,61 @@ namespace CrossTrader.BotClient
 
         #endregion
 
+        #region PositionsService
+
+        private PositionsSubscriptions _PositionsSubscriptions;
+
+        public event EventHandler<CollectionReceivedEventArgs<Position>> PositionsReceived;
+
+        public event EventHandler<InstrumentIdErrorEventArgs> PositionsError;
+
+        internal PositionsSubscriptions PositionsSubscriptions
+            => _PositionsSubscriptions ?? (_PositionsSubscriptions = new PositionsSubscriptions(this));
+
+        [Rpc(nameof(PositionsService))]
+        public async Task SubscribePositionsAsync(int instrumentId, Func<int, CollectionReceivedEventArgs<Position>, bool> callback, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        {
+            using (await OpenAsync().ConfigureAwait(false))
+            using (var res = new PositionsService.PositionsServiceClient(Channel).SubscribePositions(
+                                    new InstrumentIdRequest() { InstrumentId = instrumentId },
+                                    deadline: deadline,
+                                    cancellationToken: cancellationToken))
+            {
+                while (await res.ResponseStream.MoveNext(cancellationToken).ConfigureAwait(false)
+                        && !cancellationToken.IsCancellationRequested)
+                {
+                    var c = res.ResponseStream.Current;
+                    var m = new CollectionReceivedEventArgs<Position>(
+                        c.Action,
+                        c.Positions.Select(e => new Position(instrumentId, e)).Where(e => e.IsValid));
+
+                    if (callback?.Invoke(instrumentId, m) != true)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void SubscribePositions(int instrumentId)
+            => PositionsSubscriptions.Subscribe(instrumentId);
+
+        public void UnsubscribePositions(int instrumentId)
+            => PositionsSubscriptions.Unsubscribe(instrumentId);
+
+        protected internal void RaisePositionsReceived(CollectionReceivedEventArgs<Position> e)
+        {
+            if (e?.Data?.Count > 0)
+            {
+                PositionsReceived?.Invoke(this, e);
+            }
+        }
+
+        protected internal void RaisePositionsError(int instrumentId, Exception exception)
+            => PositionsError?.Invoke(this, new InstrumentIdErrorEventArgs(instrumentId, exception));
+
+        #endregion
+
         #region OrderBookService
 
         #region SubscribeOrderBookAsync

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Google.Protobuf.WellKnownTypes;
 
 namespace CrossTrader.BotClient
@@ -9,8 +9,8 @@ namespace CrossTrader.BotClient
 
         public static DateTimeOffset? ToClientValue(this Timestamp v)
         {
-            var dto = v.ToDateTimeOffset();
-            return dto == _Epoch ? (DateTimeOffset?)null : dto;
+            var dto = v?.ToDateTimeOffset();
+            return (dto == null || dto == _Epoch) ? (DateTimeOffset?)null : dto;
         }
     }
 }
