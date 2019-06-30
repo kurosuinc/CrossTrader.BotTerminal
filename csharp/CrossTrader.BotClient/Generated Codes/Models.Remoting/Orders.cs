@@ -25,44 +25,46 @@ namespace CrossTrader.Models.Remoting {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgxvcmRlcnMucHJvdG8SC2Nyb3NzdHJhZGVyGgxjb21tb24ucHJvdG8aH2dv",
-            "b2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8isgEKDU9yZGVyc1JlcXVl",
-            "c3QSFQoNaW5zdHJ1bWVudF9pZBgBIAEoBRINCgVsaW1pdBgCIAEoBRImCgVz",
-            "dGF0ZRgDIAEoDjIXLmNyb3NzdHJhZGVyLk9yZGVyU3RhdGUSKQoGYmVmb3Jl",
-            "GAQgASgLMhkuY3Jvc3N0cmFkZXIuT3JkZXJNZXNzYWdlEigKBWFmdGVyGAUg",
-            "ASgLMhkuY3Jvc3N0cmFkZXIuT3JkZXJNZXNzYWdlIqACCgxPcmRlck1lc3Nh",
-            "Z2USCgoCaWQYASABKAkSEgoKcmVxdWVzdF9pZBgCIAEoCRIkCgRzaWRlGAMg",
-            "ASgOMhYuY3Jvc3N0cmFkZXIuT3JkZXJTaWRlEgwKBHNpemUYBCABKAESGAoQ",
-            "b3V0c3RhbmRpbmdfc2l6ZRgFIAEoARINCgVwcmljZRgGIAEoARIVCg1hdmVy",
-            "YWdlX3ByaWNlGAcgASgBEiYKBXN0YXRlGAggASgOMhcuY3Jvc3N0cmFkZXIu",
-            "T3JkZXJTdGF0ZRIkCgR0eXBlGAkgASgOMhYuY3Jvc3N0cmFkZXIuT3JkZXJU",
-            "eXBlEi4KCm9yZGVyZWRfYXQYCiABKAsyGi5nb29nbGUucHJvdG9idWYuVGlt",
-            "ZXN0YW1wImcKDk9yZGVyc1Jlc3BvbnNlEioKBmFjdGlvbhgBIAEoDjIaLmNy",
-            "b3NzdHJhZGVyLkNoYW5nZWRBY3Rpb24SKQoGb3JkZXJzGAIgAygLMhkuY3Jv",
-            "c3N0cmFkZXIuT3JkZXJNZXNzYWdlIpIBChBQb3N0T3JkZXJSZXF1ZXN0EhUK",
-            "DWluc3RydW1lbnRfaWQYASABKAUSJAoEc2lkZRgCIAEoDjIWLmNyb3NzdHJh",
-            "ZGVyLk9yZGVyU2lkZRIkCgR0eXBlGAMgASgOMhYuY3Jvc3N0cmFkZXIuT3Jk",
-            "ZXJUeXBlEgwKBHNpemUYBCABKAESDQoFcHJpY2UYBSABKAEiXQoXT3JkZXJQ",
-            "YXJhbWV0ZXJzUmVzcG9uc2USEgoKcmVxdWVzdF9pZBgBIAEoCRIuCgpjcmVh",
-            "dGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCJXChhP",
-            "cmRlckNhbmNlbGxhdGlvblJlcXVlc3QSFQoNaW5zdHJ1bWVudF9pZBgBIAEo",
-            "BRIQCghvcmRlcl9pZBgCIAEoCRISCgpyZXF1ZXN0X2lkGAMgASgJIjcKHkVu",
-            "dGlyZU9yZGVyQ2FuY2VsbGF0aW9uUmVxdWVzdBIVCg1pbnN0cnVtZW50X2lk",
-            "GAEgASgFIi0KGU9yZGVyQ2FuY2VsbGF0aW9uUmVzcG9uc2USEAoIY2FuY2Vs",
-            "ZWQYASABKAgiMwofRW50aXJlT3JkZXJDYW5jZWxsYXRpb25SZXNwb25zZRIQ",
-            "CghjYW5jZWxlZBgBIAEoCDK8AwoNT3JkZXJzU2VydmljZRJECglHZXRPcmRl",
-            "cnMSGi5jcm9zc3RyYWRlci5PcmRlcnNSZXF1ZXN0GhsuY3Jvc3N0cmFkZXIu",
-            "T3JkZXJzUmVzcG9uc2USUgoPU3Vic2NyaWJlT3JkZXJzEiAuY3Jvc3N0cmFk",
-            "ZXIuSW5zdHJ1bWVudElkUmVxdWVzdBobLmNyb3NzdHJhZGVyLk9yZGVyc1Jl",
-            "c3BvbnNlMAESRQoJUG9zdE9yZGVyEh0uY3Jvc3N0cmFkZXIuUG9zdE9yZGVy",
-            "UmVxdWVzdBoZLmNyb3NzdHJhZGVyLk9yZGVyTWVzc2FnZRJcCgtDYW5jZWxP",
-            "cmRlchIlLmNyb3NzdHJhZGVyLk9yZGVyQ2FuY2VsbGF0aW9uUmVxdWVzdBom",
-            "LmNyb3NzdHJhZGVyLk9yZGVyQ2FuY2VsbGF0aW9uUmVzcG9uc2USbAoPQ2Fu",
-            "Y2VsQWxsT3JkZXJzEisuY3Jvc3N0cmFkZXIuRW50aXJlT3JkZXJDYW5jZWxs",
-            "YXRpb25SZXF1ZXN0GiwuY3Jvc3N0cmFkZXIuRW50aXJlT3JkZXJDYW5jZWxs",
-            "YXRpb25SZXNwb25zZUIeqgIbQ3Jvc3NUcmFkZXIuTW9kZWxzLlJlbW90aW5n",
-            "YgZwcm90bzM="));
+            "b2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8aHmdvb2dsZS9wcm90b2J1",
+            "Zi93cmFwcGVycy5wcm90byKyAQoNT3JkZXJzUmVxdWVzdBIVCg1pbnN0cnVt",
+            "ZW50X2lkGAEgASgFEg0KBWxpbWl0GAIgASgFEiYKBXN0YXRlGAMgASgOMhcu",
+            "Y3Jvc3N0cmFkZXIuT3JkZXJTdGF0ZRIpCgZiZWZvcmUYBCABKAsyGS5jcm9z",
+            "c3RyYWRlci5PcmRlck1lc3NhZ2USKAoFYWZ0ZXIYBSABKAsyGS5jcm9zc3Ry",
+            "YWRlci5PcmRlck1lc3NhZ2Ui3AIKDE9yZGVyTWVzc2FnZRIoCgJpZBgBIAEo",
+            "CzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIwCgpyZXF1ZXN0X2lk",
+            "GAIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEiQKBHNpZGUY",
+            "AyABKA4yFi5jcm9zc3RyYWRlci5PcmRlclNpZGUSDAoEc2l6ZRgEIAEoARIY",
+            "ChBvdXRzdGFuZGluZ19zaXplGAUgASgBEg0KBXByaWNlGAYgASgBEhUKDWF2",
+            "ZXJhZ2VfcHJpY2UYByABKAESJgoFc3RhdGUYCCABKA4yFy5jcm9zc3RyYWRl",
+            "ci5PcmRlclN0YXRlEiQKBHR5cGUYCSABKA4yFi5jcm9zc3RyYWRlci5PcmRl",
+            "clR5cGUSLgoKb3JkZXJlZF9hdBgKIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5U",
+            "aW1lc3RhbXAiZwoOT3JkZXJzUmVzcG9uc2USKgoGYWN0aW9uGAEgASgOMhou",
+            "Y3Jvc3N0cmFkZXIuQ2hhbmdlZEFjdGlvbhIpCgZvcmRlcnMYAiADKAsyGS5j",
+            "cm9zc3RyYWRlci5PcmRlck1lc3NhZ2UikgEKEFBvc3RPcmRlclJlcXVlc3QS",
+            "FQoNaW5zdHJ1bWVudF9pZBgBIAEoBRIkCgRzaWRlGAIgASgOMhYuY3Jvc3N0",
+            "cmFkZXIuT3JkZXJTaWRlEiQKBHR5cGUYAyABKA4yFi5jcm9zc3RyYWRlci5P",
+            "cmRlclR5cGUSDAoEc2l6ZRgEIAEoARINCgVwcmljZRgFIAEoASJdChdPcmRl",
+            "clBhcmFtZXRlcnNSZXNwb25zZRISCgpyZXF1ZXN0X2lkGAEgASgJEi4KCmNy",
+            "ZWF0ZWRfYXQYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wIlcK",
+            "GE9yZGVyQ2FuY2VsbGF0aW9uUmVxdWVzdBIVCg1pbnN0cnVtZW50X2lkGAEg",
+            "ASgFEhAKCG9yZGVyX2lkGAIgASgJEhIKCnJlcXVlc3RfaWQYAyABKAkiNwoe",
+            "RW50aXJlT3JkZXJDYW5jZWxsYXRpb25SZXF1ZXN0EhUKDWluc3RydW1lbnRf",
+            "aWQYASABKAUiLQoZT3JkZXJDYW5jZWxsYXRpb25SZXNwb25zZRIQCghjYW5j",
+            "ZWxlZBgBIAEoCCIzCh9FbnRpcmVPcmRlckNhbmNlbGxhdGlvblJlc3BvbnNl",
+            "EhAKCGNhbmNlbGVkGAEgASgIMrwDCg1PcmRlcnNTZXJ2aWNlEkQKCUdldE9y",
+            "ZGVycxIaLmNyb3NzdHJhZGVyLk9yZGVyc1JlcXVlc3QaGy5jcm9zc3RyYWRl",
+            "ci5PcmRlcnNSZXNwb25zZRJSCg9TdWJzY3JpYmVPcmRlcnMSIC5jcm9zc3Ry",
+            "YWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0GhsuY3Jvc3N0cmFkZXIuT3JkZXJz",
+            "UmVzcG9uc2UwARJFCglQb3N0T3JkZXISHS5jcm9zc3RyYWRlci5Qb3N0T3Jk",
+            "ZXJSZXF1ZXN0GhkuY3Jvc3N0cmFkZXIuT3JkZXJNZXNzYWdlElwKC0NhbmNl",
+            "bE9yZGVyEiUuY3Jvc3N0cmFkZXIuT3JkZXJDYW5jZWxsYXRpb25SZXF1ZXN0",
+            "GiYuY3Jvc3N0cmFkZXIuT3JkZXJDYW5jZWxsYXRpb25SZXNwb25zZRJsCg9D",
+            "YW5jZWxBbGxPcmRlcnMSKy5jcm9zc3RyYWRlci5FbnRpcmVPcmRlckNhbmNl",
+            "bGxhdGlvblJlcXVlc3QaLC5jcm9zc3RyYWRlci5FbnRpcmVPcmRlckNhbmNl",
+            "bGxhdGlvblJlc3BvbnNlQh6qAhtDcm9zc1RyYWRlci5Nb2RlbHMuUmVtb3Rp",
+            "bmdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrdersRequest), global::CrossTrader.Models.Remoting.OrdersRequest.Parser, new[]{ "InstrumentId", "Limit", "State", "Before", "After" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderMessage), global::CrossTrader.Models.Remoting.OrderMessage.Parser, new[]{ "Id", "RequestId", "Side", "Size", "OutstandingSize", "Price", "AveragePrice", "State", "Type", "OrderedAt" }, null, null, null),
@@ -360,8 +362,8 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public OrderMessage(OrderMessage other) : this() {
-      id_ = other.id_;
-      requestId_ = other.requestId_;
+      Id = other.Id;
+      RequestId = other.RequestId;
       side_ = other.side_;
       size_ = other.size_;
       outstandingSize_ = other.outstandingSize_;
@@ -380,25 +382,29 @@ namespace CrossTrader.Models.Remoting {
 
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
-    private string id_ = "";
+    private static readonly pb::FieldCodec<string> _single_id_codec = pb::FieldCodec.ForClassWrapper<string>(10);
+    private string id_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Id {
       get { return id_; }
       set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        id_ = value;
       }
     }
 
+
     /// <summary>Field number for the "request_id" field.</summary>
     public const int RequestIdFieldNumber = 2;
-    private string requestId_ = "";
+    private static readonly pb::FieldCodec<string> _single_requestId_codec = pb::FieldCodec.ForClassWrapper<string>(18);
+    private string requestId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string RequestId {
       get { return requestId_; }
       set {
-        requestId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        requestId_ = value;
       }
     }
+
 
     /// <summary>Field number for the "side" field.</summary>
     public const int SideFieldNumber = 3;
@@ -517,8 +523,8 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
-      if (RequestId.Length != 0) hash ^= RequestId.GetHashCode();
+      if (id_ != null) hash ^= Id.GetHashCode();
+      if (requestId_ != null) hash ^= RequestId.GetHashCode();
       if (Side != 0) hash ^= Side.GetHashCode();
       if (Size != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Size);
       if (OutstandingSize != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(OutstandingSize);
@@ -540,13 +546,11 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Id.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Id);
+      if (id_ != null) {
+        _single_id_codec.WriteTagAndValue(output, Id);
       }
-      if (RequestId.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(RequestId);
+      if (requestId_ != null) {
+        _single_requestId_codec.WriteTagAndValue(output, RequestId);
       }
       if (Side != 0) {
         output.WriteRawTag(24);
@@ -588,11 +592,11 @@ namespace CrossTrader.Models.Remoting {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
+      if (id_ != null) {
+        size += _single_id_codec.CalculateSizeWithTag(Id);
       }
-      if (RequestId.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(RequestId);
+      if (requestId_ != null) {
+        size += _single_requestId_codec.CalculateSizeWithTag(RequestId);
       }
       if (Side != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Side);
@@ -629,11 +633,15 @@ namespace CrossTrader.Models.Remoting {
       if (other == null) {
         return;
       }
-      if (other.Id.Length != 0) {
-        Id = other.Id;
+      if (other.id_ != null) {
+        if (id_ == null || other.Id != "") {
+          Id = other.Id;
+        }
       }
-      if (other.RequestId.Length != 0) {
-        RequestId = other.RequestId;
+      if (other.requestId_ != null) {
+        if (requestId_ == null || other.RequestId != "") {
+          RequestId = other.RequestId;
+        }
       }
       if (other.Side != 0) {
         Side = other.Side;
@@ -674,11 +682,17 @@ namespace CrossTrader.Models.Remoting {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Id = input.ReadString();
+            string value = _single_id_codec.Read(input);
+            if (id_ == null || value != "") {
+              Id = value;
+            }
             break;
           }
           case 18: {
-            RequestId = input.ReadString();
+            string value = _single_requestId_codec.Read(input);
+            if (requestId_ == null || value != "") {
+              RequestId = value;
+            }
             break;
           }
           case 24: {

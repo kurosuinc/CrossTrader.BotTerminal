@@ -5,6 +5,7 @@ option csharp_namespace = "CrossTrader.Models.Remoting";
 
 import "common.proto";
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
 
 // Orders
 message OrdersRequest {
@@ -16,8 +17,8 @@ message OrdersRequest {
 }
 
 message OrderMessage {
-    string id = 1;
-    string request_id = 2;
+    google.protobuf.StringValue id = 1;
+    google.protobuf.StringValue request_id = 2;
     OrderSide side = 3;
     double size = 4;
     double outstanding_size = 5;
