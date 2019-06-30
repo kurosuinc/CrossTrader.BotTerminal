@@ -30,7 +30,7 @@ namespace CrossTrader.BotClient
 
         public OrderSide Side { get; set; }
 
-        double OutstandingSize { get; set; }
+        public double OutstandingSize { get; set; }
 
         public double? Price { get; set; }
 
