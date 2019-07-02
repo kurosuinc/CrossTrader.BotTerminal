@@ -24,25 +24,25 @@ namespace CrossTrader.BotClient
 
         public int InstrumentId { get; }
 
-        public string Id { get; set; }
+        public string Id { get; }
 
-        public string RequestId { get; set; }
+        public string RequestId { get; }
 
-        public OrderSide Side { get; set; }
+        public OrderSide Side { get; }
 
-        public double OutstandingSize { get; set; }
+        public double OutstandingSize { get; }
 
-        public double? Price { get; set; }
+        public double? Price { get; }
 
-        public double? AveragePrice { get; set; }
+        public double? AveragePrice { get; }
 
-        public OrderState State { get; set; }
+        public OrderState State { get; }
 
-        public OrderType Type { get; set; }
+        public OrderType Type { get; }
 
-        public double Size { get; set; }
+        public double Size { get; }
 
-        public DateTimeOffset? OrderedAt { get; set; }
+        public DateTimeOffset? OrderedAt { get; }
 
         #endregion
 
