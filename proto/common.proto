@@ -4,28 +4,44 @@ package crosstrader;
 option csharp_namespace = "CrossTrader.Models.Remoting";
 
 enum ChangedAction {
+    // The data was added
     ADD = 0;
+    // The data was replaced
     REPLACE = 1;
+    // The data was removed
     REMOVE = 2;
 }
 enum OrderSide {
+    // Unknown side
     ORDER_SIDE_NONE = 0;
+    // Buy
     BUY = 1;
+    // Sell
     SELL = 2;
 }
 enum OrderState {
+    // Unknown state
     ORDER_STATE_NONE = 0;
+    // Requesting to the exchange server
     REQUESTING = 1;
+    // Failed to order
     FAILED = 2;
+    // Order is accepted and listed
     ACTIVE = 3;
+    // Order is executed
     COMPLETED = 4;
+    // Sending cancel request to the exchange server
     CANCELING = 5;
+    // Order is canceled
     CANCELED = 6;
+    // Order is expired
     EXPIRED = 7;
 }
 enum OrderType {
     ORDER_TYPE_NONE = 0;
+    // Limit order
     LIMIT = 1;
+    // Market order
     MARKET = 2;
     ORDER_TYPE_UNKNOWN = 3;
 }
@@ -33,6 +49,7 @@ message NameRequest {
     string name = 1;
 }
 message InstrumentIdRequest {
+    // Unique and fixed value in each gRPC server session to identify the exchange and it's instrument
     int32 instrumentId = 1;
 }
 message InstrumentIdsRequest {

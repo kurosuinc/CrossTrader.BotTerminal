@@ -12,19 +12,37 @@ message TimeFrameRequest {
     google.protobuf.Duration time_frame = 2;
 }
 
+/**
+ * OHLC(Open,High,Low,Close) value
+*/
 message OhlcMessage {
+    // Start time of this OHLC
     google.protobuf.Timestamp opened_at = 1;
+    // Open price
     double open_price = 2;
+    // High price
     double high_price = 3;
+    // Low price
     double low_price = 4;
+    // Close price
     double close_price = 5;
+    // Volume
     double volume = 6;    
 }
+
+/**
+ * OHLC response
+*/
 message OhlcResponse {
+    // Changed action
     ChangedAction action = 1;
+    // OHLC data
     repeated OhlcMessage items = 2;
 }
 
+/**
+ * Provides OHLC and indicators information.
+*/
 service ChartService {
     rpc SubscribeOhlc (TimeFrameRequest) returns (stream OhlcResponse);
 }

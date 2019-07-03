@@ -7,37 +7,57 @@ import "common.proto";
 import "google/protobuf/empty.proto";
 
 message ExchangeMessage {
+    // Unique value to identify the exchange. It is guaranteed to be fixed within the same gRPC server session.
     int32 id = 1;
+    // Unique name for using in NameRequest
     string name = 2;
+    // Human readable name
     string display_name = 3;
     string description = 4;
 }
 message InstrumentMessage {
+    // Unique and fixed value to identify the instrument and it's exchange. It is guaranteed to be unique within the same gRPC server session.
     int32 id = 1;
     int32 exchange_id = 2;
+    // Unique name for using in NameRequest
     string name = 3;
+    // Human readable name
     string display_name = 4;
     string description = 5;
+    // Currency code of this instrument. e.g.) XBTUSD
     string currency_code = 6;
     
+    // Whether this instrument is support for Unary ticker RPC
     bool can_get_ticker = 7;
+    // Whether this instrument is support for Server Streaming tickers RPC
     bool can_subscribe_ticker = 8;
     
+    // Whether this instrument is support for Unary executions RPC
     bool can_get_executions = 9;
+    // Whether this instrument is support for Server Streaming executions RPC
     bool can_subscribe_executions = 10;
     
+    // Number of digits in this instrument's currency
     int32 size_decimals = 11;
+    // Minimum order size for this instrument
     double minimum_size = 12;
 
+    // Whether this instrument is support for ordering feature
     bool is_order_supported = 13;
+    // Whether this instrument is support for Unary order listing RPC
     bool can_get_orders = 14;
+    // Whether this instrument is support for Server Streaming orders RPC
     bool can_subscribe_orders = 15;
     
+    // Whether this instrument is support for position management feature
     bool is_position_supported = 16;
+    // Whether this instrument is support for Unary position listing RPC
     bool can_get_positions = 17;
+    // Whether this instrument is support for Server Streaming positions RPC
     bool can_subscribe_positions = 18;
 }
 message ExchangesResponse {
+    // List of available exchanges
     repeated ExchangeMessage exchanges = 1;
 }
 message ExchangeResponse {
@@ -45,6 +65,8 @@ message ExchangeResponse {
     repeated InstrumentMessage instruments = 2;
 }
 service ExchangeService {
+    // Get available exchanges
     rpc GetExchanges(google.protobuf.Empty) returns (ExchangesResponse);
+    // Get an exchange which has specified name
     rpc GetExchange(NameRequest) returns (ExchangeResponse);
 }

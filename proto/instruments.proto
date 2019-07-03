@@ -17,6 +17,8 @@ message InstrumentResponse {
 }
 
 service InstrumentService {
+    // Get available instruments
     rpc GetInstruments(google.protobuf.Empty) returns (InstrumentsResponse);
+    // Get an instrument which has specified name
     rpc GetInstrument(NameRequest) returns (InstrumentResponse);
 }
