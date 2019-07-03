@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package crosstrader;
+option csharp_namespace = "CrossTrader.Models.Remoting";
+
+import "common.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+message OrderHistoryRequest {
+    int32 instrument_id = 1;
+    google.protobuf.Duration time_frame = 2;
+    OrderSide side = 3;
+    google.protobuf.Timestamp before = 4;
+    google.protobuf.Timestamp after = 5;
+}
+
+message PositionHistoryItemMessage {
+    OrderSide side = 1;
+    google.protobuf.Timestamp opened_at = 2;
+    google.protobuf.Duration time_frame = 3;
+    double volume = 4;
+}
+
+message PositionHistoryMessage {
+    int32 instrument_id = 1;
+    repeated PositionHistoryItemMessage position_histories = 2;
+}
+
+service PositionHistoryService {
+    rpc getPositionHistory (OrderHistoryRequest) returns (PositionHistoryMessage);
+    rpc subscribePositionHistory (OrderHistoryRequest) returns (stream PositionHistoryMessage);
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package crosstrader;
+option csharp_namespace = "CrossTrader.Models.Remoting";
+
+import "common.proto";
+
+message TickerMessage {
+    double bestBid = 1;
+    double bestAsk = 2;
+}
+service TickerService {
+    rpc GetTicker(InstrumentIdRequest) returns (TickerMessage);
+    rpc SubscribeTicker(InstrumentIdRequest) returns (stream TickerMessage);
+}

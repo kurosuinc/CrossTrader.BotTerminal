@@ -1,0 +1,238 @@
+<v:CustomWindow
+    x:Class="CrossTrader.ViewerExample.Views.OrdersWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:CrossTrader.ViewerExample.Views"
+    xmlns:bc="clr-namespace:CrossTrader.BotClient;assembly=CrossTrader.BotClient"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    mc:Ignorable="d"
+    Title="OrdersWindow"
+    Height="600"
+    Width="950"
+    IsEnabled="{Binding IsNotBusy}">
+    <v:CustomWindow.Resources>
+        <ContentPresenter
+            x:Key="Dummy"
+            Visibility="Collapsed"
+            Content="{Binding}" />
+        <ObjectDataProvider x:Key="OrderTypes" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="bc:OrderType"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="OrderSides" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="bc:OrderSide"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </v:CustomWindow.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="3*" />
+            <RowDefinition
+                Height="4" />
+            <RowDefinition
+                Height="4*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="250"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StaticResource
+            ResourceKey="Dummy" />
+        <StackPanel
+            Grid.RowSpan="3"
+            Grid.Column="0"
+            Grid.Row="0">
+            <GroupBox
+                DockPanel.Dock="Top"
+                Header="Orders">
+                <WrapPanel
+                    Orientation="Horizontal">
+                    <Button
+                        Command="{Binding SubscribeOrdersCommand}">Subscribe</Button>
+                    <Button
+                        Command="{Binding UnsubscribeOrdersCommand}">Unsubscribe</Button>
+                </WrapPanel>
+            </GroupBox>
+            <GroupBox
+                DockPanel.Dock="Top"
+                Header="Post order">
+                <StackPanel>
+                    <Label></Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Instrument</Label>
+                        <ComboBox Grid.Row="0" Grid.Column="1"
+                                  ItemsSource="{Binding Instruments}"
+                                  DisplayMemberPath="DisplayName"
+                                  SelectedItem="{Binding OrderInstrument}">
+                        </ComboBox>
+                        <Label Grid.Row="1" Grid.Column="0">Type</Label>
+                        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Source={StaticResource OrderTypes}}"
+                              SelectedItem="{Binding Type}">
+                        </ComboBox>
+                        <Label Grid.Row="2" Grid.Column="0">Side</Label>
+                        <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Source={StaticResource OrderSides}}"
+                              SelectedItem="{Binding Side}">
+                        </ComboBox>
+                        <Label Grid.Row="3" Grid.Column="0">Size</Label>
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Size}"></TextBox>
+                        <Label Grid.Row="4" Grid.Column="0">Price</Label>
+                        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Price}" IsEnabled="{Binding CanInputPrice}"></TextBox>
+                        <Button
+                        Grid.Row="5" Grid.Column="1"
+                        Width="150"
+                        HorizontalAlignment="Right"
+                        Command="{Binding PostOrderCommand}">Post Order</Button>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox
+                DockPanel.Dock="Top"
+                Header="Cancel order">
+                <StackPanel>
+                    <Label></Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Instrument</Label>
+                        <ComboBox Grid.Row="0" Grid.Column="1"
+                                  ItemsSource="{Binding Instruments}"
+                                  DisplayMemberPath="DisplayName"
+                                  SelectedItem="{Binding CancelInstrument}">
+                        </ComboBox>
+                        <Label Grid.Row="1" Grid.Column="0">Id</Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CancelOrderId}"></TextBox>
+                        <Label Grid.Row="2" Grid.Column="0">Request Id</Label>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CancelOrderRequestId}"></TextBox>
+                        <Button
+                        Grid.Row="3" Grid.Column="1"
+                        Width="150"
+                        HorizontalAlignment="Right"
+                        Command="{Binding CancelOrderCommand}">Cancel order</Button>
+                        <Button
+                        Grid.Row="4" Grid.Column="1"
+                        Width="150"
+                        HorizontalAlignment="Right"
+                        Command="{Binding CancelAllOrdersCommand}">Cancel all orders</Button>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <DataGrid
+            Grid.Row="0"
+            Grid.Column="1"
+            AutoGenerateColumns="False"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedInstrument}"
+            ItemsSource="{Binding Instruments}">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn
+                        CanUserSort="False"
+                        Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridCheckBoxColumn.Header>
+                        <CheckBox
+                                IsChecked="{Binding Source={StaticResource Dummy}, Path=Content.AllInstrumentsSelected, UpdateSourceTrigger=PropertyChanged}" />
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
+                <DataGridTextColumn
+                        Header="Exchange"
+                        IsReadOnly="True"
+                        Binding="{Binding ExchangeDisplayName}" />
+                <DataGridTextColumn
+                        Header="Id"
+                        IsReadOnly="True"
+                        Binding="{Binding Id}" />
+                <DataGridTextColumn
+                        Header="Name"
+                        IsReadOnly="True"
+                        Binding="{Binding Name}" />
+                <DataGridTextColumn
+                        Header="DisplayName"
+                        IsReadOnly="True"
+                        Binding="{Binding DisplayName}" />
+                <DataGridTextColumn
+                        Header="LastError"
+                        IsReadOnly="True"
+                        Binding="{Binding LastError}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <GridSplitter
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" />
+        <DataGrid
+            Grid.Row="2"
+            Grid.Column="1"
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedOrderEntry}"
+            ItemsSource="{Binding Orders}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Action"
+                    Binding="{Binding Action}" />
+                <DataGridTextColumn
+                    Header="Instrument"
+                    Binding="{Binding Instrument.DisplayName}" />
+                <DataGridTextColumn
+                    Header="Id"
+                    Binding="{Binding Order.Id}" />
+                <DataGridTextColumn
+                    Header="RequestId"
+                    Binding="{Binding Order.RequestId}" />
+                <DataGridTextColumn
+                    Header="Side"
+                    Binding="{Binding Order.Side}" />
+                <DataGridTextColumn
+                    Header="Type"
+                    Binding="{Binding Order.Type}" />
+                <DataGridTextColumn
+                    Header="Size"
+                    Binding="{Binding Order.Size}" />
+                <DataGridTextColumn
+                    Header="OutstandingSize"
+                    Binding="{Binding Order.OutstandingSize}" />
+                <DataGridTextColumn
+                    Header="Price"
+                    Binding="{Binding Order.Price}" />
+                <DataGridTextColumn
+                    Header="AveragePrice"
+                    Binding="{Binding Order.AveragePrice}" />
+                <DataGridTextColumn
+                    Header="State"
+                    Binding="{Binding Order.State}" />
+                <DataGridTextColumn
+                    Header="OrderedAt"
+                    Binding="{Binding Order.OrderedAt}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</v:CustomWindow>

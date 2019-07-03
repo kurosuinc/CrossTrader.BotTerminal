@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package crosstrader;
+option csharp_namespace = "CrossTrader.Models.Remoting";
+
+import "common.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+// Orders
+message OrdersRequest {
+    int32 instrument_id = 1;
+    int32 limit = 2;
+    OrderState state = 3;
+    OrderMessage before = 4;
+    OrderMessage after = 5;
+}
+
+message OrderMessage {
+    google.protobuf.StringValue id = 1;
+    google.protobuf.StringValue request_id = 2;
+    OrderSide side = 3;
+    double size = 4;
+    double outstanding_size = 5;
+    double price = 6;
+    double average_price = 7;
+    OrderState state = 8;
+    OrderType type = 9;
+    google.protobuf.Timestamp ordered_at = 10;
+}
+
+message OrdersResponse {
+    ChangedAction action = 1;
+    repeated OrderMessage orders = 2;
+}
+
+// Ordering
+// Order request that can be requested for all exchanges.
+message PostOrderRequest {
+    int32 instrument_id = 1;
+    OrderSide side = 2;
+    OrderType type = 3;
+    double size = 4;
+    double price = 5;
+}
+message OrderParametersResponse {
+    string request_id = 1;
+    google.protobuf.Timestamp created_at = 6;
+}
+message OrderCancellationRequest {
+    int32 instrument_id = 1;
+    string order_id = 2;
+    string request_id = 3;
+}
+message EntireOrderCancellationRequest {
+    int32 instrument_id = 1;
+}
+message OrderCancellationResponse {
+    bool canceled = 1;
+}
+message EntireOrderCancellationResponse {
+    bool canceled = 1;
+}
+
+service OrdersService {
+    // Orders
+    rpc GetOrders(OrdersRequest) returns (OrdersResponse);
+    rpc SubscribeOrders(InstrumentIdRequest) returns (stream OrdersResponse);
+
+    // Ordering
+    rpc PostOrder(PostOrderRequest) returns (OrderMessage);
+    rpc CancelOrder(OrderCancellationRequest) returns (OrderCancellationResponse);
+    rpc CancelAllOrders(EntireOrderCancellationRequest) returns (EntireOrderCancellationResponse);
+}

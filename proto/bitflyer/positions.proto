@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package crosstrader.bitflyer;
+option csharp_namespace = "CrossTrader.Models.Remoting.BitFlyer";
+
+import "google/protobuf/timestamp.proto";
+import "common.proto";
+
+message PositionMessage {
+    OrderSide side = 1;
+    double price = 2;
+    double size = 3;
+    double commission = 4;
+    double swap_point_accumulate = 5;
+    double require_collateral = 6;
+    google.protobuf.Timestamp open_date = 7;
+    double leverage = 8;
+    double pnl = 9;
+    double sfd = 10;
+}
+
+message PositionsResponse {
+    ChangedAction action = 1;
+    repeated PositionMessage positions = 2;
+}
+
+service PositionsService { 
+    rpc SubscribePositions(InstrumentIdRequest) returns (stream PositionsResponse); 
+}

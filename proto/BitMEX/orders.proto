@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package crosstrader.bitmex;
-option csharp_namespace = "CrossTrader.Models.Remoting.BitMex";
-
-service OrdersService {
-}

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.5;netstandard2.0;net45</TargetFrameworks>
+    <RootNamespace>CrossTrader</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.8.0" />
+    <PackageReference Include="Grpc.Core" Version="1.21.0" />
+    <PackageReference Include="Grpc.Tools" Version="1.21.0" PrivateAssets="All" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="..\..\proto\*" ProtoRoot="..\..\proto" Link="proto\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
+    <Protobuf Include="..\..\proto\bitflyer\*" ProtoRoot="..\..\proto" Link="proto\bitflyer\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting\BitFlyer" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
+    <Protobuf Include="..\..\proto\bitmex\*" ProtoRoot="..\..\proto" Link="proto\bitmex\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting\BitMex" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
+  </ItemGroup>
+</Project>

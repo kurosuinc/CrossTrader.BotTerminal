@@ -1,0 +1,117 @@
+<v:CustomWindow
+    x:Class="CrossTrader.ViewerExample.Views.BitFlyerPositionsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:CrossTrader.ViewerExample.Views"
+    mc:Ignorable="d"
+    Title="BitFlyerPositionsWindow"
+    Height="450"
+    Width="800"
+    IsEnabled="{Binding IsNotBusy}">
+    <v:CustomWindow.Resources>
+        <ContentPresenter
+            x:Key="Dummy"
+            Visibility="Collapsed"
+            Content="{Binding}" />
+    </v:CustomWindow.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="*" />
+            <ColumnDefinition
+                Width="4" />
+            <ColumnDefinition
+                Width="3*" />
+        </Grid.ColumnDefinitions>
+        <StaticResource
+            ResourceKey="Dummy" />
+        <DockPanel>
+            <GroupBox
+                DockPanel.Dock="Top"
+                Header="Ticker">
+                <WrapPanel
+                    Orientation="Horizontal">
+                    <Button
+                        Command="{Binding SubscribePositionsCommand}">Subscribe</Button>
+                    <Button
+                        Command="{Binding UnsubscribePositionsCommand}">Unsubscribe</Button>
+                </WrapPanel>
+            </GroupBox>
+            <DataGrid
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding Instruments}">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn
+                        CanUserSort="False"
+                        Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGridCheckBoxColumn.Header>
+                            <CheckBox
+                                IsChecked="{Binding Source={StaticResource Dummy}, Path=Content.AllInstrumentsSelected, UpdateSourceTrigger=PropertyChanged}" />
+                        </DataGridCheckBoxColumn.Header>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn
+                        Header="Exchange"
+                        IsReadOnly="True"
+                        Binding="{Binding ExchangeDisplayName}" />
+                    <DataGridTextColumn
+                        Header="Id"
+                        IsReadOnly="True"
+                        Binding="{Binding Id}" />
+                    <DataGridTextColumn
+                        Header="Name"
+                        IsReadOnly="True"
+                        Binding="{Binding Name}" />
+                    <DataGridTextColumn
+                        Header="DisplayName"
+                        IsReadOnly="True"
+                        Binding="{Binding DisplayName}" />
+                    <DataGridTextColumn
+                        Header="LastError"
+                        IsReadOnly="True"
+                        Binding="{Binding LastError}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </DockPanel>
+        <GridSplitter
+            Grid.Column="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" />
+        <DataGrid
+            Grid.Column="2"
+            IsReadOnly="True"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Positions}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="Action"
+                    Binding="{Binding Action}" />
+                <DataGridTextColumn
+                    Header="Instrument"
+                    Binding="{Binding Instrument.DisplayName}" />
+                <DataGridTextColumn
+                    Header="Id"
+                    Binding="{Binding Position.Id}" />
+                <DataGridTextColumn
+                    Header="Side"
+                    Binding="{Binding Position.Side}" />
+                <DataGridTextColumn
+                    Header="Price"
+                    Binding="{Binding Position.Price}" />
+                <DataGridTextColumn
+                    Header="Size"
+                    Binding="{Binding Position.Size}" />
+                <DataGridTextColumn
+                    Header="ExecutedAt"
+                    Binding="{Binding Position.ExecutedAt}" />
+                <DataGridTextColumn
+                    Header="Buy"
+                    Binding="{Binding Position.BuyChildOrderAcceptanceId}" />
+                <DataGridTextColumn
+                    Header="Sell"
+                    Binding="{Binding Position.SellChildOrderAcceptanceId}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</v:CustomWindow>

@@ -3,5 +3,20 @@ syntax = "proto3";
 package crosstrader;
 option csharp_namespace = "CrossTrader.Models.Remoting";
 
+import "exchanges.proto";
+import "common.proto";
+import "google/protobuf/empty.proto";
+
+message InstrumentsResponse {
+    repeated InstrumentMessage instruments = 1;
+    repeated ExchangeMessage exchanges = 2;
+}
+message InstrumentResponse {
+    InstrumentMessage instrument = 1;
+    ExchangeMessage exchange = 2;
+}
+
 service InstrumentService {
+    rpc GetInstruments(google.protobuf.Empty) returns (InstrumentsResponse);
+    rpc GetInstrument(NameRequest) returns (InstrumentResponse);
 }

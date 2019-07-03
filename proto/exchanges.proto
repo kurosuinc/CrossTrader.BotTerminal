@@ -3,5 +3,48 @@ syntax = "proto3";
 package crosstrader;
 option csharp_namespace = "CrossTrader.Models.Remoting";
 
+import "common.proto";
+import "google/protobuf/empty.proto";
+
+message ExchangeMessage {
+    int32 id = 1;
+    string name = 2;
+    string display_name = 3;
+    string description = 4;
+}
+message InstrumentMessage {
+    int32 id = 1;
+    int32 exchange_id = 2;
+    string name = 3;
+    string display_name = 4;
+    string description = 5;
+    string currency_code = 6;
+    
+    bool can_get_ticker = 7;
+    bool can_subscribe_ticker = 8;
+    
+    bool can_get_executions = 9;
+    bool can_subscribe_executions = 10;
+    
+    int32 size_decimals = 11;
+    double minimum_size = 12;
+
+    bool is_order_supported = 13;
+    bool can_get_orders = 14;
+    bool can_subscribe_orders = 15;
+    
+    bool is_position_supported = 16;
+    bool can_get_positions = 17;
+    bool can_subscribe_positions = 18;
+}
+message ExchangesResponse {
+    repeated ExchangeMessage exchanges = 1;
+}
+message ExchangeResponse {
+    ExchangeMessage exchange = 1;
+    repeated InstrumentMessage instruments = 2;
+}
 service ExchangeService {
+    rpc GetExchanges(google.protobuf.Empty) returns (ExchangesResponse);
+    rpc GetExchange(NameRequest) returns (ExchangeResponse);
 }

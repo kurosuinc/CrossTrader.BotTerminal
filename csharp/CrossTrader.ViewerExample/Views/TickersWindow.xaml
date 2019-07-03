@@ -1,0 +1,96 @@
+<v:CustomWindow
+    x:Class="CrossTrader.ViewerExample.Views.TickersWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:v="clr-namespace:CrossTrader.ViewerExample.Views"
+    mc:Ignorable="d"
+    Title="TickersWindow"
+    Height="450"
+    Width="800"
+    IsEnabled="{Binding IsNotBusy}">
+    <v:CustomWindow.Resources>
+        <ContentPresenter
+            x:Key="Dummy"
+            Visibility="Collapsed"
+            Content="{Binding}" />
+    </v:CustomWindow.Resources>
+    <DockPanel>
+        <StaticResource
+            ResourceKey="Dummy" />
+        <GroupBox
+            DockPanel.Dock="Top"
+            Header="Ticker">
+            <WrapPanel
+                Orientation="Horizontal">
+                <Button
+                    Command="{Binding RefreshTickersCommand}">Refresh</Button>
+                <Button
+                    Command="{Binding SubscribeTickersCommand}">Subscribe</Button>
+                <Button
+                    Command="{Binding UnsubscribeTickersCommand}">Unsubscribe</Button>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox
+            DockPanel.Dock="Top"
+            Header="OrderBook">
+            <WrapPanel
+                Orientation="Horizontal">
+                <Button
+                    Command="{Binding ShowOrderBookCommand}">OrderBook</Button>
+            </WrapPanel>
+        </GroupBox>
+        <DataGrid
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Instruments}"
+            SelectedItem="{Binding SelectedInstrument}">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn
+                    CanUserSort="False"
+                    Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGridCheckBoxColumn.Header>
+                        <CheckBox
+                            IsChecked="{Binding Source={StaticResource Dummy}, Path=Content.AllInstrumentsSelected, UpdateSourceTrigger=PropertyChanged}" />
+                    </DataGridCheckBoxColumn.Header>
+                </DataGridCheckBoxColumn>
+                <DataGridTextColumn
+                    Header="Exchange"
+                    IsReadOnly="True"
+                    Binding="{Binding ExchangeDisplayName}" />
+                <DataGridTextColumn
+                    Header="Id"
+                    IsReadOnly="True"
+                    Binding="{Binding Id}" />
+                <DataGridTextColumn
+                    Header="Name"
+                    IsReadOnly="True"
+                    Binding="{Binding Name}" />
+                <DataGridTextColumn
+                    Header="DisplayName"
+                    IsReadOnly="True"
+                    Binding="{Binding DisplayName}" />
+                <DataGridCheckBoxColumn
+                    Header="Get"
+                    IsReadOnly="True"
+                    Binding="{Binding CanGetTicker, Mode=OneTime}" />
+                <DataGridCheckBoxColumn
+                    Header="Subscribe"
+                    IsReadOnly="True"
+                    Binding="{Binding CanSubscribeTicker, Mode=OneTime}" />
+                <DataGridTextColumn
+                    Header="BestBid"
+                    IsReadOnly="True"
+                    Binding="{Binding BestBid}" />
+                <DataGridTextColumn
+                    Header="BestAsk"
+                    IsReadOnly="True"
+                    Binding="{Binding BestAsk}" />
+                <DataGridTextColumn
+                    Header="LastError"
+                    IsReadOnly="True"
+                    Binding="{Binding LastError}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</v:CustomWindow>

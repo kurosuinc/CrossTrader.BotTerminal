@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package crosstrader.bitmex;
+option csharp_namespace = "CrossTrader.Models.Remoting.BitMex";
+ 
+import "google/protobuf/timestamp.proto";
+import "common.proto"; 
+
+message PositionMessage {
+//    "commission": 0,
+//    "initMarginReq": 0,
+//    "maintMarginReq": 0,
+//    "riskLimit": 0,
+    double leverage = 1;
+    bool cross_margin = 2;
+//    "deleveragePercentile": 0,
+//    "rebalancedPnl": 0,
+//    "prevRealisedPnl": 0,
+//    "prevUnrealisedPnl": 0,
+//    "prevClosePrice": 0,
+    google.protobuf.Timestamp opening_timestamp = 3;
+//    "openingQty": 0,
+//    "openingCost": 0,
+//    "openingComm": 0,
+    double open_order_buy_quantity = 4;
+//    "openOrderBuyCost": 0,
+//    "openOrderBuyPremium": 0, 
+    double open_order_sell_quantity = 5; 
+//    "openOrderSellCost": 0,
+//    "openOrderSellPremium": 0,
+//    "execBuyQty": 0,
+//    "execBuyCost": 0,
+//    "execSellQty": 0,
+//    "execSellCost": 0,
+//    "execQty": 0,
+//    "execCost": 0,
+//    "execComm": 0,
+//    "currentTimestamp": "2019-06-11T09:27:28.138Z",
+    double current_quantity = 6;
+    double current_cost = 7;
+    double current_commision = 8;
+//    "realisedCost": 0,
+//    "unrealisedCost": 0,
+//    "grossOpenCost": 0,
+//    "grossOpenPremium": 0,
+//    "grossExecCost": 0,
+//    "isOpen": true,
+//    "markPrice": 0,
+//    "markValue": 0,
+//    "riskValue": 0,
+//    "homeNotional": 0,
+//    "foreignNotional": 0,
+//    "posState": "string",
+//    "posCost": 0,
+//    "posCost2": 0,
+//    "posCross": 0,
+//    "posInit": 0,
+//    "posComm": 0,
+//    "posLoss": 0,
+//    "posMargin": 0,
+//    "posMaint": 0,
+//    "posAllowance": 0,
+//    "taxableMargin": 0,
+//    "initMargin": 0,
+//    "maintMargin": 0,
+//    "sessionMargin": 0,
+//    "targetExcessMargin": 0,
+//    "varMargin": 0,
+//    "realisedGrossPnl": 0,
+//    "realisedTax": 0,
+//    "realisedPnl": 0,
+//    "unrealisedGrossPnl": 0,
+//    "longBankrupt": 0,
+//    "shortBankrupt": 0,
+//    "taxBase": 0,
+//    "indicativeTaxRate": 0,
+//    "indicativeTax": 0,
+//    "unrealisedTax": 0,
+    double unrealized_profit = 9;
+    double unrealized_profit_percent = 10;
+    double unrealized_roe_percent = 11;
+//    "simpleQty": 0,
+//    "simpleCost": 0,
+//    "simpleValue": 0,
+//    "simplePnl": 0,
+//    "simplePnlPcnt": 0,
+//    "avgCostPrice": 0,
+    double average_entry_price = 12;
+//    "breakEvenPrice": 0,
+//    "marginCallPrice": 0,
+//    "liquidationPrice": 0,
+//    "bankruptPrice": 0,
+    google.protobuf.Timestamp timestamp = 13;
+//    "lastPrice": 0,
+//    "lastValue": 0
+}
+
+message PositionsResponse {
+    ChangedAction action = 1;
+    repeated  PositionMessage positions = 2;
+}
+
+service PositionsService {
+    rpc SubscribePositions(InstrumentIdRequest) returns (stream PositionsResponse);
+}

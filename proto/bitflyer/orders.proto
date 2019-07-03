@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package crosstrader.bitflyer;
+option csharp_namespace = "CrossTrader.Models.Remoting.BitFlyer";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "common.proto";
+
+enum ChildOrderType {
+    CHILD_ORDER_TYPE_NONE = 0;
+    LIMIT = 1;
+    MARKET = 2;
+}
+
+enum ChildOrderState {
+    CHILD_ORDER_STATE_NONE = 0;
+    ACTIVE = 1;
+    COMPLETED = 2;
+    CANCELED = 3;
+    EXPIRED = 4;
+    REJECTED = 5;
+}
+
+enum TimeInForce {
+    GTC = 0;
+    IOC = 1;
+    FOK = 2;
+}
+
+message ChildOrderMessage {
+    int64 id = 1;
+    string child_order_id = 2;
+    OrderSide side = 3;
+    ChildOrderType child_order_type = 4;
+    double price = 5;
+    double average_price = 6;
+    double size = 7;
+    ChildOrderState child_order_state = 8;
+    google.protobuf.Timestamp expire_date = 9;
+    google.protobuf.Timestamp child_order_date = 10;
+    string child_order_acceptance_id = 11;
+    double outstanding_size = 12;
+    double cancel_size = 13;
+    double executed_size = 14;
+    double total_commission = 15;
+}
+
+message ChildOrdersResponse {
+    ChangedAction action = 1;
+    repeated ChildOrderMessage orders = 2;
+}
+
+message PostChildOrderRequest {
+    int32 instrument_id = 1;
+    ChildOrderType child_order_type = 2;
+    OrderSide side = 3;
+    double price = 4;
+    double size = 5;
+    double minute_to_expire = 6;
+    TimeInForce time_in_force = 7;
+}
+message PostChildOrderResponse {
+    string child_order_acceptance_id = 1;
+}
+message CancelChildOrderRequest {
+    int32 instrument_id = 1;
+    string child_order_id = 2;
+    string child_order_acceptance_id = 3;
+}
+
+service OrdersService {
+    rpc SubscribeChildOrders(InstrumentIdRequest) returns (stream ChildOrdersResponse);
+
+    rpc PostChildOrder(PostChildOrderRequest) returns (PostChildOrderResponse);
+    rpc CancelChildOrder(CancelChildOrderRequest) returns (google.protobuf.Empty);
+    rpc CancelAllChildOrders(InstrumentIdRequest) returns (google.protobuf.Empty);
+}

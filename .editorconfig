@@ -1,0 +1,9 @@
+# .editorconfigの詳細については https://aka.ms/editorconfigdocs
+
+[*]
+charset      = utf-8
+indent_style = space
+
+[*.cs]
+indent_size                         = 4
+dotnet_sort_system_directives_first = true
