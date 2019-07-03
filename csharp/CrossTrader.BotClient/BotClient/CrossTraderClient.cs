@@ -457,7 +457,7 @@ namespace CrossTrader.BotClient
         }
 
         [Rpc(nameof(OrdersService))]
-        public async Task<bool> CancelAllOrderAsync(int instrumentId, string OrderId, string RequestId, DateTime? deadline = null, CancellationToken cancellationToken = default)
+        public async Task<bool> CancelAllOrdersAsync(int instrumentId, DateTime? deadline = null, CancellationToken cancellationToken = default)
         {
             using (await OpenAsync().ConfigureAwait(false))
             {

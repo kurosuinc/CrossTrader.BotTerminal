@@ -18,7 +18,28 @@ namespace CrossTrader.ViewerExample.ViewModels
         protected override InstrumentViewModel GetItem(Instrument e)
             => new InstrumentViewModel(this, e);
 
+        private OrderEntry _selectedOrderEntry;
+        public OrderEntry SelectedOrderEntry
+        {
+            get => _selectedOrderEntry;
+            set => SetProperty(ref _selectedOrderEntry, value, onChanged: () =>
+            {
+                CancelOrderId = SelectedOrderEntry.Order.Id;
+                CancelOrderRequestId = SelectedOrderEntry.Order.RequestId;
+                CancelInstrument = Instruments.FirstOrDefault(ins => ins.Id == SelectedOrderEntry.Order.InstrumentId);
+            });
+        }
+
+        private InstrumentViewModel _SelectedInstrument;
+        public InstrumentViewModel SelectedInstrument
+        {
+            get => _SelectedInstrument;
+            set => SetProperty(ref _SelectedInstrument, value, onChanged: () => OrderInstrument = SelectedInstrument);
+        }
+
         #region PostOrderCommand
+
+        #region Properties
 
         private InstrumentViewModel _OrderInstrument;
         public InstrumentViewModel OrderInstrument
@@ -66,13 +87,14 @@ namespace CrossTrader.ViewerExample.ViewModels
             set => SetProperty(ref _Price, value);
         }
 
-
         private bool _CanInputPrice;
         public bool CanInputPrice
         {
             get => _CanInputPrice;
             set => SetProperty(ref _CanInputPrice, value);
         }
+
+        #endregion
 
         private AsyncCommand _PostOrderCommand;
 
@@ -82,6 +104,61 @@ namespace CrossTrader.ViewerExample.ViewModels
                 if (OrderInstrument != null)
                 {
                     await Client.PostOrderAsync(OrderInstrument.Id, Type, Side, Size, Price);
+                }
+            }));
+
+        #endregion
+
+        #region CancelOrderCommand
+
+        #region Properties
+
+        private InstrumentViewModel _CancelInstrument;
+        public InstrumentViewModel CancelInstrument
+        {
+            get => _CancelInstrument;
+            set => SetProperty(ref _CancelInstrument, value);
+        }
+
+        private string _CancelOrderId;
+        public string CancelOrderId
+        {
+            get => _CancelOrderId;
+            set => SetProperty(ref _CancelOrderId, value);
+        }
+
+        private string _CancelOrderRequestId;
+        public string CancelOrderRequestId
+        {
+            get => _CancelOrderRequestId;
+            set => SetProperty(ref _CancelOrderRequestId, value);
+        }
+
+        #endregion
+
+        private AsyncCommand _CancelOrderCommand;
+
+        public AsyncCommand CancelOrderCommand
+            => _CancelOrderCommand ?? (_CancelOrderCommand = AsyncCommand.Create(async () =>
+            {
+                if (CancelInstrument != null && CancelOrderId != null)
+                {
+                    await Client.CancelOrderAsync(CancelInstrument.Id, CancelOrderId, CancelOrderRequestId);
+                }
+            }));
+
+        #endregion
+
+        #region CancelAllOrderCommand
+
+        private AsyncCommand _CancelAllOrdersCommand;
+
+        public AsyncCommand CancelAllOrdersCommand
+            => _CancelAllOrdersCommand ?? (_CancelAllOrdersCommand = AsyncCommand.Create(async () =>
+            {
+                if (CancelInstrument != null)
+                {
+                    await Client.CancelAllOrdersAsync(CancelInstrument.Id);
                 }
             }));
 

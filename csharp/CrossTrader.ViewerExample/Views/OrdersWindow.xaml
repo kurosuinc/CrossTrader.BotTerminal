@@ -103,12 +103,54 @@
                     </Grid>
                 </StackPanel>
             </GroupBox>
+            <GroupBox
+                DockPanel.Dock="Top"
+                Header="Cancel order">
+                <StackPanel>
+                    <Label></Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Instrument</Label>
+                        <ComboBox Grid.Row="0" Grid.Column="1"
+                                  ItemsSource="{Binding Instruments}"
+                                  DisplayMemberPath="DisplayName"
+                                  SelectedItem="{Binding CancelInstrument}">
+                        </ComboBox>
+                        <Label Grid.Row="1" Grid.Column="0">Id</Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CancelOrderId}"></TextBox>
+                        <Label Grid.Row="2" Grid.Column="0">Request Id</Label>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding CancelOrderRequestId}"></TextBox>
+                        <Button
+                        Grid.Row="3" Grid.Column="1"
+                        Width="150"
+                        HorizontalAlignment="Right"
+                        Command="{Binding CancelOrderCommand}">Cancel order</Button>
+                        <Button
+                        Grid.Row="4" Grid.Column="1"
+                        Width="150"
+                        HorizontalAlignment="Right"
+                        Command="{Binding CancelAllOrdersCommand}">Cancel all orders</Button>
+                    </Grid>
+                </StackPanel>
+            </GroupBox>
         </StackPanel>
         <DataGrid
             Grid.Row="0"
             Grid.Column="1"
-                AutoGenerateColumns="False"
-                ItemsSource="{Binding Instruments}">
+            AutoGenerateColumns="False"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedInstrument}"
+            ItemsSource="{Binding Instruments}">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn
                         CanUserSort="False"
@@ -150,6 +192,8 @@
             Grid.Column="1"
             IsReadOnly="True"
             AutoGenerateColumns="False"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedOrderEntry}"
             ItemsSource="{Binding Orders}">
             <DataGrid.Columns>
                 <DataGridTextColumn
