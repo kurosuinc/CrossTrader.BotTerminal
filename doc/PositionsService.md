@@ -2,7 +2,7 @@
 
 ## 型定義ファイル
 
-- [executions.proto](../proto/positions.proto)
+- [positions.proto](../proto/positions.proto)
 
 ## データ型
 
