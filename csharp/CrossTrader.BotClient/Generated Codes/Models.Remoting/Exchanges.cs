@@ -100,6 +100,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
     private int id_;
+    /// <summary>
+    /// Unique value to identify the exchange. It is guaranteed to be fixed within the same gRPC server session.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Id {
       get { return id_; }
@@ -111,6 +114,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 2;
     private string name_ = "";
+    /// <summary>
+    /// Unique name for using in NameRequest
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
@@ -122,6 +128,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "display_name" field.</summary>
     public const int DisplayNameFieldNumber = 3;
     private string displayName_ = "";
+    /// <summary>
+    /// Human readable name
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string DisplayName {
       get { return displayName_; }
@@ -327,6 +336,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
     private int id_;
+    /// <summary>
+    /// Unique and fixed value to identify the instrument and it's exchange. It is guaranteed to be unique within the same gRPC server session.
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Id {
       get { return id_; }
@@ -349,6 +361,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 3;
     private string name_ = "";
+    /// <summary>
+    /// Unique name for using in NameRequest
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
@@ -360,6 +375,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "display_name" field.</summary>
     public const int DisplayNameFieldNumber = 4;
     private string displayName_ = "";
+    /// <summary>
+    /// Human readable name
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string DisplayName {
       get { return displayName_; }
@@ -382,6 +400,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "currency_code" field.</summary>
     public const int CurrencyCodeFieldNumber = 6;
     private string currencyCode_ = "";
+    /// <summary>
+    /// Currency code of this instrument. e.g.) XBTUSD
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string CurrencyCode {
       get { return currencyCode_; }
@@ -393,6 +414,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "can_get_ticker" field.</summary>
     public const int CanGetTickerFieldNumber = 7;
     private bool canGetTicker_;
+    /// <summary>
+    /// Whether this instrument is support for Unary ticker RPC
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool CanGetTicker {
       get { return canGetTicker_; }
@@ -404,6 +428,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "can_subscribe_ticker" field.</summary>
     public const int CanSubscribeTickerFieldNumber = 8;
     private bool canSubscribeTicker_;
+    /// <summary>
+    /// Whether this instrument is support for Server Streaming tickers RPC
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool CanSubscribeTicker {
       get { return canSubscribeTicker_; }
@@ -415,6 +442,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "can_get_executions" field.</summary>
     public const int CanGetExecutionsFieldNumber = 9;
     private bool canGetExecutions_;
+    /// <summary>
+    /// Whether this instrument is support for Unary executions RPC
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool CanGetExecutions {
       get { return canGetExecutions_; }
@@ -426,6 +456,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "can_subscribe_executions" field.</summary>
     public const int CanSubscribeExecutionsFieldNumber = 10;
     private bool canSubscribeExecutions_;
+    /// <summary>
+    /// Whether this instrument is support for Server Streaming executions RPC
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool CanSubscribeExecutions {
       get { return canSubscribeExecutions_; }
@@ -437,6 +470,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "size_decimals" field.</summary>
     public const int SizeDecimalsFieldNumber = 11;
     private int sizeDecimals_;
+    /// <summary>
+    /// Number of digits in this instrument's currency
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int SizeDecimals {
       get { return sizeDecimals_; }
@@ -448,6 +484,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "minimum_size" field.</summary>
     public const int MinimumSizeFieldNumber = 12;
     private double minimumSize_;
+    /// <summary>
+    /// Minimum order size for this instrument
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double MinimumSize {
       get { return minimumSize_; }
@@ -459,6 +498,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "is_order_supported" field.</summary>
     public const int IsOrderSupportedFieldNumber = 13;
     private bool isOrderSupported_;
+    /// <summary>
+    /// Whether this instrument is support for ordering feature
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool IsOrderSupported {
       get { return isOrderSupported_; }
@@ -470,6 +512,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "can_get_orders" field.</summary>
     public const int CanGetOrdersFieldNumber = 14;
     private bool canGetOrders_;
+    /// <summary>
+    /// Whether this instrument is support for Unary order listing RPC
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool CanGetOrders {
       get { return canGetOrders_; }
@@ -481,6 +526,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "can_subscribe_orders" field.</summary>
     public const int CanSubscribeOrdersFieldNumber = 15;
     private bool canSubscribeOrders_;
+    /// <summary>
+    /// Whether this instrument is support for Server Streaming orders RPC
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool CanSubscribeOrders {
       get { return canSubscribeOrders_; }
@@ -492,6 +540,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "is_position_supported" field.</summary>
     public const int IsPositionSupportedFieldNumber = 16;
     private bool isPositionSupported_;
+    /// <summary>
+    /// Whether this instrument is support for position management feature
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool IsPositionSupported {
       get { return isPositionSupported_; }
@@ -503,6 +554,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "can_get_positions" field.</summary>
     public const int CanGetPositionsFieldNumber = 17;
     private bool canGetPositions_;
+    /// <summary>
+    /// Whether this instrument is support for Unary position listing RPC
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool CanGetPositions {
       get { return canGetPositions_; }
@@ -514,6 +568,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "can_subscribe_positions" field.</summary>
     public const int CanSubscribePositionsFieldNumber = 18;
     private bool canSubscribePositions_;
+    /// <summary>
+    /// Whether this instrument is support for Server Streaming positions RPC
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool CanSubscribePositions {
       get { return canSubscribePositions_; }
@@ -917,6 +974,9 @@ namespace CrossTrader.Models.Remoting {
     private static readonly pb::FieldCodec<global::CrossTrader.Models.Remoting.ExchangeMessage> _repeated_exchanges_codec
         = pb::FieldCodec.ForMessage(10, global::CrossTrader.Models.Remoting.ExchangeMessage.Parser);
     private readonly pbc::RepeatedField<global::CrossTrader.Models.Remoting.ExchangeMessage> exchanges_ = new pbc::RepeatedField<global::CrossTrader.Models.Remoting.ExchangeMessage>();
+    /// <summary>
+    /// List of available exchanges
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::CrossTrader.Models.Remoting.ExchangeMessage> Exchanges {
       get { return exchanges_; }

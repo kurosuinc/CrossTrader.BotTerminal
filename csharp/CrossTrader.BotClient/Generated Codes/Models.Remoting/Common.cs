@@ -49,31 +49,79 @@ namespace CrossTrader.Models.Remoting {
   }
   #region Enums
   internal enum ChangedAction {
+    /// <summary>
+    /// The data was added
+    /// </summary>
     [pbr::OriginalName("ADD")] Add = 0,
+    /// <summary>
+    /// The data was replaced
+    /// </summary>
     [pbr::OriginalName("REPLACE")] Replace = 1,
+    /// <summary>
+    /// The data was removed
+    /// </summary>
     [pbr::OriginalName("REMOVE")] Remove = 2,
   }
 
   internal enum OrderSide {
+    /// <summary>
+    /// Unknown side
+    /// </summary>
     [pbr::OriginalName("ORDER_SIDE_NONE")] None = 0,
+    /// <summary>
+    /// Buy
+    /// </summary>
     [pbr::OriginalName("BUY")] Buy = 1,
+    /// <summary>
+    /// Sell
+    /// </summary>
     [pbr::OriginalName("SELL")] Sell = 2,
   }
 
   internal enum OrderState {
+    /// <summary>
+    /// Unknown state
+    /// </summary>
     [pbr::OriginalName("ORDER_STATE_NONE")] None = 0,
+    /// <summary>
+    /// Requesting to the exchange server
+    /// </summary>
     [pbr::OriginalName("REQUESTING")] Requesting = 1,
+    /// <summary>
+    /// Failed to order
+    /// </summary>
     [pbr::OriginalName("FAILED")] Failed = 2,
+    /// <summary>
+    /// Order is accepted and listed
+    /// </summary>
     [pbr::OriginalName("ACTIVE")] Active = 3,
+    /// <summary>
+    /// Order is executed
+    /// </summary>
     [pbr::OriginalName("COMPLETED")] Completed = 4,
+    /// <summary>
+    /// Sending cancel request to the exchange server
+    /// </summary>
     [pbr::OriginalName("CANCELING")] Canceling = 5,
+    /// <summary>
+    /// Order is canceled
+    /// </summary>
     [pbr::OriginalName("CANCELED")] Canceled = 6,
+    /// <summary>
+    /// Order is expired
+    /// </summary>
     [pbr::OriginalName("EXPIRED")] Expired = 7,
   }
 
   internal enum OrderType {
     [pbr::OriginalName("ORDER_TYPE_NONE")] None = 0,
+    /// <summary>
+    /// Limit order
+    /// </summary>
     [pbr::OriginalName("LIMIT")] Limit = 1,
+    /// <summary>
+    /// Market order
+    /// </summary>
     [pbr::OriginalName("MARKET")] Market = 2,
     [pbr::OriginalName("ORDER_TYPE_UNKNOWN")] Unknown = 3,
   }
@@ -247,6 +295,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "instrumentId" field.</summary>
     public const int InstrumentIdFieldNumber = 1;
     private int instrumentId_;
+    /// <summary>
+    /// Unique and fixed value in each gRPC server session to identify the exchange and it's instrument
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int InstrumentId {
       get { return instrumentId_; }

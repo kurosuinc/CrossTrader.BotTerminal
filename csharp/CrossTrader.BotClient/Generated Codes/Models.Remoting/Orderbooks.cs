@@ -626,9 +626,6 @@ namespace CrossTrader.Models.Remoting {
 
   }
 
-  /// <summary>
-  /// OrderBookResponse
-  /// </summary>
   internal sealed partial class OrderBookResponse : pb::IMessage<OrderBookResponse> {
     private static readonly pb::MessageParser<OrderBookResponse> _parser = new pb::MessageParser<OrderBookResponse>(() => new OrderBookResponse());
     private pb::UnknownFieldSet _unknownFields;

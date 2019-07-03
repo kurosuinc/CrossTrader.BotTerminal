@@ -213,6 +213,10 @@ namespace CrossTrader.Models.Remoting {
 
   }
 
+  /// <summary>
+  ///*
+  /// OHLC(Open,High,Low,Close) value
+  /// </summary>
   internal sealed partial class OhlcMessage : pb::IMessage<OhlcMessage> {
     private static readonly pb::MessageParser<OhlcMessage> _parser = new pb::MessageParser<OhlcMessage>(() => new OhlcMessage());
     private pb::UnknownFieldSet _unknownFields;
@@ -255,6 +259,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "opened_at" field.</summary>
     public const int OpenedAtFieldNumber = 1;
     private global::Google.Protobuf.WellKnownTypes.Timestamp openedAt_;
+    /// <summary>
+    /// Start time of this OHLC
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Google.Protobuf.WellKnownTypes.Timestamp OpenedAt {
       get { return openedAt_; }
@@ -266,6 +273,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "open_price" field.</summary>
     public const int OpenPriceFieldNumber = 2;
     private double openPrice_;
+    /// <summary>
+    /// Open price
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double OpenPrice {
       get { return openPrice_; }
@@ -277,6 +287,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "high_price" field.</summary>
     public const int HighPriceFieldNumber = 3;
     private double highPrice_;
+    /// <summary>
+    /// High price
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double HighPrice {
       get { return highPrice_; }
@@ -288,6 +301,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "low_price" field.</summary>
     public const int LowPriceFieldNumber = 4;
     private double lowPrice_;
+    /// <summary>
+    /// Low price
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double LowPrice {
       get { return lowPrice_; }
@@ -299,6 +315,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "close_price" field.</summary>
     public const int ClosePriceFieldNumber = 5;
     private double closePrice_;
+    /// <summary>
+    /// Close price
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double ClosePrice {
       get { return closePrice_; }
@@ -310,6 +329,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "volume" field.</summary>
     public const int VolumeFieldNumber = 6;
     private double volume_;
+    /// <summary>
+    /// Volume
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Volume {
       get { return volume_; }
@@ -488,6 +510,10 @@ namespace CrossTrader.Models.Remoting {
 
   }
 
+  /// <summary>
+  ///*
+  /// OHLC response
+  /// </summary>
   internal sealed partial class OhlcResponse : pb::IMessage<OhlcResponse> {
     private static readonly pb::MessageParser<OhlcResponse> _parser = new pb::MessageParser<OhlcResponse>(() => new OhlcResponse());
     private pb::UnknownFieldSet _unknownFields;
@@ -526,6 +552,9 @@ namespace CrossTrader.Models.Remoting {
     /// <summary>Field number for the "action" field.</summary>
     public const int ActionFieldNumber = 1;
     private global::CrossTrader.Models.Remoting.ChangedAction action_ = 0;
+    /// <summary>
+    /// Changed action
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::CrossTrader.Models.Remoting.ChangedAction Action {
       get { return action_; }
@@ -539,6 +568,9 @@ namespace CrossTrader.Models.Remoting {
     private static readonly pb::FieldCodec<global::CrossTrader.Models.Remoting.OhlcMessage> _repeated_items_codec
         = pb::FieldCodec.ForMessage(18, global::CrossTrader.Models.Remoting.OhlcMessage.Parser);
     private readonly pbc::RepeatedField<global::CrossTrader.Models.Remoting.OhlcMessage> items_ = new pbc::RepeatedField<global::CrossTrader.Models.Remoting.OhlcMessage>();
+    /// <summary>
+    /// OHLC data
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::CrossTrader.Models.Remoting.OhlcMessage> Items {
       get { return items_; }

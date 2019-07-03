@@ -8,6 +8,10 @@
 using grpc = global::Grpc.Core;
 
 namespace CrossTrader.Models.Remoting {
+  /// <summary>
+  ///*
+  /// Provides OHLC and indicators information.
+  /// </summary>
   internal static partial class ChartService
   {
     static readonly string __ServiceName = "crosstrader.ChartService";

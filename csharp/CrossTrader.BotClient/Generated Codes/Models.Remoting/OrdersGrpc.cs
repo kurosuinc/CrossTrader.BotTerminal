@@ -87,7 +87,7 @@ namespace CrossTrader.Models.Remoting {
       }
 
       /// <summary>
-      /// Orders
+      /// Get available orders
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -99,7 +99,7 @@ namespace CrossTrader.Models.Remoting {
         return GetOrders(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Orders
+      /// Get available orders
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -109,7 +109,7 @@ namespace CrossTrader.Models.Remoting {
         return CallInvoker.BlockingUnaryCall(__Method_GetOrders, null, options, request);
       }
       /// <summary>
-      /// Orders
+      /// Get available orders
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -121,7 +121,7 @@ namespace CrossTrader.Models.Remoting {
         return GetOrdersAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Orders
+      /// Get available orders
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -139,7 +139,7 @@ namespace CrossTrader.Models.Remoting {
         return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeOrders, null, options, request);
       }
       /// <summary>
-      /// Ordering
+      /// Send new order
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -151,7 +151,7 @@ namespace CrossTrader.Models.Remoting {
         return PostOrder(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Ordering
+      /// Send new order
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
@@ -161,7 +161,7 @@ namespace CrossTrader.Models.Remoting {
         return CallInvoker.BlockingUnaryCall(__Method_PostOrder, null, options, request);
       }
       /// <summary>
-      /// Ordering
+      /// Send new order
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
@@ -173,7 +173,7 @@ namespace CrossTrader.Models.Remoting {
         return PostOrderAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
-      /// Ordering
+      /// Send new order
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
