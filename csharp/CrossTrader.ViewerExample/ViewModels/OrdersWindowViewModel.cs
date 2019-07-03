@@ -20,6 +20,13 @@ namespace CrossTrader.ViewerExample.ViewModels
 
         #region PostOrderCommand
 
+        private InstrumentViewModel _OrderInstrument;
+        public InstrumentViewModel OrderInstrument
+        {
+            get => _OrderInstrument;
+            set => SetProperty(ref _OrderInstrument, value);
+        }
+
         private OrderType _Type;
         public OrderType Type
         {
@@ -72,12 +79,9 @@ namespace CrossTrader.ViewerExample.ViewModels
         public AsyncCommand PostOrderCommand
             => _PostOrderCommand ?? (_PostOrderCommand = AsyncCommand.Create(async () =>
             {
-                foreach (var i in Instruments)
+                if (OrderInstrument != null)
                 {
-                    if (i.IsSelected)
-                    {
-                        await Client.PostOrderAsync(i.Id, Type, Side, Size, Price);
-                    }
+                    await Client.PostOrderAsync(OrderInstrument.Id, Type, Side, Size, Price);
                 }
             }));
 

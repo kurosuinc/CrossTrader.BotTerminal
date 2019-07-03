@@ -61,37 +61,47 @@
             <GroupBox
                 DockPanel.Dock="Top"
                 Header="Post order">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0">Type</Label>
-                    <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Source={StaticResource OrderTypes}}"
+                <StackPanel>
+                    <Label></Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Instrument</Label>
+                        <ComboBox Grid.Row="0" Grid.Column="1"
+                                  ItemsSource="{Binding Instruments}"
+                                  DisplayMemberPath="DisplayName"
+                                  SelectedItem="{Binding OrderInstrument}">
+                        </ComboBox>
+                        <Label Grid.Row="1" Grid.Column="0">Type</Label>
+                        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Source={StaticResource OrderTypes}}"
                               SelectedItem="{Binding Type}">
-                    </ComboBox>
-                    <Label Grid.Row="1" Grid.Column="0">Side</Label>
-                    <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Source={StaticResource OrderSides}}"
+                        </ComboBox>
+                        <Label Grid.Row="2" Grid.Column="0">Side</Label>
+                        <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding Source={StaticResource OrderSides}}"
                               SelectedItem="{Binding Side}">
-                    </ComboBox>
-                    <Label Grid.Row="2" Grid.Column="0">Size</Label>
-                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Size}"></TextBox>
-                    <Label Grid.Row="3" Grid.Column="0">Price</Label>
-                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Price}" IsEnabled="{Binding CanInputPrice}"></TextBox>
-                    <Button
-                        Grid.Row="4" Grid.Column="1"
+                        </ComboBox>
+                        <Label Grid.Row="3" Grid.Column="0">Size</Label>
+                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Size}"></TextBox>
+                        <Label Grid.Row="4" Grid.Column="0">Price</Label>
+                        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Price}" IsEnabled="{Binding CanInputPrice}"></TextBox>
+                        <Button
+                        Grid.Row="5" Grid.Column="1"
                         Width="150"
                         HorizontalAlignment="Right"
                         Command="{Binding PostOrderCommand}">Post Order</Button>
-                </Grid>
+                    </Grid>
+                </StackPanel>
             </GroupBox>
         </StackPanel>
         <DataGrid
