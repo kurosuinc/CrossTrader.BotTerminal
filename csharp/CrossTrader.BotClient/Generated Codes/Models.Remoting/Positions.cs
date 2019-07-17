@@ -25,22 +25,25 @@ namespace CrossTrader.Models.Remoting {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg9wb3NpdGlvbnMucHJvdG8SC2Nyb3NzdHJhZGVyGgxjb21tb24ucHJvdG8a",
-            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8igwEKD1Bvc2l0aW9u",
-            "TWVzc2FnZRIkCgRzaWRlGAEgASgOMhYuY3Jvc3N0cmFkZXIuT3JkZXJTaWRl",
-            "Eg0KBXByaWNlGAIgASgBEgwKBHNpemUYAyABKAESLQoJb3BlbmVkX2F0GAQg",
-            "ASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCJwChFQb3NpdGlvbnNS",
-            "ZXNwb25zZRIqCgZhY3Rpb24YASABKA4yGi5jcm9zc3RyYWRlci5DaGFuZ2Vk",
-            "QWN0aW9uEi8KCXBvc2l0aW9ucxgCIAMoCzIcLmNyb3NzdHJhZGVyLlBvc2l0",
-            "aW9uTWVzc2FnZTK+AQoQUG9zaXRpb25zU2VydmljZRJQCgxHZXRQb3NpdGlv",
-            "bnMSIC5jcm9zc3RyYWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0Gh4uY3Jvc3N0",
-            "cmFkZXIuUG9zaXRpb25zUmVzcG9uc2USWAoSU3Vic2NyaWJlUG9zaXRpb25z",
-            "EiAuY3Jvc3N0cmFkZXIuSW5zdHJ1bWVudElkUmVxdWVzdBoeLmNyb3NzdHJh",
-            "ZGVyLlBvc2l0aW9uc1Jlc3BvbnNlMAFCHqoCG0Nyb3NzVHJhZGVyLk1vZGVs",
-            "cy5SZW1vdGluZ2IGcHJvdG8z"));
+            "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iJwoKRmVlTWVzc2Fn",
+            "ZRIMCgROYW1lGAEgASgJEgsKA0ZlZRgCIAEoASKqAQoPUG9zaXRpb25NZXNz",
+            "YWdlEiQKBHNpZGUYASABKA4yFi5jcm9zc3RyYWRlci5PcmRlclNpZGUSDQoF",
+            "cHJpY2UYAiABKAESDAoEc2l6ZRgDIAEoARItCglvcGVuZWRfYXQYBCABKAsy",
+            "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiUKBGZlZXMYBSADKAsyFy5j",
+            "cm9zc3RyYWRlci5GZWVNZXNzYWdlInAKEVBvc2l0aW9uc1Jlc3BvbnNlEioK",
+            "BmFjdGlvbhgBIAEoDjIaLmNyb3NzdHJhZGVyLkNoYW5nZWRBY3Rpb24SLwoJ",
+            "cG9zaXRpb25zGAIgAygLMhwuY3Jvc3N0cmFkZXIuUG9zaXRpb25NZXNzYWdl",
+            "Mr4BChBQb3NpdGlvbnNTZXJ2aWNlElAKDEdldFBvc2l0aW9ucxIgLmNyb3Nz",
+            "dHJhZGVyLkluc3RydW1lbnRJZFJlcXVlc3QaHi5jcm9zc3RyYWRlci5Qb3Np",
+            "dGlvbnNSZXNwb25zZRJYChJTdWJzY3JpYmVQb3NpdGlvbnMSIC5jcm9zc3Ry",
+            "YWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0Gh4uY3Jvc3N0cmFkZXIuUG9zaXRp",
+            "b25zUmVzcG9uc2UwAUIeqgIbQ3Jvc3NUcmFkZXIuTW9kZWxzLlJlbW90aW5n",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionMessage), global::CrossTrader.Models.Remoting.PositionMessage.Parser, new[]{ "Side", "Price", "Size", "OpenedAt" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.FeeMessage), global::CrossTrader.Models.Remoting.FeeMessage.Parser, new[]{ "Name", "Fee" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionMessage), global::CrossTrader.Models.Remoting.PositionMessage.Parser, new[]{ "Side", "Price", "Size", "OpenedAt", "Fees" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionsResponse), global::CrossTrader.Models.Remoting.PositionsResponse.Parser, new[]{ "Action", "Positions" }, null, null, null)
           }));
     }
@@ -48,6 +51,166 @@ namespace CrossTrader.Models.Remoting {
 
   }
   #region Messages
+  /// <summary>
+  /// Fee for the position
+  /// </summary>
+  internal sealed partial class FeeMessage : pb::IMessage<FeeMessage> {
+    private static readonly pb::MessageParser<FeeMessage> _parser = new pb::MessageParser<FeeMessage>(() => new FeeMessage());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<FeeMessage> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::CrossTrader.Models.Remoting.PositionsReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public FeeMessage() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public FeeMessage(FeeMessage other) : this() {
+      name_ = other.name_;
+      fee_ = other.fee_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public FeeMessage Clone() {
+      return new FeeMessage(this);
+    }
+
+    /// <summary>Field number for the "Name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Fee" field.</summary>
+    public const int FeeFieldNumber = 2;
+    private double fee_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double Fee {
+      get { return fee_; }
+      set {
+        fee_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as FeeMessage);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(FeeMessage other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Name != other.Name) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Fee, other.Fee)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Fee != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Fee);
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Name.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Name);
+      }
+      if (Fee != 0D) {
+        output.WriteRawTag(17);
+        output.WriteDouble(Fee);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Fee != 0D) {
+        size += 1 + 8;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(FeeMessage other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Fee != 0D) {
+        Fee = other.Fee;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Name = input.ReadString();
+            break;
+          }
+          case 17: {
+            Fee = input.ReadDouble();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   internal sealed partial class PositionMessage : pb::IMessage<PositionMessage> {
     private static readonly pb::MessageParser<PositionMessage> _parser = new pb::MessageParser<PositionMessage>(() => new PositionMessage());
     private pb::UnknownFieldSet _unknownFields;
@@ -56,7 +219,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::CrossTrader.Models.Remoting.PositionsReflection.Descriptor.MessageTypes[0]; }
+      get { return global::CrossTrader.Models.Remoting.PositionsReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -77,6 +240,7 @@ namespace CrossTrader.Models.Remoting {
       price_ = other.price_;
       size_ = other.size_;
       openedAt_ = other.openedAt_ != null ? other.openedAt_.Clone() : null;
+      fees_ = other.fees_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -129,6 +293,19 @@ namespace CrossTrader.Models.Remoting {
       }
     }
 
+    /// <summary>Field number for the "fees" field.</summary>
+    public const int FeesFieldNumber = 5;
+    private static readonly pb::FieldCodec<global::CrossTrader.Models.Remoting.FeeMessage> _repeated_fees_codec
+        = pb::FieldCodec.ForMessage(42, global::CrossTrader.Models.Remoting.FeeMessage.Parser);
+    private readonly pbc::RepeatedField<global::CrossTrader.Models.Remoting.FeeMessage> fees_ = new pbc::RepeatedField<global::CrossTrader.Models.Remoting.FeeMessage>();
+    /// <summary>
+    /// Fees for the position
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::CrossTrader.Models.Remoting.FeeMessage> Fees {
+      get { return fees_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PositionMessage);
@@ -146,6 +323,7 @@ namespace CrossTrader.Models.Remoting {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Price, other.Price)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Size, other.Size)) return false;
       if (!object.Equals(OpenedAt, other.OpenedAt)) return false;
+      if(!fees_.Equals(other.fees_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -156,6 +334,7 @@ namespace CrossTrader.Models.Remoting {
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
       if (Size != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Size);
       if (openedAt_ != null) hash ^= OpenedAt.GetHashCode();
+      hash ^= fees_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -185,6 +364,7 @@ namespace CrossTrader.Models.Remoting {
         output.WriteRawTag(34);
         output.WriteMessage(OpenedAt);
       }
+      fees_.WriteTo(output, _repeated_fees_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -205,6 +385,7 @@ namespace CrossTrader.Models.Remoting {
       if (openedAt_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(OpenedAt);
       }
+      size += fees_.CalculateSize(_repeated_fees_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -231,6 +412,7 @@ namespace CrossTrader.Models.Remoting {
         }
         OpenedAt.MergeFrom(other.OpenedAt);
       }
+      fees_.Add(other.fees_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -261,6 +443,10 @@ namespace CrossTrader.Models.Remoting {
             input.ReadMessage(OpenedAt);
             break;
           }
+          case 42: {
+            fees_.AddEntriesFrom(input, _repeated_fees_codec);
+            break;
+          }
         }
       }
     }
@@ -275,7 +461,7 @@ namespace CrossTrader.Models.Remoting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::CrossTrader.Models.Remoting.PositionsReflection.Descriptor.MessageTypes[1]; }
+      get { return global::CrossTrader.Models.Remoting.PositionsReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
