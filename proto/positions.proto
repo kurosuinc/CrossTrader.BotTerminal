@@ -6,11 +6,19 @@ option csharp_namespace = "CrossTrader.Models.Remoting";
 import "common.proto";
 import "google/protobuf/timestamp.proto";
 
+// Fee for the position
+message FeeMessage {
+    string name = 1;
+    double fee = 2;
+}
+
 message PositionMessage {
     OrderSide side = 1;
     double price = 2;
     double size = 3;
     google.protobuf.Timestamp opened_at = 4;
+    // Fees for the position
+    repeated FeeMessage fees = 5;
 }
 
 message PositionsResponse {
