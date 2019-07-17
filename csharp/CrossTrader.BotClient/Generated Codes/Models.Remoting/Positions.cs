@@ -26,7 +26,7 @@ namespace CrossTrader.Models.Remoting {
           string.Concat(
             "Cg9wb3NpdGlvbnMucHJvdG8SC2Nyb3NzdHJhZGVyGgxjb21tb24ucHJvdG8a",
             "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iJwoKRmVlTWVzc2Fn",
-            "ZRIMCgROYW1lGAEgASgJEgsKA0ZlZRgCIAEoASKqAQoPUG9zaXRpb25NZXNz",
+            "ZRIMCgRuYW1lGAEgASgJEgsKA2ZlZRgCIAEoASKqAQoPUG9zaXRpb25NZXNz",
             "YWdlEiQKBHNpZGUYASABKA4yFi5jcm9zc3RyYWRlci5PcmRlclNpZGUSDQoF",
             "cHJpY2UYAiABKAESDAoEc2l6ZRgDIAEoARItCglvcGVuZWRfYXQYBCABKAsy",
             "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiUKBGZlZXMYBSADKAsyFy5j",
@@ -89,7 +89,7 @@ namespace CrossTrader.Models.Remoting {
       return new FeeMessage(this);
     }
 
-    /// <summary>Field number for the "Name" field.</summary>
+    /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
     private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -100,7 +100,7 @@ namespace CrossTrader.Models.Remoting {
       }
     }
 
-    /// <summary>Field number for the "Fee" field.</summary>
+    /// <summary>Field number for the "fee" field.</summary>
     public const int FeeFieldNumber = 2;
     private double fee_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
