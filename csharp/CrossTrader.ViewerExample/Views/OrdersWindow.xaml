@@ -187,52 +187,104 @@
             Grid.Column="1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch" />
-        <DataGrid
+        <TabControl
             Grid.Row="2"
-            Grid.Column="1"
-            IsReadOnly="True"
-            AutoGenerateColumns="False"
-            SelectionMode="Single"
-            SelectedItem="{Binding SelectedOrderEntry}"
-            ItemsSource="{Binding Orders}">
-            <DataGrid.Columns>
-                <DataGridTextColumn
+            Grid.Column="1">
+            <TabItem Header="Active Orders">
+                <DataGrid
+                    IsReadOnly="True"
+                    AutoGenerateColumns="False"
+                    SelectionMode="Single"
+                    SelectedItem="{Binding SelectedActiveOrderEntry}"
+                    ItemsSource="{Binding ActiveOrders}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
                     Header="Action"
                     Binding="{Binding Action}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="Instrument"
                     Binding="{Binding Instrument.DisplayName}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="Id"
                     Binding="{Binding Order.Id}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="RequestId"
                     Binding="{Binding Order.RequestId}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="Side"
                     Binding="{Binding Order.Side}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="Type"
                     Binding="{Binding Order.Type}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="Size"
                     Binding="{Binding Order.Size}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="OutstandingSize"
                     Binding="{Binding Order.OutstandingSize}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="Price"
                     Binding="{Binding Order.Price}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="AveragePrice"
                     Binding="{Binding Order.AveragePrice}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="State"
                     Binding="{Binding Order.State}" />
-                <DataGridTextColumn
+                        <DataGridTextColumn
                     Header="OrderedAt"
                     Binding="{Binding Order.OrderedAt}" />
-            </DataGrid.Columns>
-        </DataGrid>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Received message history">
+                <DataGrid
+                    IsReadOnly="True"
+                    AutoGenerateColumns="False"
+                    SelectionMode="Single"
+                    SelectedItem="{Binding SelectedOrderEntry}"
+                    ItemsSource="{Binding Orders}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                    Header="Action"
+                    Binding="{Binding Action}" />
+                        <DataGridTextColumn
+                    Header="Instrument"
+                    Binding="{Binding Instrument.DisplayName}" />
+                        <DataGridTextColumn
+                    Header="Id"
+                    Binding="{Binding Order.Id}" />
+                        <DataGridTextColumn
+                    Header="RequestId"
+                    Binding="{Binding Order.RequestId}" />
+                        <DataGridTextColumn
+                    Header="Side"
+                    Binding="{Binding Order.Side}" />
+                        <DataGridTextColumn
+                    Header="Type"
+                    Binding="{Binding Order.Type}" />
+                        <DataGridTextColumn
+                    Header="Size"
+                    Binding="{Binding Order.Size}" />
+                        <DataGridTextColumn
+                    Header="OutstandingSize"
+                    Binding="{Binding Order.OutstandingSize}" />
+                        <DataGridTextColumn
+                    Header="Price"
+                    Binding="{Binding Order.Price}" />
+                        <DataGridTextColumn
+                    Header="AveragePrice"
+                    Binding="{Binding Order.AveragePrice}" />
+                        <DataGridTextColumn
+                    Header="State"
+                    Binding="{Binding Order.State}" />
+                        <DataGridTextColumn
+                    Header="OrderedAt"
+                    Binding="{Binding Order.OrderedAt}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </v:CustomWindow>

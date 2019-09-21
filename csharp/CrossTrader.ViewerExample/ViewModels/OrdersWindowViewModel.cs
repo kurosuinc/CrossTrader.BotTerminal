@@ -30,6 +30,18 @@ namespace CrossTrader.ViewerExample.ViewModels
             });
         }
 
+        private OrderEntry _selectedActiveOrderEntry;
+        public OrderEntry SelectedActiveOrderEntry
+        {
+            get => _selectedActiveOrderEntry;
+            set => SetProperty(ref _selectedActiveOrderEntry, value, onChanged: () =>
+            {
+                CancelOrderId = SelectedActiveOrderEntry.Order.Id;
+                CancelOrderRequestId = SelectedActiveOrderEntry.Order.RequestId;
+                CancelInstrument = Instruments.FirstOrDefault(ins => ins.Id == SelectedActiveOrderEntry.Order.InstrumentId);
+            });
+        }
+
         private InstrumentViewModel _SelectedInstrument;
         public InstrumentViewModel SelectedInstrument
         {
@@ -196,6 +208,21 @@ namespace CrossTrader.ViewerExample.ViewModels
             }
         }
 
+        private ObservableCollection<OrderEntry> _ActiveOrders;
+
+        public ObservableCollection<OrderEntry> ActiveOrders
+        {
+            get
+            {
+                if (_ActiveOrders == null)
+                {
+                    _ActiveOrders = new ObservableCollection<OrderEntry>();
+                    BindingOperations.EnableCollectionSynchronization(_ActiveOrders, _ActiveOrders);
+                }
+                return _ActiveOrders;
+            }
+        }
+
         #endregion Orders
 
         #region SubscribeOrdersCommand
@@ -252,6 +279,23 @@ namespace CrossTrader.ViewerExample.ViewModels
                     while (Orders.Count > 100)
                     {
                         Orders.RemoveAt(Orders.Count - 1 - MAX);
+                    }
+                }
+                lock (ActiveOrders)
+                {
+                    foreach (var m in e.Data)
+                    {
+                        var currentOrder = ActiveOrders.FirstOrDefault(o => o.Order.RequestId == m.RequestId);
+                        if (currentOrder != null)
+                        {
+                            ActiveOrders.Remove(currentOrder);
+                        }
+
+                        if (m.State == OrderState.Active
+                            || m.State == OrderState.Requesting)
+                        {
+                            ActiveOrders.Add(new OrderEntry(e.Action, i, m));
+                        }
                     }
                 }
             }
