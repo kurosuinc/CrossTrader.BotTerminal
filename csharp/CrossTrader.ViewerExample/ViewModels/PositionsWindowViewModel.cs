@@ -50,6 +50,21 @@ namespace CrossTrader.ViewerExample.ViewModels
             }
         }
 
+        private ObservableCollection<PositionEntry> _ActivePositions;
+
+        public ObservableCollection<PositionEntry> ActivePositions
+        {
+            get
+            {
+                if (_ActivePositions == null)
+                {
+                    _ActivePositions = new ObservableCollection<PositionEntry>();
+                    BindingOperations.EnableCollectionSynchronization(_ActivePositions, _ActivePositions);
+                }
+                return _ActivePositions;
+            }
+        }
+
         #endregion Positions
 
         #region SubscribePositionsCommand
@@ -106,6 +121,32 @@ namespace CrossTrader.ViewerExample.ViewModels
                     while (Positions.Count > 100)
                     {
                         Positions.RemoveAt(Positions.Count - 1 - MAX);
+                    }
+                }
+                lock (ActivePositions)
+                {
+                    var activePositions = ActivePositions.Where(p => p.Instrument.Id.Equals(i.Id)).ToList();
+                    var xs = e.Data.Distinct();
+                    foreach (var m in xs)
+                    {
+                        var currents = activePositions.Where(ap => ap.Position.Id == m.Id);
+                        if (currents.Count() == 0 && e.Action == NotifyCollectionChangedAction.Add)
+                        {
+                            ActivePositions.Add(new PositionEntry(e.Action, i, m));
+                        } else if (currents.Count() > 0 && e.Action == NotifyCollectionChangedAction.Remove)
+                        {
+                            foreach (var current in currents)
+                            {
+                                ActivePositions.Remove(current);
+                            }
+                        } else if (currents.Count() > 0 && (e.Action == NotifyCollectionChangedAction.Add || e.Action == NotifyCollectionChangedAction.Replace))
+                        {
+                            foreach (var current in currents)
+                            {
+                                ActivePositions.Remove(current);
+                            }
+                            ActivePositions.Add(new PositionEntry(e.Action, i, m));
+                        }
                     }
                 }
             }

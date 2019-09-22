@@ -19,6 +19,7 @@ message PositionMessage {
     google.protobuf.Timestamp opened_at = 4;
     // Fees for the position
     repeated FeeMessage fees = 5;
+    string id = 6;
 }
 
 message PositionsResponse {

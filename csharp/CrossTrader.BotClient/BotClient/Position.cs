@@ -3,7 +3,7 @@ using CrossTrader.Models.Remoting;
 
 namespace CrossTrader.BotClient
 {
-    public sealed class Position
+    public sealed class Position : IEquatable<Position>
     {
         internal Position(int instrumentId, PositionMessage message)
         {
@@ -12,6 +12,7 @@ namespace CrossTrader.BotClient
             Price = message.Price;
             Size = message.Size;
             OpenedAt = message.OpenedAt.ToClientValue();
+            Id = message.Id;
         }
 
         #region Properties
@@ -26,11 +27,19 @@ namespace CrossTrader.BotClient
 
         public DateTimeOffset? OpenedAt { get; set; }
 
+        public string Id { get; set; }
+
         #endregion
 
         public bool IsValid =>
             !(Side == OrderSide.None ||
               Size == 0 ||
               Price == 0);
+
+        bool IEquatable<Position>.Equals(Position other)
+            => Id.Equals(other.Id);
+
+        public override int GetHashCode()
+            => Id.GetHashCode();
     }
 }
