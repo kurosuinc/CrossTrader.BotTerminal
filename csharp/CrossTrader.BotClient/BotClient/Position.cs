@@ -33,7 +33,6 @@ namespace CrossTrader.BotClient
 
         public bool IsValid =>
             !(Side == OrderSide.None ||
-              Size == 0 ||
               Price == 0);
 
         bool IEquatable<Position>.Equals(Position other)
