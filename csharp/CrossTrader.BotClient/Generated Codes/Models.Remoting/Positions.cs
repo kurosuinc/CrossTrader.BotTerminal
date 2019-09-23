@@ -26,24 +26,24 @@ namespace CrossTrader.Models.Remoting {
           string.Concat(
             "Cg9wb3NpdGlvbnMucHJvdG8SC2Nyb3NzdHJhZGVyGgxjb21tb24ucHJvdG8a",
             "H2dvb2dsZS9wcm90b2J1Zi90aW1lc3RhbXAucHJvdG8iJwoKRmVlTWVzc2Fn",
-            "ZRIMCgRuYW1lGAEgASgJEgsKA2ZlZRgCIAEoASK2AQoPUG9zaXRpb25NZXNz",
+            "ZRIMCgRuYW1lGAEgASgJEgsKA2ZlZRgCIAEoASKqAQoPUG9zaXRpb25NZXNz",
             "YWdlEiQKBHNpZGUYASABKA4yFi5jcm9zc3RyYWRlci5PcmRlclNpZGUSDQoF",
             "cHJpY2UYAiABKAESDAoEc2l6ZRgDIAEoARItCglvcGVuZWRfYXQYBCABKAsy",
             "Gi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiUKBGZlZXMYBSADKAsyFy5j",
-            "cm9zc3RyYWRlci5GZWVNZXNzYWdlEgoKAmlkGAYgASgJInAKEVBvc2l0aW9u",
-            "c1Jlc3BvbnNlEioKBmFjdGlvbhgBIAEoDjIaLmNyb3NzdHJhZGVyLkNoYW5n",
-            "ZWRBY3Rpb24SLwoJcG9zaXRpb25zGAIgAygLMhwuY3Jvc3N0cmFkZXIuUG9z",
-            "aXRpb25NZXNzYWdlMr4BChBQb3NpdGlvbnNTZXJ2aWNlElAKDEdldFBvc2l0",
-            "aW9ucxIgLmNyb3NzdHJhZGVyLkluc3RydW1lbnRJZFJlcXVlc3QaHi5jcm9z",
-            "c3RyYWRlci5Qb3NpdGlvbnNSZXNwb25zZRJYChJTdWJzY3JpYmVQb3NpdGlv",
-            "bnMSIC5jcm9zc3RyYWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0Gh4uY3Jvc3N0",
-            "cmFkZXIuUG9zaXRpb25zUmVzcG9uc2UwAUIeqgIbQ3Jvc3NUcmFkZXIuTW9k",
-            "ZWxzLlJlbW90aW5nYgZwcm90bzM="));
+            "cm9zc3RyYWRlci5GZWVNZXNzYWdlInAKEVBvc2l0aW9uc1Jlc3BvbnNlEioK",
+            "BmFjdGlvbhgBIAEoDjIaLmNyb3NzdHJhZGVyLkNoYW5nZWRBY3Rpb24SLwoJ",
+            "cG9zaXRpb25zGAIgAygLMhwuY3Jvc3N0cmFkZXIuUG9zaXRpb25NZXNzYWdl",
+            "Mr4BChBQb3NpdGlvbnNTZXJ2aWNlElAKDEdldFBvc2l0aW9ucxIgLmNyb3Nz",
+            "dHJhZGVyLkluc3RydW1lbnRJZFJlcXVlc3QaHi5jcm9zc3RyYWRlci5Qb3Np",
+            "dGlvbnNSZXNwb25zZRJYChJTdWJzY3JpYmVQb3NpdGlvbnMSIC5jcm9zc3Ry",
+            "YWRlci5JbnN0cnVtZW50SWRSZXF1ZXN0Gh4uY3Jvc3N0cmFkZXIuUG9zaXRp",
+            "b25zUmVzcG9uc2UwAUIeqgIbQ3Jvc3NUcmFkZXIuTW9kZWxzLlJlbW90aW5n",
+            "YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.FeeMessage), global::CrossTrader.Models.Remoting.FeeMessage.Parser, new[]{ "Name", "Fee" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionMessage), global::CrossTrader.Models.Remoting.PositionMessage.Parser, new[]{ "Side", "Price", "Size", "OpenedAt", "Fees", "Id" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionMessage), global::CrossTrader.Models.Remoting.PositionMessage.Parser, new[]{ "Side", "Price", "Size", "OpenedAt", "Fees" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionsResponse), global::CrossTrader.Models.Remoting.PositionsResponse.Parser, new[]{ "Action", "Positions" }, null, null, null)
           }));
     }
@@ -241,7 +241,6 @@ namespace CrossTrader.Models.Remoting {
       size_ = other.size_;
       openedAt_ = other.openedAt_ != null ? other.openedAt_.Clone() : null;
       fees_ = other.fees_.Clone();
-      id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -307,17 +306,6 @@ namespace CrossTrader.Models.Remoting {
       get { return fees_; }
     }
 
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 6;
-    private string id_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Id {
-      get { return id_; }
-      set {
-        id_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as PositionMessage);
@@ -336,7 +324,6 @@ namespace CrossTrader.Models.Remoting {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Size, other.Size)) return false;
       if (!object.Equals(OpenedAt, other.OpenedAt)) return false;
       if(!fees_.Equals(other.fees_)) return false;
-      if (Id != other.Id) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -348,7 +335,6 @@ namespace CrossTrader.Models.Remoting {
       if (Size != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Size);
       if (openedAt_ != null) hash ^= OpenedAt.GetHashCode();
       hash ^= fees_.GetHashCode();
-      if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -379,10 +365,6 @@ namespace CrossTrader.Models.Remoting {
         output.WriteMessage(OpenedAt);
       }
       fees_.WriteTo(output, _repeated_fees_codec);
-      if (Id.Length != 0) {
-        output.WriteRawTag(50);
-        output.WriteString(Id);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -404,9 +386,6 @@ namespace CrossTrader.Models.Remoting {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(OpenedAt);
       }
       size += fees_.CalculateSize(_repeated_fees_codec);
-      if (Id.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Id);
-      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -434,9 +413,6 @@ namespace CrossTrader.Models.Remoting {
         OpenedAt.MergeFrom(other.OpenedAt);
       }
       fees_.Add(other.fees_);
-      if (other.Id.Length != 0) {
-        Id = other.Id;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -469,10 +445,6 @@ namespace CrossTrader.Models.Remoting {
           }
           case 42: {
             fees_.AddEntriesFrom(input, _repeated_fees_codec);
-            break;
-          }
-          case 50: {
-            Id = input.ReadString();
             break;
           }
         }
