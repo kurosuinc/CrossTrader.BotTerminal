@@ -7,7 +7,8 @@
     xmlns:vm="clr-namespace:CrossTrader.ViewerExample.ViewModels"
     xmlns:v="clr-namespace:CrossTrader.ViewerExample.Views"
     mc:Ignorable="d"
-    Title="LoginWindow"
+    Title="ViewerExample"
+    MinWidth="220"
     SizeToContent="WidthAndHeight">
     <v:CustomWindow.Resources>
         <Style
