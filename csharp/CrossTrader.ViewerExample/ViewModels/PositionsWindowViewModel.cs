@@ -50,6 +50,21 @@ namespace CrossTrader.ViewerExample.ViewModels
             }
         }
 
+        private ObservableCollection<PositionEntry> _ActivePositions;
+
+        public ObservableCollection<PositionEntry> ActivePositions
+        {
+            get
+            {
+                if (_ActivePositions == null)
+                {
+                    _ActivePositions = new ObservableCollection<PositionEntry>();
+                    BindingOperations.EnableCollectionSynchronization(_ActivePositions, _ActivePositions);
+                }
+                return _ActivePositions;
+            }
+        }
+
         #endregion Positions
 
         #region SubscribePositionsCommand
@@ -107,6 +122,34 @@ namespace CrossTrader.ViewerExample.ViewModels
                     {
                         Positions.RemoveAt(Positions.Count - 1 - MAX);
                     }
+                }
+
+               lock (ActivePositions)
+                {
+                    // 対象のInstrumentのポジションのみを対象に副作用を与える
+                    var activePositions = ActivePositions.Where(p => p.Instrument.Id.Equals(i.Id)).ToList();
+                    if (e.Action == NotifyCollectionChangedAction.Add
+                        || e.Action == NotifyCollectionChangedAction.Replace)
+                    {
+                        // Add,Replace が来たらスナップショット受信とみなして入れ替える
+                        foreach (var ap in activePositions)
+                        {
+                            ActivePositions.Remove(ap);
+                        }
+                        foreach (var m in e.Data)
+                        {
+                            ActivePositions.Add(new PositionEntry(e.Action, i, m));
+                        }
+                    }
+                    else if (e.Action == NotifyCollectionChangedAction.Remove
+                             || e.Action == NotifyCollectionChangedAction.Reset)
+                    {
+                        // Remove,Reset が来たらポジションが全て決済されたとみなして削除する
+                        foreach (var ap in activePositions)
+                        {
+                            ActivePositions.Remove(ap);
+                        }
+                    } else if (e.Action == NotifyCollectionChangedAction.Move) { }
                 }
             }
         }

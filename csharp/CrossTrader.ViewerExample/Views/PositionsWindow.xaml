@@ -19,7 +19,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition
-                Height="*" />
+                Height="2*" />
             <RowDefinition
                 Height="4" />
             <RowDefinition
@@ -56,10 +56,6 @@
                         IsReadOnly="True"
                         Binding="{Binding ExchangeDisplayName}" />
                     <DataGridTextColumn
-                        Header="Id"
-                        IsReadOnly="True"
-                        Binding="{Binding Id}" />
-                    <DataGridTextColumn
                         Header="Name"
                         IsReadOnly="True"
                         Binding="{Binding Name}" />
@@ -78,31 +74,78 @@
             Grid.Row="1"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch" />
-        <DataGrid
-            Grid.Row="2"
-            IsReadOnly="True"
-            AutoGenerateColumns="False"
-            ItemsSource="{Binding Positions}">
-            <DataGrid.Columns>
-                <DataGridTextColumn
-                    Header="Action"
-                    Binding="{Binding Action}" />
-                <DataGridTextColumn
-                    Header="Instrument"
-                    Binding="{Binding Instrument.DisplayName}" />
-                <DataGridTextColumn
-                    Header="Side"
-                    Binding="{Binding Position.Side}" />
-                <DataGridTextColumn
-                    Header="Price"
-                    Binding="{Binding Position.Price}" />
-                <DataGridTextColumn
-                    Header="Size"
-                    Binding="{Binding Position.Size}" />
-                <DataGridTextColumn
-                    Header="OpenedAt"
-                    Binding="{Binding Position.OpenedAt}" />
-            </DataGrid.Columns>
-        </DataGrid>
+            <TabControl
+                Grid.Row="2">
+                <TabItem Header="Active positions">
+                    <DataGrid
+                    IsReadOnly="True"
+                    AutoGenerateColumns="False"
+                    ItemsSource="{Binding ActivePositions}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                            Header="Action"
+                            Binding="{Binding Action}" />
+                            <DataGridTextColumn
+                            Header="Instrument"
+                            Binding="{Binding Instrument.DisplayName}" />
+                            <DataGridTextColumn
+                            Header="Side"
+                            Binding="{Binding Position.Side}" />
+                            <DataGridTextColumn
+                            Header="Price"
+                            Binding="{Binding Position.Price}" />
+                            <DataGridTextColumn
+                            Header="Size"
+                            Binding="{Binding Position.Size}" />
+                            <DataGridTextColumn
+                            Header="OpenedAt"
+                            Binding="{Binding Position.OpenedAt, StringFormat=MM/dd HH:mm:ss K}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                <TabItem Header="Received message history">
+                    <DataGrid
+                    IsReadOnly="True"
+                    AutoGenerateColumns="False"
+                    ItemsSource="{Binding Positions}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                            Header="Action"
+                            Binding="{Binding Action}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="Add">
+                                                <Setter Property="Background" Value="#FF77D0FF"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="Replace">
+                                                <Setter Property="Background" Value="#FFAFFFAF"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="Remove">
+                                                <Setter Property="Background" Value="#FFFFABAB"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+                            Header="Instrument"
+                            Binding="{Binding Instrument.DisplayName}" />
+                            <DataGridTextColumn
+                            Header="Side"
+                            Binding="{Binding Position.Side}" />
+                            <DataGridTextColumn
+                            Header="Price"
+                            Binding="{Binding Position.Price}" />
+                            <DataGridTextColumn
+                            Header="Size"
+                            Binding="{Binding Position.Size}" />
+                            <DataGridTextColumn
+                            Header="OpenedAt"
+                            Binding="{Binding Position.OpenedAt, StringFormat=MM/dd HH:mm:ss K}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
     </Grid>
 </v:CustomWindow>
