@@ -257,6 +257,8 @@ namespace CrossTrader.ViewerExample.ViewModels
                         Client.UnsubscribeOrders(i.Id);
                     }
                 }
+
+                ActiveOrders.Clear();
             }));
 
         #endregion UnsubscribeOrdersCommand

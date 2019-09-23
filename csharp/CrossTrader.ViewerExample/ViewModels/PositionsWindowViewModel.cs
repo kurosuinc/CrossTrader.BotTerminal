@@ -99,6 +99,7 @@ namespace CrossTrader.ViewerExample.ViewModels
                         Client.UnsubscribePositions(i.Id);
                     }
                 }
+                ActivePositions.Clear();
             }));
 
         #endregion UnsubscribePositionsCommand
