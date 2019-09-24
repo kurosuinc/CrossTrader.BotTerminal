@@ -1,8 +1,30 @@
-﻿<Application
+<Application
     x:Class="CrossTrader.ViewerExample.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:CrossTrader.ViewerExample"
     StartupUri="Views/LoginWindow.xaml"
     ShutdownMode="OnLastWindowClose">
+    <Application.Resources>
+        <SolidColorBrush x:Key="AddedBackgroundBrush" Color="#FF77D0FF" />
+        <SolidColorBrush x:Key="ReplacedBackgroundBrush" Color="#FFAFFFAF" />
+        <SolidColorBrush x:Key="RemovedBackgroundBrush" Color="#FFFFABAB" />
+        <SolidColorBrush x:Key="MovedBackgroundBrush" Color="#FFFAFAE4" />
+        <Style x:Key="ChangedActionStyle" TargetType="{x:Type TextBlock}">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="Add">
+                    <Setter Property="Background" Value="{StaticResource AddedBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Replace">
+                    <Setter Property="Background" Value="{StaticResource ReplacedBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Remove">
+                    <Setter Property="Background" Value="{StaticResource RemovedBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Move">
+                    <Setter Property="Background" Value="{StaticResource MovedBackgroundBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Application.Resources>
 </Application>

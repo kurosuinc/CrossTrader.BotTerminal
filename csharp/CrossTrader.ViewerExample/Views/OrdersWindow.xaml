@@ -199,6 +199,7 @@
                     ItemsSource="{Binding ActiveOrders}">
                     <DataGrid.Columns>
                         <DataGridTextColumn
+                            ElementStyle="{StaticResource ChangedActionStyle}"
                     Header="Action"
                     Binding="{Binding Action}" />
                         <DataGridTextColumn
@@ -247,6 +248,7 @@
                     ItemsSource="{Binding Orders}">
                     <DataGrid.Columns>
                         <DataGridTextColumn
+                            ElementStyle="{StaticResource ChangedActionStyle}"
                     Header="Action"
                     Binding="{Binding Action}" />
                         <DataGridTextColumn

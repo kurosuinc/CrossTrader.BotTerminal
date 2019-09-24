@@ -83,6 +83,7 @@
                     ItemsSource="{Binding ActivePositions}">
                         <DataGrid.Columns>
                             <DataGridTextColumn
+                                ElementStyle="{StaticResource ChangedActionStyle}"
                             Header="Action"
                             Binding="{Binding Action}" />
                             <DataGridTextColumn
@@ -110,23 +111,9 @@
                     ItemsSource="{Binding Positions}">
                         <DataGrid.Columns>
                             <DataGridTextColumn
-                            Header="Action"
-                            Binding="{Binding Action}">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Style.Triggers>
-                                            <Trigger Property="Text" Value="Add">
-                                                <Setter Property="Background" Value="#FF77D0FF"/>
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="Replace">
-                                                <Setter Property="Background" Value="#FFAFFFAF"/>
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="Remove">
-                                                <Setter Property="Background" Value="#FFFFABAB"/>
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
+                                ElementStyle="{StaticResource ChangedActionStyle}"
+                                Header="Action"
+                                Binding="{Binding Action}">
                             </DataGridTextColumn>
                             <DataGridTextColumn
                             Header="Instrument"

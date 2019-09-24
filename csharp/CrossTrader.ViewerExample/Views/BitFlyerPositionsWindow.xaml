@@ -85,6 +85,7 @@
             ItemsSource="{Binding Positions}">
             <DataGrid.Columns>
                 <DataGridTextColumn
+                    ElementStyle="{StaticResource ChangedActionStyle}"
                     Header="Action"
                     Binding="{Binding Action}" />
                 <DataGridTextColumn
