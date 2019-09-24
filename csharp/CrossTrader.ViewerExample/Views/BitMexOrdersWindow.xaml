@@ -95,6 +95,7 @@
                     Header="OrderId"
                     Binding="{Binding Order.OrderId}" />
                 <DataGridTextColumn
+                    ElementStyle="{StaticResource OrderSideStyle}"
                     Header="Side"
                     Binding="{Binding Order.Side}" />
                 <DataGridTextColumn
@@ -110,6 +111,7 @@
                     Header="StopPrice"
                     Binding="{Binding Order.StopPrice}" />
                 <DataGridTextColumn
+                    ElementStyle="{StaticResource OrderTypeStyle}"
                     Header="OrderType"
                     Binding="{Binding Order.OrderType}" />
                 <DataGridTextColumn

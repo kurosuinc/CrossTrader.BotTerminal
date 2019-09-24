@@ -94,9 +94,11 @@
                     Header="ChildOrderId"
                     Binding="{Binding ChildOrder.ChildOrderId}" />
                 <DataGridTextColumn
+                    ElementStyle="{StaticResource OrderSideStyle}"
                     Header="Side"
                     Binding="{Binding ChildOrder.Side}" />
                 <DataGridTextColumn
+                    ElementStyle="{StaticResource OrderTypeStyle}"
                     Header="ChildOrderType"
                     Binding="{Binding ChildOrder.ChildOrderType}" />
                 <DataGridTextColumn
@@ -109,6 +111,7 @@
                     Header="Size"
                     Binding="{Binding ChildOrder.Size}" />
                 <DataGridTextColumn
+                    ElementStyle="{StaticResource OrderStateStyle}"
                     Header="ChildOrderState"
                     Binding="{Binding ChildOrder.ChildOrderState}" />
                 <DataGridTextColumn

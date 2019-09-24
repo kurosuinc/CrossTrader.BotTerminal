@@ -6,23 +6,95 @@
     StartupUri="Views/LoginWindow.xaml"
     ShutdownMode="OnLastWindowClose">
     <Application.Resources>
-        <SolidColorBrush x:Key="AddedBackgroundBrush" Color="#FF77D0FF" />
-        <SolidColorBrush x:Key="ReplacedBackgroundBrush" Color="#FFAFFFAF" />
-        <SolidColorBrush x:Key="RemovedBackgroundBrush" Color="#FFFFABAB" />
-        <SolidColorBrush x:Key="MovedBackgroundBrush" Color="#FFFAFAE4" />
+        <SolidColorBrush x:Key="ChangedActionAddBackgroundBrush" Color="LightBlue" />
+        <SolidColorBrush x:Key="ChangedActionReplacBackgroundBrush" Color="LightGreen" />
+        <SolidColorBrush x:Key="ChangedActionRemovBackgroundBrush" Color="IndianRed" />
+
+        <SolidColorBrush x:Key="OrderSideNoneBackgroundBrush" Color="White" />
+        <SolidColorBrush x:Key="OrderSideBuyBackgroundBrush" Color="LightGreen" />
+        <SolidColorBrush x:Key="OrderSideSellBackgroundBrush" Color="IndianRed" />
+
+        <SolidColorBrush x:Key="OrderStateNoneBackgroundBrush" Color="White" />
+        <SolidColorBrush x:Key="OrderStateRequestingBackgroundBrush" Color="DarkOrange" />
+        <SolidColorBrush x:Key="OrderStateFailedBackgroundBrush" Color="IndianRed" />
+        <SolidColorBrush x:Key="OrderStateActiveBackgroundBrush" Color="LightBlue" />
+        <SolidColorBrush x:Key="OrderStateCompletedBackgroundBrush" Color="LightGreen" />
+        <SolidColorBrush x:Key="OrderStateCancelingBackgroundBrush" Color="LightYellow" />
+        <SolidColorBrush x:Key="OrderStateCanceledBackgroundBrush" Color="LightGray" />
+        <SolidColorBrush x:Key="OrderStateExpiredBackgroundBrush" Color="LightGray" />
+
+        <SolidColorBrush x:Key="OrderTypeNoneBackgroundBrush" Color="White" />
+        <SolidColorBrush x:Key="OrderTypeLimitBackgroundBrush" Color="LightGreen" />
+        <SolidColorBrush x:Key="OrderTypeMarketBackgroundBrush" Color="IndianRed" />
+        <SolidColorBrush x:Key="OrderTypeUnknownBackgroundBrush" Color="DimGray" />
+
         <Style x:Key="ChangedActionStyle" TargetType="{x:Type TextBlock}">
             <Style.Triggers>
                 <Trigger Property="Text" Value="Add">
-                    <Setter Property="Background" Value="{StaticResource AddedBackgroundBrush}"/>
+                    <Setter Property="Background" Value="{StaticResource ChangedActionAddBackgroundBrush}"/>
                 </Trigger>
                 <Trigger Property="Text" Value="Replace">
-                    <Setter Property="Background" Value="{StaticResource ReplacedBackgroundBrush}"/>
+                    <Setter Property="Background" Value="{StaticResource ChangedActionReplacBackgroundBrush}"/>
                 </Trigger>
                 <Trigger Property="Text" Value="Remove">
-                    <Setter Property="Background" Value="{StaticResource RemovedBackgroundBrush}"/>
+                    <Setter Property="Background" Value="{StaticResource ChangedActionRemovBackgroundBrush}"/>
                 </Trigger>
-                <Trigger Property="Text" Value="Move">
-                    <Setter Property="Background" Value="{StaticResource MovedBackgroundBrush}"/>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="OrderStateStyle" TargetType="{x:Type TextBlock}">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="None">
+                    <Setter Property="Background" Value="{StaticResource OrderStateNoneBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Requesting">
+                    <Setter Property="Background" Value="{StaticResource OrderStateRequestingBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Failed">
+                    <Setter Property="Background" Value="{StaticResource OrderStateFailedBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Active">
+                    <Setter Property="Background" Value="{StaticResource OrderStateActiveBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Completed">
+                    <Setter Property="Background" Value="{StaticResource OrderStateCompletedBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Canceling">
+                    <Setter Property="Background" Value="{StaticResource OrderStateCancelingBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Canceled">
+                    <Setter Property="Background" Value="{StaticResource OrderStateCanceledBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Expired">
+                    <Setter Property="Background" Value="{StaticResource OrderStateExpiredBackgroundBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="OrderSideStyle" TargetType="{x:Type TextBlock}">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="None">
+                    <Setter Property="Background" Value="{StaticResource OrderSideNoneBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Buy">
+                    <Setter Property="Background" Value="{StaticResource OrderSideBuyBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Sell">
+                    <Setter Property="Background" Value="{StaticResource OrderSideSellBackgroundBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="OrderTypeStyle" TargetType="{x:Type TextBlock}">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="None">
+                    <Setter Property="Background" Value="{StaticResource OrderTypeNoneBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Limit">
+                    <Setter Property="Background" Value="{StaticResource OrderTypeLimitBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Market">
+                    <Setter Property="Background" Value="{StaticResource OrderTypeMarketBackgroundBrush}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="Unknown">
+                    <Setter Property="Background" Value="{StaticResource OrderTypeUnknownBackgroundBrush}"/>
                 </Trigger>
             </Style.Triggers>
         </Style>

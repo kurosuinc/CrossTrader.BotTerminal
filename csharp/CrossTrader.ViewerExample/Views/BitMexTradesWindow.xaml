@@ -97,6 +97,7 @@
                     Header="Timestamp"
                     Binding="{Binding Trade.Timestamp}" />
                 <DataGridTextColumn
+                    ElementStyle="{StaticResource OrderSideStyle}"
                     Header="Side"
                     Binding="{Binding Trade.Side}" />
                 <DataGridTextColumn

@@ -95,6 +95,7 @@
                     Header="Id"
                     Binding="{Binding Position.Id}" />
                 <DataGridTextColumn
+                    ElementStyle="{StaticResource OrderSideStyle}"
                     Header="Side"
                     Binding="{Binding Position.Side}" />
                 <DataGridTextColumn

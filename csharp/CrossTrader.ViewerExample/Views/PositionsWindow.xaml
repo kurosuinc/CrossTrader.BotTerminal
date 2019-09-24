@@ -91,6 +91,7 @@
                             Binding="{Binding Instrument.DisplayName}" />
                             <DataGridTextColumn
                             Header="Side"
+                            ElementStyle="{StaticResource OrderSideStyle}"
                             Binding="{Binding Position.Side}" />
                             <DataGridTextColumn
                             Header="Price"
@@ -119,6 +120,7 @@
                             Header="Instrument"
                             Binding="{Binding Instrument.DisplayName}" />
                             <DataGridTextColumn
+                                ElementStyle="{StaticResource OrderSideStyle}"
                             Header="Side"
                             Binding="{Binding Position.Side}" />
                             <DataGridTextColumn

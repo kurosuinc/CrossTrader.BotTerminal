@@ -212,9 +212,11 @@
                     Header="RequestId"
                     Binding="{Binding Order.RequestId}" />
                         <DataGridTextColumn
+                            ElementStyle="{StaticResource OrderSideStyle}"
                     Header="Side"
                     Binding="{Binding Order.Side}" />
                         <DataGridTextColumn
+                            ElementStyle="{StaticResource OrderTypeStyle}"
                     Header="Type"
                     Binding="{Binding Order.Type}" />
                         <DataGridTextColumn
@@ -230,6 +232,7 @@
                     Header="AveragePrice"
                     Binding="{Binding Order.AveragePrice}" />
                         <DataGridTextColumn
+                            ElementStyle="{StaticResource OrderStateStyle}"
                     Header="State"
                     Binding="{Binding Order.State}" />
                         <DataGridTextColumn
@@ -261,9 +264,11 @@
                     Header="RequestId"
                     Binding="{Binding Order.RequestId}" />
                         <DataGridTextColumn
+                            ElementStyle="{StaticResource OrderSideStyle}"
                     Header="Side"
                     Binding="{Binding Order.Side}" />
                         <DataGridTextColumn
+                            ElementStyle="{StaticResource OrderTypeStyle}"
                     Header="Type"
                     Binding="{Binding Order.Type}" />
                         <DataGridTextColumn
@@ -279,6 +284,7 @@
                     Header="AveragePrice"
                     Binding="{Binding Order.AveragePrice}" />
                         <DataGridTextColumn
+                            ElementStyle="{StaticResource OrderStateStyle}"
                     Header="State"
                     Binding="{Binding Order.State}" />
                         <DataGridTextColumn
