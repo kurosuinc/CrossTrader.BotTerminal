@@ -41,7 +41,7 @@ namespace CrossTrader.Models.Remoting {
     {
       /// <summary>Creates a new client for OrderBookService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public OrderBookServiceClient(grpc::Channel channel) : base(channel)
+      public OrderBookServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for OrderBookService that uses a custom <c>CallInvoker</c>.</summary>
@@ -130,7 +130,7 @@ namespace CrossTrader.Models.Remoting {
     {
       /// <summary>Creates a new client for UnifiedOrderBookService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public UnifiedOrderBookServiceClient(grpc::Channel channel) : base(channel)
+      public UnifiedOrderBookServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for UnifiedOrderBookService that uses a custom <c>CallInvoker</c>.</summary>

@@ -42,7 +42,7 @@ namespace CrossTrader.Models.Remoting {
     {
       /// <summary>Creates a new client for ExchangeService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public ExchangeServiceClient(grpc::Channel channel) : base(channel)
+      public ExchangeServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for ExchangeService that uses a custom <c>CallInvoker</c>.</summary>

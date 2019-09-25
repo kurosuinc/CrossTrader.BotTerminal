@@ -40,7 +40,7 @@ namespace CrossTrader.Models.Remoting {
     {
       /// <summary>Creates a new client for TickerService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public TickerServiceClient(grpc::Channel channel) : base(channel)
+      public TickerServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for TickerService that uses a custom <c>CallInvoker</c>.</summary>

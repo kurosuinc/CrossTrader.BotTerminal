@@ -58,7 +58,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     {
       /// <summary>Creates a new client for OrdersService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public OrdersServiceClient(grpc::Channel channel) : base(channel)
+      public OrdersServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for OrdersService that uses a custom <c>CallInvoker</c>.</summary>

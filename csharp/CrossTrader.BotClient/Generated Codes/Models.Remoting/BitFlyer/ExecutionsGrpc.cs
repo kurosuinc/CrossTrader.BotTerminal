@@ -33,7 +33,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     {
       /// <summary>Creates a new client for ExecutionsService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public ExecutionsServiceClient(grpc::Channel channel) : base(channel)
+      public ExecutionsServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for ExecutionsService that uses a custom <c>CallInvoker</c>.</summary>

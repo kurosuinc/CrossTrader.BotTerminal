@@ -33,7 +33,7 @@ namespace CrossTrader.Models.Remoting.BitMex {
     {
       /// <summary>Creates a new client for TradesService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public TradesServiceClient(grpc::Channel channel) : base(channel)
+      public TradesServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for TradesService that uses a custom <c>CallInvoker</c>.</summary>
