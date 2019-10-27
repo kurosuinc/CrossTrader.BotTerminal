@@ -27,15 +27,15 @@ namespace CrossTrader.Models.Remoting {
             "Cgxjb21tb24ucHJvdG8SC2Nyb3NzdHJhZGVyIhsKC05hbWVSZXF1ZXN0EgwK",
             "BG5hbWUYASABKAkiKwoTSW5zdHJ1bWVudElkUmVxdWVzdBIUCgxpbnN0cnVt",
             "ZW50SWQYASABKAUiLQoUSW5zdHJ1bWVudElkc1JlcXVlc3QSFQoNaW5zdHJ1",
-            "bWVudElkcxgBIAMoBSoxCg1DaGFuZ2VkQWN0aW9uEgcKA0FERBAAEgsKB1JF",
-            "UExBQ0UQARIKCgZSRU1PVkUQAiozCglPcmRlclNpZGUSEwoPT1JERVJfU0lE",
-            "RV9OT05FEAASBwoDQlVZEAESCAoEU0VMTBACKoMBCgpPcmRlclN0YXRlEhQK",
-            "EE9SREVSX1NUQVRFX05PTkUQABIOCgpSRVFVRVNUSU5HEAESCgoGRkFJTEVE",
-            "EAISCgoGQUNUSVZFEAMSDQoJQ09NUExFVEVEEAQSDQoJQ0FOQ0VMSU5HEAUS",
-            "DAoIQ0FOQ0VMRUQQBhILCgdFWFBJUkVEEAcqTwoJT3JkZXJUeXBlEhMKD09S",
-            "REVSX1RZUEVfTk9ORRAAEgkKBUxJTUlUEAESCgoGTUFSS0VUEAISFgoST1JE",
-            "RVJfVFlQRV9VTktOT1dOEANCHqoCG0Nyb3NzVHJhZGVyLk1vZGVscy5SZW1v",
-            "dGluZ2IGcHJvdG8z"));
+            "bWVudElkcxgBIAMoBSo8Cg1DaGFuZ2VkQWN0aW9uEgcKA0FERBAAEgsKB1JF",
+            "UExBQ0UQARIKCgZSRU1PVkUQAhIJCgVSRVNFVBADKjMKCU9yZGVyU2lkZRIT",
+            "Cg9PUkRFUl9TSURFX05PTkUQABIHCgNCVVkQARIICgRTRUxMEAIqgwEKCk9y",
+            "ZGVyU3RhdGUSFAoQT1JERVJfU1RBVEVfTk9ORRAAEg4KClJFUVVFU1RJTkcQ",
+            "ARIKCgZGQUlMRUQQAhIKCgZBQ1RJVkUQAxINCglDT01QTEVURUQQBBINCglD",
+            "QU5DRUxJTkcQBRIMCghDQU5DRUxFRBAGEgsKB0VYUElSRUQQBypPCglPcmRl",
+            "clR5cGUSEwoPT1JERVJfVFlQRV9OT05FEAASCQoFTElNSVQQARIKCgZNQVJL",
+            "RVQQAhIWChJPUkRFUl9UWVBFX1VOS05PV04QA0IeqgIbQ3Jvc3NUcmFkZXIu",
+            "TW9kZWxzLlJlbW90aW5nYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::CrossTrader.Models.Remoting.ChangedAction), typeof(global::CrossTrader.Models.Remoting.OrderSide), typeof(global::CrossTrader.Models.Remoting.OrderState), typeof(global::CrossTrader.Models.Remoting.OrderType), }, new pbr::GeneratedClrTypeInfo[] {
@@ -61,6 +61,10 @@ namespace CrossTrader.Models.Remoting {
     /// The data was removed
     /// </summary>
     [pbr::OriginalName("REMOVE")] Remove = 2,
+    /// <summary>
+    /// The data was totally changed
+    /// </summary>
+    [pbr::OriginalName("RESET")] Reset = 3,
   }
 
   internal enum OrderSide {

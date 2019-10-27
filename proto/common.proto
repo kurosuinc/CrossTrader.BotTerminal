@@ -10,6 +10,8 @@ enum ChangedAction {
     REPLACE = 1;
     // The data was removed
     REMOVE = 2;
+    // The data was totally changed
+    RESET = 3;
 }
 enum OrderSide {
     // Unknown side

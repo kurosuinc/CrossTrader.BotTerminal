@@ -56,9 +56,11 @@ namespace CrossTrader.BotClient
 
                 case ChangedAction.Replace:
                     return NotifyCollectionChangedAction.Replace;
-            }
 
-            return NotifyCollectionChangedAction.Reset;
+                case ChangedAction.Reset:
+                default:
+                    return NotifyCollectionChangedAction.Reset;
+            }
         }
 
         [TargetedPatchingOptOut("")]
