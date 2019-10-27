@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -59,7 +60,7 @@ namespace CrossTrader.BotClient.BitFlyer
 
         internal void RaiseExecutionsReceived(CollectionReceivedEventArgs<BitFlyerExecution> e)
         {
-            if (e?.Data?.Count > 0)
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 ExecutionsReceived?.Invoke(this, e);
             }
@@ -114,7 +115,7 @@ namespace CrossTrader.BotClient.BitFlyer
 
         internal void RaiseChildOrdersReceived(CollectionReceivedEventArgs<BitFlyerChildOrder> e)
         {
-            if (e?.Data?.Count > 0)
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 ChildOrdersReceived?.Invoke(this, e);
             }
@@ -169,7 +170,7 @@ namespace CrossTrader.BotClient.BitFlyer
 
         internal void RaisePositionsReceived(CollectionReceivedEventArgs<BitFlyerPosition> e)
         {
-            if (e?.Data?.Count > 0)
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 PositionsReceived?.Invoke(this, e);
             }

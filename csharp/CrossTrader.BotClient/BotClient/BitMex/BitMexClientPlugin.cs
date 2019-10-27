@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -59,7 +60,7 @@ namespace CrossTrader.BotClient.BitMex
 
         internal void RaiseTradesReceived(CollectionReceivedEventArgs<BitMexTrade> e)
         {
-            if (e?.Data?.Count > 0)
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 TradesReceived?.Invoke(this, e);
             }
@@ -114,7 +115,7 @@ namespace CrossTrader.BotClient.BitMex
 
         internal void RaiseOrdersReceived(CollectionReceivedEventArgs<BitMexOrder> e)
         {
-            if (e?.Data?.Count > 0)
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 OrdersReceived?.Invoke(this, e);
             }
@@ -169,7 +170,7 @@ namespace CrossTrader.BotClient.BitMex
 
         internal void RaisePositionsReceived(CollectionReceivedEventArgs<BitMexPosition> e)
         {
-            if (e?.Data?.Count > 0)
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 PositionsReceived?.Invoke(this, e);
             }

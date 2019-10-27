@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -353,7 +354,7 @@ namespace CrossTrader.BotClient
 
         protected internal void RaiseExecutionsReceived(CollectionReceivedEventArgs<Execution> e)
         {
-            if (e?.Data?.Count > 0)
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 ExecutionsReceived?.Invoke(this, e);
             }
@@ -408,7 +409,7 @@ namespace CrossTrader.BotClient
 
         protected internal void RaiseOrdersReceived(CollectionReceivedEventArgs<Order> e)
         {
-            if (e?.Data?.Count > 0)
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 OrdersReceived?.Invoke(this, e);
             }
@@ -518,7 +519,7 @@ namespace CrossTrader.BotClient
 
         protected internal void RaisePositionsReceived(CollectionReceivedEventArgs<Position> e)
         {
-            if (e?.Data?.Count > 0)
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 PositionsReceived?.Invoke(this, e);
             }
@@ -636,7 +637,7 @@ namespace CrossTrader.BotClient
 
         protected internal void RaiseOhlcReceived(CollectionReceivedEventArgs<Ohlc> e)
         {
-            if (e.Data.Any())
+            if (e.Action == NotifyCollectionChangedAction.Reset || e?.Data?.Count > 0)
             {
                 OhlcReceived?.Invoke(this, e);
             }
