@@ -1,8 +1,8 @@
 using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using CrossTrader.BotClient;
-using System.Linq;
-using System.Collections.ObjectModel;
 using Grpc.Core;
 
 namespace CrossTrader.InagoTakerBotExample
@@ -15,18 +15,18 @@ namespace CrossTrader.InagoTakerBotExample
         #region Properties
 
         private CrossTraderClient Client { get; }
-        private int Spread { get; set; } 
+        private int Spread { get; set; }
 
         private Instrument BitMexInstrument { get; set; }
         private Instrument BitFlyerInstrument { get; set; }
 
-        #endregion
+        #endregion Properties
 
         #region Lock objects
 
         private object _ConsoleLock = new object();
 
-        #endregion
+        #endregion Lock objects
 
         public Bot(CrossTraderClient client)
             => Client = client;
@@ -122,13 +122,13 @@ namespace CrossTrader.InagoTakerBotExample
                 try
                 {
                     var res = await Client.PostOrderAsync(BitFlyerInstrument.Id, OrderType.Limit, OrderSide.Sell, sizeToOrder, 1350000).ConfigureAwait(false);
-                    Console.WriteLine($"    => {res.CreatedAt} '{res.RequestId}'");
-                } catch(RpcException e)
+                    Console.WriteLine($"    => {res.OrderedAt} '{res.RequestId}'");
+                }
+                catch (RpcException e)
                 {
                     Console.WriteLine($"    => Got error: {e.Message}");
                 }
             }
-
         }
     }
 }
