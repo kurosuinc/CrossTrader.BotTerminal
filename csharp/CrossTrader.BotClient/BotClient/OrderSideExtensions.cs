@@ -3,16 +3,11 @@ namespace CrossTrader.BotClient
     internal static class OrderSideExtensions
     {
         public static Models.Remoting.OrderSide ToMessage(this OrderSide side)
-        {
-            switch (side)
+            => side switch
             {
-                case OrderSide.Buy:
-                    return Models.Remoting.OrderSide.Buy;
-                case OrderSide.Sell:
-                    return Models.Remoting.OrderSide.Sell;
-                default:
-                    return Models.Remoting.OrderSide.None;
-            }
-        }
+                OrderSide.Buy => Models.Remoting.OrderSide.Buy,
+                OrderSide.Sell => Models.Remoting.OrderSide.Sell,
+                _ => Models.Remoting.OrderSide.None,
+            };
     }
 }
