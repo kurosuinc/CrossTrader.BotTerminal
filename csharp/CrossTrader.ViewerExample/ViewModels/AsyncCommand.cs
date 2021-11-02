@@ -24,10 +24,10 @@ namespace CrossTrader.ViewerExample.ViewModels
             => await _Execute();
 
         public static AsyncCommand Create(Func<Task> execute)
-            => new AsyncCommand(execute);
+            => new(execute);
 
         public static AsyncCommand<T> Create<T>(Func<T, Task> execute)
-            => new AsyncCommand<T>(execute);
+            => new(execute);
     }
     public sealed class AsyncCommand<T> : ICommand
     {

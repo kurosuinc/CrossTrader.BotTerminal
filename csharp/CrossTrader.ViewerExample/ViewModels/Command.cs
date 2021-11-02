@@ -23,10 +23,10 @@ namespace CrossTrader.ViewerExample.ViewModels
             => _Execute();
 
         public static Command Create(Action execute)
-            => new Command(execute);
+            => new(execute);
 
         public static Command<T> Create<T>(Action<T> execute)
-            => new Command<T>(execute);
+            => new(execute);
     }
     public sealed class Command<T> : ICommand
     {

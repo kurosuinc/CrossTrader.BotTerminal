@@ -17,7 +17,7 @@ namespace CrossTrader.ViewerExample.ViewModels
         }
 
         protected override InstrumentViewModel GetItem(Instrument e)
-            => new InstrumentViewModel(this, e);
+            => new(this, e);
 
         #region ChildOrders
 

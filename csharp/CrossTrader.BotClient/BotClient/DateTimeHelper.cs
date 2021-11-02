@@ -5,7 +5,7 @@ namespace CrossTrader.BotClient
 {
     internal static class DateTimeHelper
     {
-        private static readonly DateTimeOffset _Epoch = new DateTimeOffset(1970, 1, 1, 0, 0, 0, default);
+        private static readonly DateTimeOffset _Epoch = new(1970, 1, 1, 0, 0, 0, default);
 
         public static DateTimeOffset? ToClientValue(this Timestamp v)
         {

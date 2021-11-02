@@ -83,7 +83,7 @@ namespace CrossTrader.BotClient
 
         private Task<Channel> _ChannelTask;
         private int _SubscriptionId;
-        private readonly List<ChannelSubscription> _Subscriptions = new List<ChannelSubscription>();
+        private readonly List<ChannelSubscription> _Subscriptions = new();
 
         protected internal Channel Channel
             => _ChannelTask?.Status == TaskStatus.RanToCompletion ? _ChannelTask.Result : null;
