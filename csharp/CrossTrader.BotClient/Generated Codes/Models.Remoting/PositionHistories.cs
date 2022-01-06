@@ -46,33 +46,41 @@ namespace CrossTrader.Models.Remoting {
             "Qh6qAhtDcm9zc1RyYWRlci5Nb2RlbHMuUmVtb3RpbmdiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.DurationReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderHistoryRequest), global::CrossTrader.Models.Remoting.OrderHistoryRequest.Parser, new[]{ "InstrumentId", "TimeFrame", "Side", "Before", "After" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionHistoryItemMessage), global::CrossTrader.Models.Remoting.PositionHistoryItemMessage.Parser, new[]{ "Side", "OpenedAt", "TimeFrame", "Volume" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionHistoryMessage), global::CrossTrader.Models.Remoting.PositionHistoryMessage.Parser, new[]{ "InstrumentId", "PositionHistories" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.OrderHistoryRequest), global::CrossTrader.Models.Remoting.OrderHistoryRequest.Parser, new[]{ "InstrumentId", "TimeFrame", "Side", "Before", "After" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionHistoryItemMessage), global::CrossTrader.Models.Remoting.PositionHistoryItemMessage.Parser, new[]{ "Side", "OpenedAt", "TimeFrame", "Volume" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.PositionHistoryMessage), global::CrossTrader.Models.Remoting.PositionHistoryMessage.Parser, new[]{ "InstrumentId", "PositionHistories" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  internal sealed partial class OrderHistoryRequest : pb::IMessage<OrderHistoryRequest> {
+  internal sealed partial class OrderHistoryRequest : pb::IMessage<OrderHistoryRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<OrderHistoryRequest> _parser = new pb::MessageParser<OrderHistoryRequest>(() => new OrderHistoryRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<OrderHistoryRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::CrossTrader.Models.Remoting.PositionHistoriesReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public OrderHistoryRequest() {
       OnConstruction();
     }
@@ -80,6 +88,7 @@ namespace CrossTrader.Models.Remoting {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public OrderHistoryRequest(OrderHistoryRequest other) : this() {
       instrumentId_ = other.instrumentId_;
       timeFrame_ = other.timeFrame_ != null ? other.timeFrame_.Clone() : null;
@@ -90,6 +99,7 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public OrderHistoryRequest Clone() {
       return new OrderHistoryRequest(this);
     }
@@ -98,6 +108,7 @@ namespace CrossTrader.Models.Remoting {
     public const int InstrumentIdFieldNumber = 1;
     private int instrumentId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int InstrumentId {
       get { return instrumentId_; }
       set {
@@ -109,6 +120,7 @@ namespace CrossTrader.Models.Remoting {
     public const int TimeFrameFieldNumber = 2;
     private global::Google.Protobuf.WellKnownTypes.Duration timeFrame_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Duration TimeFrame {
       get { return timeFrame_; }
       set {
@@ -118,8 +130,9 @@ namespace CrossTrader.Models.Remoting {
 
     /// <summary>Field number for the "side" field.</summary>
     public const int SideFieldNumber = 3;
-    private global::CrossTrader.Models.Remoting.OrderSide side_ = 0;
+    private global::CrossTrader.Models.Remoting.OrderSide side_ = global::CrossTrader.Models.Remoting.OrderSide.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::CrossTrader.Models.Remoting.OrderSide Side {
       get { return side_; }
       set {
@@ -131,6 +144,7 @@ namespace CrossTrader.Models.Remoting {
     public const int BeforeFieldNumber = 4;
     private global::Google.Protobuf.WellKnownTypes.Timestamp before_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Timestamp Before {
       get { return before_; }
       set {
@@ -142,6 +156,7 @@ namespace CrossTrader.Models.Remoting {
     public const int AfterFieldNumber = 5;
     private global::Google.Protobuf.WellKnownTypes.Timestamp after_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Timestamp After {
       get { return after_; }
       set {
@@ -150,11 +165,13 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as OrderHistoryRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(OrderHistoryRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -171,11 +188,12 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (InstrumentId != 0) hash ^= InstrumentId.GetHashCode();
       if (timeFrame_ != null) hash ^= TimeFrame.GetHashCode();
-      if (Side != 0) hash ^= Side.GetHashCode();
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) hash ^= Side.GetHashCode();
       if (before_ != null) hash ^= Before.GetHashCode();
       if (after_ != null) hash ^= After.GetHashCode();
       if (_unknownFields != null) {
@@ -185,12 +203,17 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (InstrumentId != 0) {
         output.WriteRawTag(8);
         output.WriteInt32(InstrumentId);
@@ -199,7 +222,7 @@ namespace CrossTrader.Models.Remoting {
         output.WriteRawTag(18);
         output.WriteMessage(TimeFrame);
       }
-      if (Side != 0) {
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
         output.WriteRawTag(24);
         output.WriteEnum((int) Side);
       }
@@ -214,9 +237,41 @@ namespace CrossTrader.Models.Remoting {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (InstrumentId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(InstrumentId);
+      }
+      if (timeFrame_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(TimeFrame);
+      }
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Side);
+      }
+      if (before_ != null) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Before);
+      }
+      if (after_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(After);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (InstrumentId != 0) {
@@ -225,7 +280,7 @@ namespace CrossTrader.Models.Remoting {
       if (timeFrame_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(TimeFrame);
       }
-      if (Side != 0) {
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Side);
       }
       if (before_ != null) {
@@ -241,6 +296,7 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(OrderHistoryRequest other) {
       if (other == null) {
         return;
@@ -254,7 +310,7 @@ namespace CrossTrader.Models.Remoting {
         }
         TimeFrame.MergeFrom(other.TimeFrame);
       }
-      if (other.Side != 0) {
+      if (other.Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
         Side = other.Side;
       }
       if (other.before_ != null) {
@@ -273,7 +329,11 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -311,27 +371,80 @@ namespace CrossTrader.Models.Remoting {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            InstrumentId = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            if (timeFrame_ == null) {
+              TimeFrame = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(TimeFrame);
+            break;
+          }
+          case 24: {
+            Side = (global::CrossTrader.Models.Remoting.OrderSide) input.ReadEnum();
+            break;
+          }
+          case 34: {
+            if (before_ == null) {
+              Before = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(Before);
+            break;
+          }
+          case 42: {
+            if (after_ == null) {
+              After = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(After);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  internal sealed partial class PositionHistoryItemMessage : pb::IMessage<PositionHistoryItemMessage> {
+  internal sealed partial class PositionHistoryItemMessage : pb::IMessage<PositionHistoryItemMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<PositionHistoryItemMessage> _parser = new pb::MessageParser<PositionHistoryItemMessage>(() => new PositionHistoryItemMessage());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<PositionHistoryItemMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::CrossTrader.Models.Remoting.PositionHistoriesReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionHistoryItemMessage() {
       OnConstruction();
     }
@@ -339,6 +452,7 @@ namespace CrossTrader.Models.Remoting {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionHistoryItemMessage(PositionHistoryItemMessage other) : this() {
       side_ = other.side_;
       openedAt_ = other.openedAt_ != null ? other.openedAt_.Clone() : null;
@@ -348,14 +462,16 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionHistoryItemMessage Clone() {
       return new PositionHistoryItemMessage(this);
     }
 
     /// <summary>Field number for the "side" field.</summary>
     public const int SideFieldNumber = 1;
-    private global::CrossTrader.Models.Remoting.OrderSide side_ = 0;
+    private global::CrossTrader.Models.Remoting.OrderSide side_ = global::CrossTrader.Models.Remoting.OrderSide.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::CrossTrader.Models.Remoting.OrderSide Side {
       get { return side_; }
       set {
@@ -367,6 +483,7 @@ namespace CrossTrader.Models.Remoting {
     public const int OpenedAtFieldNumber = 2;
     private global::Google.Protobuf.WellKnownTypes.Timestamp openedAt_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Timestamp OpenedAt {
       get { return openedAt_; }
       set {
@@ -378,6 +495,7 @@ namespace CrossTrader.Models.Remoting {
     public const int TimeFrameFieldNumber = 3;
     private global::Google.Protobuf.WellKnownTypes.Duration timeFrame_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Duration TimeFrame {
       get { return timeFrame_; }
       set {
@@ -389,6 +507,7 @@ namespace CrossTrader.Models.Remoting {
     public const int VolumeFieldNumber = 4;
     private double volume_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Volume {
       get { return volume_; }
       set {
@@ -397,11 +516,13 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as PositionHistoryItemMessage);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(PositionHistoryItemMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -417,9 +538,10 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Side != 0) hash ^= Side.GetHashCode();
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) hash ^= Side.GetHashCode();
       if (openedAt_ != null) hash ^= OpenedAt.GetHashCode();
       if (timeFrame_ != null) hash ^= TimeFrame.GetHashCode();
       if (Volume != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Volume);
@@ -430,13 +552,18 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Side != 0) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Side);
       }
@@ -455,12 +582,40 @@ namespace CrossTrader.Models.Remoting {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Side);
+      }
+      if (openedAt_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(OpenedAt);
+      }
+      if (timeFrame_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(TimeFrame);
+      }
+      if (Volume != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(Volume);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Side != 0) {
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Side);
       }
       if (openedAt_ != null) {
@@ -479,11 +634,12 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(PositionHistoryItemMessage other) {
       if (other == null) {
         return;
       }
-      if (other.Side != 0) {
+      if (other.Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
         Side = other.Side;
       }
       if (other.openedAt_ != null) {
@@ -505,7 +661,11 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -536,27 +696,73 @@ namespace CrossTrader.Models.Remoting {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Side = (global::CrossTrader.Models.Remoting.OrderSide) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            if (openedAt_ == null) {
+              OpenedAt = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(OpenedAt);
+            break;
+          }
+          case 26: {
+            if (timeFrame_ == null) {
+              TimeFrame = new global::Google.Protobuf.WellKnownTypes.Duration();
+            }
+            input.ReadMessage(TimeFrame);
+            break;
+          }
+          case 33: {
+            Volume = input.ReadDouble();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  internal sealed partial class PositionHistoryMessage : pb::IMessage<PositionHistoryMessage> {
+  internal sealed partial class PositionHistoryMessage : pb::IMessage<PositionHistoryMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<PositionHistoryMessage> _parser = new pb::MessageParser<PositionHistoryMessage>(() => new PositionHistoryMessage());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<PositionHistoryMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::CrossTrader.Models.Remoting.PositionHistoriesReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionHistoryMessage() {
       OnConstruction();
     }
@@ -564,6 +770,7 @@ namespace CrossTrader.Models.Remoting {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionHistoryMessage(PositionHistoryMessage other) : this() {
       instrumentId_ = other.instrumentId_;
       positionHistories_ = other.positionHistories_.Clone();
@@ -571,6 +778,7 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionHistoryMessage Clone() {
       return new PositionHistoryMessage(this);
     }
@@ -579,6 +787,7 @@ namespace CrossTrader.Models.Remoting {
     public const int InstrumentIdFieldNumber = 1;
     private int instrumentId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int InstrumentId {
       get { return instrumentId_; }
       set {
@@ -592,16 +801,19 @@ namespace CrossTrader.Models.Remoting {
         = pb::FieldCodec.ForMessage(18, global::CrossTrader.Models.Remoting.PositionHistoryItemMessage.Parser);
     private readonly pbc::RepeatedField<global::CrossTrader.Models.Remoting.PositionHistoryItemMessage> positionHistories_ = new pbc::RepeatedField<global::CrossTrader.Models.Remoting.PositionHistoryItemMessage>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::CrossTrader.Models.Remoting.PositionHistoryItemMessage> PositionHistories {
       get { return positionHistories_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as PositionHistoryMessage);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(PositionHistoryMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -615,6 +827,7 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
       if (InstrumentId != 0) hash ^= InstrumentId.GetHashCode();
@@ -626,12 +839,17 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
       if (InstrumentId != 0) {
         output.WriteRawTag(8);
         output.WriteInt32(InstrumentId);
@@ -640,9 +858,26 @@ namespace CrossTrader.Models.Remoting {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (InstrumentId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(InstrumentId);
+      }
+      positionHistories_.WriteTo(ref output, _repeated_positionHistories_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
       if (InstrumentId != 0) {
@@ -656,6 +891,7 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(PositionHistoryMessage other) {
       if (other == null) {
         return;
@@ -668,7 +904,11 @@ namespace CrossTrader.Models.Remoting {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -685,7 +925,31 @@ namespace CrossTrader.Models.Remoting {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            InstrumentId = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            positionHistories_.AddEntriesFrom(ref input, _repeated_positionHistories_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 

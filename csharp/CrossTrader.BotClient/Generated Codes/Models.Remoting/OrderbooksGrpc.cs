@@ -12,10 +12,47 @@ namespace CrossTrader.Models.Remoting {
   {
     static readonly string __ServiceName = "crosstrader.OrderBookService";
 
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderBookRequest> __Marshaller_crosstrader_OrderBookRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrderBookRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderBookResponse> __Marshaller_crosstrader_OrderBookResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrderBookResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderBookSnapshotRequest> __Marshaller_crosstrader_OrderBookSnapshotRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.OrderBookSnapshotRequest.Parser.ParseFrom);
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderBookRequest> __Marshaller_crosstrader_OrderBookRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CrossTrader.Models.Remoting.OrderBookRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderBookResponse> __Marshaller_crosstrader_OrderBookResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CrossTrader.Models.Remoting.OrderBookResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.OrderBookSnapshotRequest> __Marshaller_crosstrader_OrderBookSnapshotRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CrossTrader.Models.Remoting.OrderBookSnapshotRequest.Parser));
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::CrossTrader.Models.Remoting.OrderBookRequest, global::CrossTrader.Models.Remoting.OrderBookResponse> __Method_SubscribeOrderBook = new grpc::Method<global::CrossTrader.Models.Remoting.OrderBookRequest, global::CrossTrader.Models.Remoting.OrderBookResponse>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
@@ -23,6 +60,7 @@ namespace CrossTrader.Models.Remoting {
         __Marshaller_crosstrader_OrderBookRequest,
         __Marshaller_crosstrader_OrderBookResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::CrossTrader.Models.Remoting.OrderBookSnapshotRequest, global::CrossTrader.Models.Remoting.OrderBookResponse> __Method_SubscribeOrderBookSnapshot = new grpc::Method<global::CrossTrader.Models.Remoting.OrderBookSnapshotRequest, global::CrossTrader.Models.Remoting.OrderBookResponse>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
@@ -41,28 +79,34 @@ namespace CrossTrader.Models.Remoting {
     {
       /// <summary>Creates a new client for OrderBookService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public OrderBookServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for OrderBookService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public OrderBookServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected OrderBookServiceClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected OrderBookServiceClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.OrderBookResponse> SubscribeOrderBook(global::CrossTrader.Models.Remoting.OrderBookRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SubscribeOrderBook(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.OrderBookResponse> SubscribeOrderBook(global::CrossTrader.Models.Remoting.OrderBookRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeOrderBook, null, options, request);
@@ -75,6 +119,7 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.OrderBookResponse> SubscribeOrderBookSnapshot(global::CrossTrader.Models.Remoting.OrderBookSnapshotRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SubscribeOrderBookSnapshot(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -85,11 +130,13 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.OrderBookResponse> SubscribeOrderBookSnapshot(global::CrossTrader.Models.Remoting.OrderBookSnapshotRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeOrderBookSnapshot, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override OrderBookServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new OrderBookServiceClient(configuration);
@@ -101,10 +148,47 @@ namespace CrossTrader.Models.Remoting {
   {
     static readonly string __ServiceName = "crosstrader.UnifiedOrderBookService";
 
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.UnifiedOrderBookRequest> __Marshaller_crosstrader_UnifiedOrderBookRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.UnifiedOrderBookRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse> __Marshaller_crosstrader_UnifiedOrderBookResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.UnifiedOrderBookSnapshotRequest> __Marshaller_crosstrader_UnifiedOrderBookSnapshotRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::CrossTrader.Models.Remoting.UnifiedOrderBookSnapshotRequest.Parser.ParseFrom);
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (message is global::Google.Protobuf.IBufferMessage)
+      {
+        context.SetPayloadLength(message.CalculateSize());
+        global::Google.Protobuf.MessageExtensions.WriteTo(message, context.GetBufferWriter());
+        context.Complete();
+        return;
+      }
+      #endif
+      context.Complete(global::Google.Protobuf.MessageExtensions.ToByteArray(message));
+    }
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static class __Helper_MessageCache<T>
+    {
+      public static readonly bool IsBufferMessage = global::System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(global::Google.Protobuf.IBufferMessage)).IsAssignableFrom(typeof(T));
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static T __Helper_DeserializeMessage<T>(grpc::DeserializationContext context, global::Google.Protobuf.MessageParser<T> parser) where T : global::Google.Protobuf.IMessage<T>
+    {
+      #if !GRPC_DISABLE_PROTOBUF_BUFFER_SERIALIZATION
+      if (__Helper_MessageCache<T>.IsBufferMessage)
+      {
+        return parser.ParseFrom(context.PayloadAsReadOnlySequence());
+      }
+      #endif
+      return parser.ParseFrom(context.PayloadAsNewBuffer());
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.UnifiedOrderBookRequest> __Marshaller_crosstrader_UnifiedOrderBookRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CrossTrader.Models.Remoting.UnifiedOrderBookRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse> __Marshaller_crosstrader_UnifiedOrderBookResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::CrossTrader.Models.Remoting.UnifiedOrderBookSnapshotRequest> __Marshaller_crosstrader_UnifiedOrderBookSnapshotRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::CrossTrader.Models.Remoting.UnifiedOrderBookSnapshotRequest.Parser));
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::CrossTrader.Models.Remoting.UnifiedOrderBookRequest, global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse> __Method_SubscribeUnifiedOrderBook = new grpc::Method<global::CrossTrader.Models.Remoting.UnifiedOrderBookRequest, global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
@@ -112,6 +196,7 @@ namespace CrossTrader.Models.Remoting {
         __Marshaller_crosstrader_UnifiedOrderBookRequest,
         __Marshaller_crosstrader_UnifiedOrderBookResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::CrossTrader.Models.Remoting.UnifiedOrderBookSnapshotRequest, global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse> __Method_SubscribeUnifiedOrderBookSnapshot = new grpc::Method<global::CrossTrader.Models.Remoting.UnifiedOrderBookSnapshotRequest, global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
@@ -130,20 +215,24 @@ namespace CrossTrader.Models.Remoting {
     {
       /// <summary>Creates a new client for UnifiedOrderBookService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public UnifiedOrderBookServiceClient(grpc::ChannelBase channel) : base(channel)
       {
       }
       /// <summary>Creates a new client for UnifiedOrderBookService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public UnifiedOrderBookServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected UnifiedOrderBookServiceClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected UnifiedOrderBookServiceClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
@@ -156,6 +245,7 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse> SubscribeUnifiedOrderBook(global::CrossTrader.Models.Remoting.UnifiedOrderBookRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SubscribeUnifiedOrderBook(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -166,6 +256,7 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse> SubscribeUnifiedOrderBook(global::CrossTrader.Models.Remoting.UnifiedOrderBookRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeUnifiedOrderBook, null, options, request);
@@ -178,6 +269,7 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse> SubscribeUnifiedOrderBookSnapshot(global::CrossTrader.Models.Remoting.UnifiedOrderBookSnapshotRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return SubscribeUnifiedOrderBookSnapshot(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -188,11 +280,13 @@ namespace CrossTrader.Models.Remoting {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual grpc::AsyncServerStreamingCall<global::CrossTrader.Models.Remoting.UnifiedOrderBookResponse> SubscribeUnifiedOrderBookSnapshot(global::CrossTrader.Models.Remoting.UnifiedOrderBookSnapshotRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_SubscribeUnifiedOrderBookSnapshot, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override UnifiedOrderBookServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new UnifiedOrderBookServiceClient(configuration);

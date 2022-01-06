@@ -41,32 +41,40 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
             "Rmx5ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, global::CrossTrader.Models.Remoting.CommonReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.BitFlyer.PositionMessage), global::CrossTrader.Models.Remoting.BitFlyer.PositionMessage.Parser, new[]{ "Side", "Price", "Size", "Commission", "SwapPointAccumulate", "RequireCollateral", "OpenDate", "Leverage", "Pnl", "Sfd" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse), global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse.Parser, new[]{ "Action", "Positions" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.BitFlyer.PositionMessage), global::CrossTrader.Models.Remoting.BitFlyer.PositionMessage.Parser, new[]{ "Side", "Price", "Size", "Commission", "SwapPointAccumulate", "RequireCollateral", "OpenDate", "Leverage", "Pnl", "Sfd" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse), global::CrossTrader.Models.Remoting.BitFlyer.PositionsResponse.Parser, new[]{ "Action", "Positions" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  internal sealed partial class PositionMessage : pb::IMessage<PositionMessage> {
+  internal sealed partial class PositionMessage : pb::IMessage<PositionMessage>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<PositionMessage> _parser = new pb::MessageParser<PositionMessage>(() => new PositionMessage());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<PositionMessage> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::CrossTrader.Models.Remoting.BitFlyer.PositionsReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionMessage() {
       OnConstruction();
     }
@@ -74,6 +82,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionMessage(PositionMessage other) : this() {
       side_ = other.side_;
       price_ = other.price_;
@@ -89,14 +98,16 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionMessage Clone() {
       return new PositionMessage(this);
     }
 
     /// <summary>Field number for the "side" field.</summary>
     public const int SideFieldNumber = 1;
-    private global::CrossTrader.Models.Remoting.OrderSide side_ = 0;
+    private global::CrossTrader.Models.Remoting.OrderSide side_ = global::CrossTrader.Models.Remoting.OrderSide.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::CrossTrader.Models.Remoting.OrderSide Side {
       get { return side_; }
       set {
@@ -108,6 +119,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     public const int PriceFieldNumber = 2;
     private double price_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Price {
       get { return price_; }
       set {
@@ -119,6 +131,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     public const int SizeFieldNumber = 3;
     private double size_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Size {
       get { return size_; }
       set {
@@ -130,6 +143,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     public const int CommissionFieldNumber = 4;
     private double commission_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Commission {
       get { return commission_; }
       set {
@@ -141,6 +155,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     public const int SwapPointAccumulateFieldNumber = 5;
     private double swapPointAccumulate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double SwapPointAccumulate {
       get { return swapPointAccumulate_; }
       set {
@@ -152,6 +167,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     public const int RequireCollateralFieldNumber = 6;
     private double requireCollateral_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double RequireCollateral {
       get { return requireCollateral_; }
       set {
@@ -163,6 +179,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     public const int OpenDateFieldNumber = 7;
     private global::Google.Protobuf.WellKnownTypes.Timestamp openDate_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Timestamp OpenDate {
       get { return openDate_; }
       set {
@@ -174,6 +191,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     public const int LeverageFieldNumber = 8;
     private double leverage_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Leverage {
       get { return leverage_; }
       set {
@@ -185,6 +203,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     public const int PnlFieldNumber = 9;
     private double pnl_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Pnl {
       get { return pnl_; }
       set {
@@ -196,6 +215,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     public const int SfdFieldNumber = 10;
     private double sfd_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public double Sfd {
       get { return sfd_; }
       set {
@@ -204,11 +224,13 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as PositionMessage);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(PositionMessage other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -230,9 +252,10 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Side != 0) hash ^= Side.GetHashCode();
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) hash ^= Side.GetHashCode();
       if (Price != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Price);
       if (Size != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Size);
       if (Commission != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Commission);
@@ -249,13 +272,18 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Side != 0) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Side);
       }
@@ -298,12 +326,64 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Side);
+      }
+      if (Price != 0D) {
+        output.WriteRawTag(17);
+        output.WriteDouble(Price);
+      }
+      if (Size != 0D) {
+        output.WriteRawTag(25);
+        output.WriteDouble(Size);
+      }
+      if (Commission != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(Commission);
+      }
+      if (SwapPointAccumulate != 0D) {
+        output.WriteRawTag(41);
+        output.WriteDouble(SwapPointAccumulate);
+      }
+      if (RequireCollateral != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(RequireCollateral);
+      }
+      if (openDate_ != null) {
+        output.WriteRawTag(58);
+        output.WriteMessage(OpenDate);
+      }
+      if (Leverage != 0D) {
+        output.WriteRawTag(65);
+        output.WriteDouble(Leverage);
+      }
+      if (Pnl != 0D) {
+        output.WriteRawTag(73);
+        output.WriteDouble(Pnl);
+      }
+      if (Sfd != 0D) {
+        output.WriteRawTag(81);
+        output.WriteDouble(Sfd);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Side != 0) {
+      if (Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Side);
       }
       if (Price != 0D) {
@@ -340,11 +420,12 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(PositionMessage other) {
       if (other == null) {
         return;
       }
-      if (other.Side != 0) {
+      if (other.Side != global::CrossTrader.Models.Remoting.OrderSide.None) {
         Side = other.Side;
       }
       if (other.Price != 0D) {
@@ -381,7 +462,11 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -433,27 +518,94 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Side = (global::CrossTrader.Models.Remoting.OrderSide) input.ReadEnum();
+            break;
+          }
+          case 17: {
+            Price = input.ReadDouble();
+            break;
+          }
+          case 25: {
+            Size = input.ReadDouble();
+            break;
+          }
+          case 33: {
+            Commission = input.ReadDouble();
+            break;
+          }
+          case 41: {
+            SwapPointAccumulate = input.ReadDouble();
+            break;
+          }
+          case 49: {
+            RequireCollateral = input.ReadDouble();
+            break;
+          }
+          case 58: {
+            if (openDate_ == null) {
+              OpenDate = new global::Google.Protobuf.WellKnownTypes.Timestamp();
+            }
+            input.ReadMessage(OpenDate);
+            break;
+          }
+          case 65: {
+            Leverage = input.ReadDouble();
+            break;
+          }
+          case 73: {
+            Pnl = input.ReadDouble();
+            break;
+          }
+          case 81: {
+            Sfd = input.ReadDouble();
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
-  internal sealed partial class PositionsResponse : pb::IMessage<PositionsResponse> {
+  internal sealed partial class PositionsResponse : pb::IMessage<PositionsResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
     private static readonly pb::MessageParser<PositionsResponse> _parser = new pb::MessageParser<PositionsResponse>(() => new PositionsResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<PositionsResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::CrossTrader.Models.Remoting.BitFlyer.PositionsReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionsResponse() {
       OnConstruction();
     }
@@ -461,6 +613,7 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionsResponse(PositionsResponse other) : this() {
       action_ = other.action_;
       positions_ = other.positions_.Clone();
@@ -468,14 +621,16 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PositionsResponse Clone() {
       return new PositionsResponse(this);
     }
 
     /// <summary>Field number for the "action" field.</summary>
     public const int ActionFieldNumber = 1;
-    private global::CrossTrader.Models.Remoting.ChangedAction action_ = 0;
+    private global::CrossTrader.Models.Remoting.ChangedAction action_ = global::CrossTrader.Models.Remoting.ChangedAction.Add;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::CrossTrader.Models.Remoting.ChangedAction Action {
       get { return action_; }
       set {
@@ -489,16 +644,19 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
         = pb::FieldCodec.ForMessage(18, global::CrossTrader.Models.Remoting.BitFlyer.PositionMessage.Parser);
     private readonly pbc::RepeatedField<global::CrossTrader.Models.Remoting.BitFlyer.PositionMessage> positions_ = new pbc::RepeatedField<global::CrossTrader.Models.Remoting.BitFlyer.PositionMessage>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pbc::RepeatedField<global::CrossTrader.Models.Remoting.BitFlyer.PositionMessage> Positions {
       get { return positions_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
       return Equals(other as PositionsResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Equals(PositionsResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -512,9 +670,10 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Action != 0) hash ^= Action.GetHashCode();
+      if (Action != global::CrossTrader.Models.Remoting.ChangedAction.Add) hash ^= Action.GetHashCode();
       hash ^= positions_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -523,13 +682,18 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Action != 0) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Action != global::CrossTrader.Models.Remoting.ChangedAction.Add) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Action);
       }
@@ -537,12 +701,29 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
+    #endif
     }
 
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Action != global::CrossTrader.Models.Remoting.ChangedAction.Add) {
+        output.WriteRawTag(8);
+        output.WriteEnum((int) Action);
+      }
+      positions_.WriteTo(ref output, _repeated_positions_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Action != 0) {
+      if (Action != global::CrossTrader.Models.Remoting.ChangedAction.Add) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Action);
       }
       size += positions_.CalculateSize(_repeated_positions_codec);
@@ -553,11 +734,12 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(PositionsResponse other) {
       if (other == null) {
         return;
       }
-      if (other.Action != 0) {
+      if (other.Action != global::CrossTrader.Models.Remoting.ChangedAction.Add) {
         Action = other.Action;
       }
       positions_.Add(other.positions_);
@@ -565,7 +747,11 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -582,7 +768,31 @@ namespace CrossTrader.Models.Remoting.BitFlyer {
           }
         }
       }
+    #endif
     }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Action = (global::CrossTrader.Models.Remoting.ChangedAction) input.ReadEnum();
+            break;
+          }
+          case 18: {
+            positions_.AddEntriesFrom(ref input, _repeated_positions_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
 
   }
 
