@@ -5,13 +5,12 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.19.2" />
-    <PackageReference Include="Grpc.Core" Version="2.43.0" />
-    <PackageReference Include="Grpc.Tools" Version="2.43.0" PrivateAssets="All" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    <PackageReference Include="Google.Protobuf" Version="3.34.1" />
+    <PackageReference Include="Grpc.Core" Version="2.46.6" />
+    <PackageReference Include="Grpc.Tools" Version="2.80.0" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="..\..\proto\*" ProtoRoot="..\..\proto" Link="proto\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
+    <Protobuf Include="..\..\proto\*" ProtoRoot="..\..\proto" Link="proto\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting" Access="Internal" GrpcServices="None" CompileOutputs="False" />
     <Protobuf Include="..\..\proto\bitflyer\*" ProtoRoot="..\..\proto" Link="proto\bitflyer\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting\BitFlyer" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
     <Protobuf Include="..\..\proto\bitmex\*" ProtoRoot="..\..\proto" Link="proto\bitmex\%(Filename)%(Extension)" OutputDir="Generated Codes\Models.Remoting\BitMex" Access="Internal" GrpcServices="Client" CompileOutputs="False" />
   </ItemGroup>

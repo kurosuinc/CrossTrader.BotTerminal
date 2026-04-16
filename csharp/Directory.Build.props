@@ -5,5 +5,7 @@
     <Product>CrossTrader</Product>
     <Company>株式会社黒須情報システム技研</Company>
     <Deterministic>true</Deterministic>
+    <!-- CS8981: gRPC/protobuf 生成コードの型名が小文字のみ（外部生成のため対応不可） -->
+    <NoWarn>$(NoWarn);CS8981</NoWarn>
   </PropertyGroup>
 </Project>
